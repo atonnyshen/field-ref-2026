@@ -1,0 +1,436 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><title>Day3_訪談_20260602</title><style>
+:root{
+ --bg:#ffffff;--canvas:#f5f5f7;--ink:#1d1d1f;--muted:#6e6e73;
+ --line:#d2d2d7;--line2:#86868b;--blue:#0066cc;--action:#0071e3;
+ --warn:#c0392b;--warnbg:#fdf0ed;--done:#8a8a8e;
+ --r-field:8px;--r-card:18px;--r-pill:980px;
+}
+@media(prefers-color-scheme:dark){:root{
+ --bg:#000000;--canvas:#1c1c1e;--ink:#f5f5f7;--muted:#98989d;
+ --line:#38383a;--line2:#48484a;--blue:#2997ff;--action:#2997ff;
+ --warn:#ff7a6b;--warnbg:#2a1c1a;--done:#6a6a6e;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.47 -apple-system,"SF Pro Text","PingFang TC","Helvetica Neue",sans-serif;
+ letter-spacing:-0.01em}
+.wrap{max-width:760px;margin:0 auto;padding:8px 20px 140px}
+h1{font:600 30px/1.1 -apple-system,"SF Pro Display","PingFang TC",sans-serif;letter-spacing:-0.02em;margin:.5em 0 .3em}
+h2{font:600 23px/1.15 -apple-system,"SF Pro Display","PingFang TC",sans-serif;letter-spacing:-0.01em;margin:1.5em 0 .4em;padding-top:.5em;border-top:1px solid var(--line)}
+h3{font:600 19px/1.2 -apple-system,"SF Pro Display","PingFang TC",sans-serif;margin:1.2em 0 .3em;color:var(--action)}
+h4{font:600 17px/1.2 -apple-system,sans-serif;margin:1em 0 .3em}
+p,li{font-size:17px}
+a{color:var(--blue);text-decoration:none}
+strong{font-weight:600}
+em{color:var(--muted);font-style:normal}
+table{width:100%;border-collapse:separate;border-spacing:0;display:block;overflow-x:auto;
+ font-size:15px;margin:.7em 0;border:1px solid var(--line);border-radius:var(--r-card)}
+th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:none}
+th{background:var(--canvas);font-weight:600;white-space:nowrap}
+code{background:var(--canvas);padding:2px 6px;border-radius:6px;font-size:.92em;
+ font-family:"SF Mono",ui-monospace,monospace}
+blockquote{margin:.8em 0;padding:.7em 1em;background:var(--canvas);
+ border-radius:var(--r-field);border-left:3px solid var(--line2)}
+blockquote.warn{background:var(--warnbg);border-left-color:var(--warn)}
+ul,ol{padding-left:1.3em}
+ul.tasks{list-style:none;padding-left:.1em}
+ul.tasks li{margin:.45em 0;display:flex;align-items:flex-start;gap:.65em;line-height:1.4}
+ul.tasks input[type=checkbox]{appearance:none;-webkit-appearance:none;flex:0 0 auto;
+ width:27px;height:27px;margin:1px 0 0;border:2px solid var(--line2);border-radius:50%;
+ background:var(--bg);cursor:pointer;position:relative;transition:.12s}
+ul.tasks input[type=checkbox]:checked{background:var(--action);border-color:var(--action)}
+ul.tasks input[type=checkbox]:checked::after{content:"";position:absolute;left:8px;top:4px;
+ width:6px;height:12px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+ul.tasks li.done{color:var(--done)}
+ul.tasks li.done .t{text-decoration:line-through}
+.topbar{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);
+ backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+ border-bottom:1px solid var(--line);padding:11px 20px;display:flex;gap:14px;align-items:center}
+.topbar a,.topbar span{font-size:15px;font-weight:600}
+.topbar a{color:var(--action)}
+.btn{margin-left:auto;font:600 14px/1 -apple-system,sans-serif;padding:9px 16px;
+ border:none;border-radius:var(--r-pill);background:var(--canvas);color:var(--action);cursor:pointer}
+.idx li{margin:.7em 0;font-size:18px}
+.lead{color:var(--muted);font-size:15px}
+hr{border:none;border-top:1px solid var(--line);margin:1.6em 0}
+</style></head><body><div class="topbar"><a href="index.html">← 目錄</a><span>Day3_訪談_20260602</span><button class="btn" id="reset">清除勾選</button></div><div class="wrap"><hr />
+<p>title: Day 3（6/2）訪談作戰包 — Ambedkar Museum · Dapodi slum · Jambudvipa/Manuski · Vishaka
+date: 2026-06-02
+project: Lokamitra 自傳專案
+sources:</p>
+<ul>
+<li>使用者 2026-06-02 現場行程更新</li>
+<li>Day1_Lokamitra訪談作戰包_20260531.md</li>
+<li>Day2_訪談_20260601.md</li>
+<li>田野筆記_浦那_Manuski_20260531.md</li>
+<li>田野筆記_大精舍Mahavihara_20260531.md</li>
+<li>田野筆記_Jeevak與Dapodi上午觀察_20260601.md</li>
+<li>Feedback_Matrix_V3（CH05/CH09/CH11/CH12）</li>
+<li>SSOT Glossary / Characters / Locations_Orgs
+status: 現場改版；由原 Kondhanpur 重排為 Museum + Dapodi + Jambudvipa/Manuski + 家訪</li>
+</ul>
+<hr />
+<h1>Day 3（6/2）訪談作戰包</h1>
+<blockquote>
+<p><strong>今日策略改變</strong>
+原主行程把 6/2 放在 Kondhanpur / Vishaka 訪談；今天現場改版為：上午 <strong>Ambedkar Museum</strong> 與 <strong>Dapodi slum</strong>，下午仍理解 <strong>Jambudvipa Trust</strong> 與 <strong>Manuski</strong> 的組織細節，並到 <strong>Lokamitra 家中拜訪、訪問 Vishaka</strong>。<br />
+這不是偏離，而是更好的排列：先看安貝卡公共記憶與 Dapodi 城市現場，再回到機構史與家庭見證，今天可以把「思想、街區、組織、家庭」四條線扣在一起。</p>
+<p><strong>公開頁提醒</strong>
+本檔會進 GitHub Pages noindex 公開版。請不要填入住址、電話、私人家庭照片細節、未獲同意的家庭成員資料。敏感內容用「本機筆記另記」。</p>
+</blockquote>
+<h2>〇、今日優先順序</h2>
+<table>
+<thead>
+<tr>
+<th>優先</th>
+<th>任務</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ambedkar Museum：看安貝卡如何被展示</td>
+<td>補 CH05 安貝卡思想、CH12 佛教世界問題，不再只靠書面解釋</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dapodi slum：回看早期工作現場</td>
+<td>承接 Day2 Jeevak / Dapodi；補 CH02/CH03/CH06 的城市體感</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Jambudvipa Trust / Manuski：釐清組織時序</td>
+<td>修正 CH09–CH12：「有機延續」而非全新方向</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lokamitra 家訪：看生活與機構如何相接</td>
+<td>補「家庭不是旁線」；理解私人生活如何支撐公共工作</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Vishaka 訪談：取得她自己的見證邊界</td>
+<td>補 CH05 婚姻、CH09 國籍、CH11 Kondhanpur；禁止代寫內心</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>一、今日會遇到的人（速記卡）</h2>
+<table>
+<thead>
+<tr>
+<th>人物</th>
+<th>角色</th>
+<th>今日問法重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lokamitra</strong></td>
+<td>傳主；下午/晚間家訪核心對話</td>
+<td>讓他校正 Jambudvipa / Manuski 的制度時序、公開可寫邊界、家中哪些可記</td>
+</tr>
+<tr>
+<td><strong>Vishaka / Ranjana（比沙卡／蘭賈娜）</strong></td>
+<td>Lokamitra 之妻；法行女；家庭與運動交界的第一手見證者</td>
+<td>先取得同意，再談名字、婚姻、入籍、家庭支持、Kondhanpur；不逼問創傷</td>
+</tr>
+<tr>
+<td><strong>Tej Darshan（達善）</strong></td>
+<td>秘書、Jambudvipa Trust 執行董事、Manuski 核心成員</td>
+<td>組織年表、正式名稱、法律架構、材料索取；順帶補他個人生命史</td>
+</tr>
+<tr>
+<td><strong>Manuski / Jambudvipa 工作人員</strong></td>
+<td>機構運作的一線人員</td>
+<td>問現在實際做什麼、誰負責、哪些資料可公開</td>
+</tr>
+<tr>
+<td><strong>Dapodi 當地導覽者 / 居民</strong></td>
+<td>slum / basti 的現場見證</td>
+<td>只問可公開的生活變化與設施，不問隱私、不獵奇</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>二、上午 A：Ambedkar Museum</h2>
+<h3>2.1 現場必看</h3>
+<ul class="tasks">
+<li class="task"><input type="checkbox"><span class="t">館名正式英文／馬拉地文名稱、入口標語、是否有 Dr. B. R. Ambedkar 全名。</span></li>
+<li class="task"><input type="checkbox"><span class="t">展示的安貝卡形象：憲法之父、達利特領袖、佛教皈依者、社會改革者、教育者，哪一層最突出？</span></li>
+<li class="task"><input type="checkbox"><span class="t">是否展示 <strong>1956 年皈依大典</strong>、二十二條誓願、《佛陀與其教法》、憲法、教育經歷、法律訓練、Mahad / Poona Pact / Yeola 等事件。</span></li>
+<li class="task"><input type="checkbox"><span class="t">觀眾如何觀看：學生、家庭、佛教徒、一般遊客；是否有人行禮、拍照、讀展板、帶小孩講解。</span></li>
+<li class="task"><input type="checkbox"><span class="t">色彩與物件：藍色、法輪、佛像、安貝卡肖像、西裝、書、筆、憲法、眼鏡、手勢。</span></li>
+<li class="task"><input type="checkbox"><span class="t">展板用語：是否使用 Dalit、Buddhist、Navayana、Equality、Liberty、Fraternity、Educate / Agitate / Organize。</span></li>
+<li class="task"><input type="checkbox"><span class="t">允許拍照時：每張展板先拍全景，再拍文字細節；若不允許，就用筆記記下關鍵詞。</span></li>
+</ul>
+<h3>2.2 開口問法（對導覽者／工作人員）</h3>
+<ol>
+<li><em>"Which part of Dr. Ambedkar's life do visitors here usually respond to most strongly?"</em></li>
+<li><em>"Do Buddhist visitors and non-Buddhist visitors look at this museum differently?"</em></li>
+<li><em>"How do school groups usually learn about Dr. Ambedkar here?"</em></li>
+<li><em>"Is the 1956 conversion ceremony presented mainly as a religious event, a social event, or both?"</em></li>
+<li><em>"Are there any labels, booklets, or archival materials I can photograph or get a copy of?"</em></li>
+</ol>
+<h3>2.3 晚上可問 Lokamitra</h3>
+<ul>
+<li><em>"When you first came to Maharashtra, how did you gradually understand what Dr. Ambedkar meant to people here?"</em></li>
+<li><em>"When you see how Dr. Ambedkar is remembered in a museum, what feels accurate to you, and what feels incomplete?"</em></li>
+<li><em>"For readers in Taiwan who know very little about him, what should they understand first: the Constitution, caste, conversion, or the Dhamma?"</em></li>
+</ul>
+<h3>2.4 寫作判斷</h3>
+<p>Ambedkar Museum 不是為了補百科。它的價值是讓你看見：安貝卡不是章節裡的背景人物，而是公共記憶、教育制度、佛教身份與城市空間共同塑造出的精神源頭。正式書寫時，Museum 可作為 CH05 的「知識重量」入口，也可作為 CH12「安貝卡的佛教能給佛教世界什麼」的物件化線索。</p>
+<hr />
+<h2>三、上午 B：Dapodi slum / basti</h2>
+<blockquote>
+<p><strong>今天的底線</strong>：不要把 Dapodi 寫成貧困奇觀。今天要看的是：Jeevak、Mahavihara、Dapodi slum、Jai Bhim 地景如何彼此相鄰，一個佛教運動如何在教育、健康、住房、排水、公共記憶與日常交通中找到可以有效介入的位置。</p>
+</blockquote>
+<h3>3.1 現場必看</h3>
+<ul class="tasks">
+<li class="task"><input type="checkbox"><span class="t">地名正式拼法：Dapodi / Bopodi / local basti 名稱是否需要消歧義。</span></li>
+<li class="task"><input type="checkbox"><span class="t">與 Mahavihara / Jeevak / Manuski / Jai Bhim Nagar 的實際距離：步行多久、車程多久。</span></li>
+<li class="task"><input type="checkbox"><span class="t">建材與變化：粗磚、鐵皮、塑膠布、加高樓層、水泥房、排水溝、雨季水痕。</span></li>
+<li class="task"><input type="checkbox"><span class="t">日常設施：學校、幼兒園、補習班、藥局、小店、佛堂、社區中心、政府服務點。</span></li>
+<li class="task"><input type="checkbox"><span class="t">公共記憶：Ambedkar 肖像、Jai Bhim、藍色旗幟、佛像、Phule / Shahu / Kabir / Bhagat Singh 等標誌。</span></li>
+<li class="task"><input type="checkbox"><span class="t">基礎設施：水、排水、廁所、電線、垃圾、道路、照明、手機網路。</span></li>
+<li class="task"><input type="checkbox"><span class="t">居民的自我稱呼：slum / basti / locality / nagar；不要把外來者詞彙硬套進去。</span></li>
+<li class="task"><input type="checkbox"><span class="t">兒童與青年：是否可見上學、補習、考公、職訓、女生教育與家庭照護的線索。</span></li>
+</ul>
+<h3>3.2 開口問法（英文）</h3>
+<ol>
+<li><em>"What is the local name of this area, and how should I spell it?"</em></li>
+<li><em>"How has this area changed in the last twenty or thirty years?"</em></li>
+<li><em>"Did people improve their houses here, or were some families moved elsewhere?"</em></li>
+<li><em>"What changed first: water, drainage, electricity, school access, roads, or work opportunities?"</em></li>
+<li><em>"Which Buddhist or Ambedkarite centres are important for people here now?"</em></li>
+<li><em>"When Jeevak or Mahavihara worked with people here, what could they actually do effectively?"</em></li>
+<li><em>"What problems could only be handled by government or town planning?"</em></li>
+</ol>
+<h3>3.3 不要這樣問</h3>
+<table>
+<thead>
+<tr>
+<th>避免問法</th>
+<th>改成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Is this a terrible slum?"</td>
+<td>"What are the actual living conditions here, and what has changed?"</td>
+</tr>
+<tr>
+<td>"Did Lokamitra help these poor people?"</td>
+<td>"Which institutions or people were involved, and what did each do?"</td>
+</tr>
+<tr>
+<td>"How did you escape this place?"</td>
+<td>"Do families tend to stay, improve their homes, or move elsewhere?"</td>
+</tr>
+<tr>
+<td>"Were people helpless?"</td>
+<td>"What were people already doing for themselves before any project came in?"</td>
+</tr>
+</tbody>
+</table>
+<h3>3.4 寫作判斷</h3>
+<p>Day2 的 Jeevak 觀察已經顯示：教育與健康不是抽象慈善，而是讓家庭能往上移動的基礎設施。Dapodi slum 今天要補的是「空間壓力」：房子、排水、學校、街道、佛堂、小店、考公牆如何形成一個人實際生活的世界。正式書寫時，要把「苦」寫成具體條件，不把人寫成被觀看的苦難。</p>
+<hr />
+<h2>四、下午 C：Jambudvipa Trust 與 Manuski</h2>
+<h3>4.1 今天要釐清的總問題</h3>
+<blockquote>
+<p><strong>核心句</strong>：Jambudvipa / Manuski 不是 Lokamitra 另起爐灶，而是他在 Mahavihara、Jeevak、Nagaloka 經驗之後的「有機延續」。今天的任務，是把這個延續的法律、組織、空間、課程與人員結構問清楚。</p>
+</blockquote>
+<h3>4.2 必問：正式名稱與時序</h3>
+<ol>
+<li><em>"What are the official legal names of Jambudvipa Trust and Manuski? Are they separate legal entities, or is Manuski a project under Jambudvipa?"</em></li>
+<li><em>"In which year was Jambudvipa Trust registered? In which year did Manuski begin?"</em></li>
+<li><em>"What was the first office or working space? Was it the small flat mentioned in the manuscript?"</em></li>
+<li><em>"Who were the first trustees, staff, or core assistants?"</em></li>
+<li><em>"How did the work move from Dharma classes and seminars into social action, training, and the Manuski network?"</em></li>
+<li><em>"What is the correct way to describe Manuski in the book: project, centre, network, fellowship, foundation, or something else?"</em></li>
+</ol>
+<h3>4.3 必問：Jambudvipa 的定位</h3>
+<ul>
+<li><em>"Jambudvipa is a name from Buddhist texts for the Indian subcontinent. How did Lokamitra understand that name?"</em></li>
+<li><em>"Was Jambudvipa mainly about Dharma practice, Buddhist education, seminars, or the relationship between Dharma and society?"</em></li>
+<li><em>"How was it connected with Nagaloka from the beginning?"</em></li>
+<li><em>"What could be done through Jambudvipa that could not be done while Lokamitra was formally president of the earlier centres?"</em></li>
+</ul>
+<h3>4.4 必問：Manuski 的定位</h3>
+<ul>
+<li><em>"What does 'Manuski' mean in Marathi usage, and how is it connected with Dr. Ambedkar?"</em></li>
+<li><em>"What were the first 25 Dalit-based NGOs or activists like? What made the network new?"</em></li>
+<li><em>"What kinds of training did Manuski actually provide: capacity building, women's leadership, legal awareness, social action, government regulations, fellowship training?"</em></li>
+<li><em>"What did Manuski do in atrocity cases or urgent social situations? Which examples can be publicly mentioned?"</em></li>
+<li><em>"How do you avoid making Manuski sound like charity from outside, rather than Dalit leadership building itself?"</em></li>
+</ul>
+<h3>4.5 材料索取清單</h3>
+<ul class="tasks">
+<li class="task"><input type="checkbox"><span class="t">Jambudvipa Trust / Manuski 官方名稱、註冊年份、簡介或章程。</span></li>
+<li class="task"><input type="checkbox"><span class="t">一頁式組織年表：Mahavihara → Jambudvipa → Manuski → Nagaloka / alumni programs。</span></li>
+<li class="task"><input type="checkbox"><span class="t">年報、簡報、brochure、課程表、training manual、Manuski Fellowship 文件。</span></li>
+<li class="task"><input type="checkbox"><span class="t">早期小公寓／第一個辦公室／現在 Manuski Centre 的照片或可公開描述。</span></li>
+<li class="task"><input type="checkbox"><span class="t">Manuski Network 初期 25 個 NGO / activists 的名單或類型說明。</span></li>
+<li class="task"><input type="checkbox"><span class="t">可公開提及的案例清單：Kherlanji、Gujarat、COVID、fellowship、women's leadership。</span></li>
+<li class="task"><input type="checkbox"><span class="t">哪些內容不可公開、不可寫入中文書稿。</span></li>
+</ul>
+<h3>4.6 寫作判斷</h3>
+<p>Jambudvipa 要寫成「退到小處後反而看見大局」：從正式中心會長的角色退下，轉入較低調、較自由、較能連接學者、社運者、達利特與部落組織的空間。Manuski 則是這個空間裡更靠近社會行動的一支。不要把它寫成 NGO 成功學；要寫成佛法、安貝卡思想、城市社群與本地領導力訓練交會出的平台。</p>
+<hr />
+<h2>五、下午/晚間 D：Lokamitra 家訪</h2>
+<h3>5.1 進門前提醒</h3>
+<ul class="tasks">
+<li class="task"><input type="checkbox"><span class="t">先問哪些地方可以拍照、哪些完全不拍。</span></li>
+<li class="task"><input type="checkbox"><span class="t">不記住址、不拍門牌、不公開家庭成員私人資訊。</span></li>
+<li class="task"><input type="checkbox"><span class="t">家中物件若要寫：先問「這可以寫嗎？」</span></li>
+<li class="task"><input type="checkbox"><span class="t">家訪不是觀光；重點是理解生活如何承載長期工作。</span></li>
+</ul>
+<h3>5.2 現場必看</h3>
+<ul class="tasks">
+<li class="task"><input type="checkbox"><span class="t">書、照片、文件、佛像、安貝卡相關物件、台灣相關物件，哪些是日常擺放。</span></li>
+<li class="task"><input type="checkbox"><span class="t">工作與生活的邊界：是否有書桌、檔案、訪客空間、家庭空間。</span></li>
+<li class="task"><input type="checkbox"><span class="t">Vishaka 的動線與角色：她如何參與接待、家務、宗教或組織記憶。</span></li>
+<li class="task"><input type="checkbox"><span class="t">Lokamitra 身體狀態與訪談節奏：不要超時；累了就停。</span></li>
+</ul>
+<h3>5.3 可問 Lokamitra</h3>
+<ol>
+<li><em>"Which parts of your home life are private and should not be described in the book?"</em></li>
+<li><em>"Are there any objects here that help explain your life in India, and that you are comfortable with me writing about?"</em></li>
+<li><em>"When you moved from the Mahavihara office to the smaller Jambudvipa setting, what changed in your daily rhythm?"</em></li>
+<li><em>"How did your family life and the movement's work support or complicate each other?"</em></li>
+<li><em>"How would you like Vishaka's role to be represented, without putting words into her mind?"</em></li>
+</ol>
+<hr />
+<h2>六、Vishaka 訪談（最重要）</h2>
+<blockquote>
+<p><strong>定位</strong>：Vishaka 不是「補充 Lokamitra 故事的配角」。她是獨立見證者。今天不是把她拉進既有敘事裡，而是讓她自己劃定：哪些可以說、哪些被誤解、哪些不應寫。</p>
+</blockquote>
+<h3>6.1 開場同意式問法</h3>
+<p>先用英文短句，讓她知道她可以停：</p>
+<blockquote>
+<p><em>"I know most of the written material comes from Lokamitra's perspective. I don't want to put thoughts into your mind. I would be grateful to hear what you feel is important, and you can skip any question."</em></p>
+</blockquote>
+<p>再補：</p>
+<blockquote>
+<p><em>"Some things may be private or painful. If anything should not be recorded or written, please just tell me."</em></p>
+</blockquote>
+<h3>6.2 名字與身份線</h3>
+<ol>
+<li><em>"How would you like me to refer to you in the book: Ranjana, Vishaka, or both in different periods?"</em></li>
+<li><em>"When did you receive the Dharma name Vishaka? Is there a year or ceremony you remember?"</em></li>
+<li><em>"Was there a moment when you felt the movement had become your own path, not only Lokamitra's work?"</em></li>
+<li><em>"Is there anything about the word 'Dharmacharini' that Chinese readers should understand?"</em></li>
+</ol>
+<h3>6.3 家庭與婚姻線（CH05）</h3>
+<ol>
+<li><em>"What do you remember about first meeting Lokamitra and the Dharma classes in Ambedkar Society?"</em></li>
+<li><em>"Your father supported the marriage. What did Dr. Ambedkar and Buddhism mean in your family?"</em></li>
+<li><em>"Were there concerns from neighbours or relatives? What were those concerns actually about?"</em></li>
+<li><em>"What kind of support mattered most in the early years: family, Dharma friends, practical help, or something else?"</em></li>
+<li><em>"Are there common misunderstandings about your marriage that you would like the book to avoid?"</em></li>
+</ol>
+<h3>6.4 家庭生活與看不見的工作</h3>
+<ol>
+<li><em>"What kind of work did you do that may not appear in Lokamitra's manuscript?"</em></li>
+<li><em>"How did family life work alongside the centres, trusts, visitors, retreats, and travel?"</em></li>
+<li><em>"When the children were young, what was most difficult practically?"</em></li>
+<li><em>"What did you want the children to understand about the work?"</em></li>
+<li><em>"Are there moments of ordinary daily life that you think explain the movement better than big public events?"</em></li>
+</ol>
+<h3>6.5 國籍時間線（CH09 高優先）</h3>
+<blockquote>
+<p>這題很重要，但要輕輕問，因為它是法律時間線，不是身份審問。</p>
+</blockquote>
+<ol>
+<li><em>"For the book's timeline, may I ask when you became an Indian citizen?"</em></li>
+<li><em>"Is there a year, document, or family memory that can anchor it?"</em></li>
+<li><em>"Before that year, were there practical difficulties because of citizenship or legal status?"</em></li>
+<li><em>"What is safe for us to state publicly?"</em></li>
+</ol>
+<h3>6.6 Kondhanpur / 2001 事件（只在她願意時問）</h3>
+<blockquote>
+<p><strong>先問同意</strong>：
+<em>"There is one difficult event in Kondhanpur. I only want to ask if you are comfortable. We can also leave it for another day."</em></p>
+</blockquote>
+<p>若她願意：</p>
+<ol>
+<li><em>"What do you remember as the important facts of that day?"</em></li>
+<li><em>"What should the book not exaggerate or misunderstand?"</em></li>
+<li><em>"The manuscript says you refused to leave until the matter was sorted out. How would you describe your decision?"</em></li>
+<li><em>"Who decided not to pursue charges, and why? What should be said publicly, and what should remain private?"</em></li>
+<li><em>"Did that event change how you understood the work, the law, or caste in village areas?"</em></li>
+</ol>
+<h3>6.7 收尾：她希望書怎麼寫</h3>
+<ol>
+<li><em>"If readers in Taiwan know you only through this book, what would you most want them to understand?"</em></li>
+<li><em>"What should I be careful not to romanticize?"</em></li>
+<li><em>"Is there anything about Indian Buddhist women, family life, or the movement that outsiders often miss?"</em></li>
+<li><em>"Would you be willing to review the paragraphs about you later, to make sure they are fair?"</em></li>
+</ol>
+<h3>6.8 寫作判斷</h3>
+<p>Vishaka 訪談的最大價值不是「增加情節」，而是糾正敘事權力。既有素材多由 Lokamitra 外部觀察而來；今天如果能取得她自己的說法，CH05 婚姻、CH09 家庭與國籍、CH11 Kondhanpur 都要改成更謹慎的雙視角：事件可以有事實，情緒必須由她自己給詞。</p>
+<hr />
+<h2>七、今日紅線備忘</h2>
+<ul>
+<li>不使用高衝突動詞與英雄化語彙；所有工作寫成團隊、制度、社群、家族與本地人的共同結果。</li>
+<li>不把貧困寫成「地獄畫面」；只寫具體條件與具體改變。</li>
+<li>不替 Vishaka 代寫心情；她若沉默，就尊重沉默。</li>
+<li>不把 Jambudvipa / Manuski 寫成西方人創辦的慈善故事；核心是本地 Ambedkarite / Dalit leadership。</li>
+<li>不把安貝卡 Museum 寫成百科館；它是公共記憶現場。</li>
+<li>不公開家庭住址、電話、私人照片、未獲同意的家庭資訊。</li>
+</ul>
+<hr />
+<h2>八、今晚回來要整理的輸出</h2>
+<ul class="tasks">
+<li class="task"><input type="checkbox"><span class="t"><code>田野筆記_AmbedkarMuseum與Dapodi_20260602.md</code></span></li>
+<li class="task"><input type="checkbox"><span class="t"><code>田野筆記_Jambudvipa_Manuski組織史_20260602.md</code></span></li>
+<li class="task"><input type="checkbox"><span class="t"><code>田野筆記_Vishaka訪談_20260602.md</code></span></li>
+<li class="task"><input type="checkbox"><span class="t">Day3 raw ASR / 速記複製到 <code>00_每日原始記錄_Daily_Raw/</code></span></li>
+<li class="task"><input type="checkbox"><span class="t">更新 <code>待問清單_Master_Question_List.md</code>：Vishaka 已問／待追問、Jambudvipa/Manuski 組織細節、Dapodi 地名消歧義</span></li>
+<li class="task"><input type="checkbox"><span class="t">更新 Day4 / Nagpur 前的移動與優先提問清單</span></li>
+<li class="task"><input type="checkbox"><span class="t">若取得文件或照片：標記可公開 / 僅本機 / 需再問同意</span></li>
+</ul>
+<hr />
+<h2>九、口袋版：今天十個最重要問題</h2>
+<ol>
+<li>Ambedkar Museum 最強調安貝卡哪一面：憲法、種姓、佛教，還是教育？</li>
+<li>Dapodi 這個地方，當地人自己怎麼稱呼？</li>
+<li>Dapodi 近二十到三十年最實際的改變是什麼？</li>
+<li>Jeevak / Mahavihara / Manuski 與 Dapodi 居民的日常距離有多近？</li>
+<li>Jambudvipa Trust 的正式註冊年份與第一個辦公空間是什麼？</li>
+<li>Manuski 是 project、network、centre、foundation，還是 fellowship？正式稱呼怎麼寫？</li>
+<li>Jambudvipa / Manuski 如何被理解為 Mahavihara / Nagaloka 的有機延續？</li>
+<li>Vishaka 希望書中稱她 Ranjana、Vishaka，還是依時期分開？</li>
+<li>Vishaka 成為印度公民的確切年份或記憶錨點是什麼？</li>
+<li>今天哪些家庭與組織細節可以公開，哪些必須只留本機筆記？</li>
+</ol>
+<hr />
+<h2>十、今日最重要的句子</h2>
+<blockquote>
+<p>今天的核心不是問完所有題，而是讓四條線彼此照亮：安貝卡如何成為公共記憶，Dapodi 如何成為工作現場，Jambudvipa / Manuski 如何成為制度延續，Vishaka 如何把家庭與運動的真實邊界說回她自己手裡。</p>
+</blockquote></div><script>
+(function(){
+ var key=(location.pathname.split('/').pop()||'idx');
+ document.querySelectorAll('blockquote').forEach(function(b){
+  if(/⚠️|🔒|🔴|紅線|禁用|敏感/.test(b.textContent)) b.classList.add('warn');
+ });
+ var boxes=document.querySelectorAll('ul.tasks input[type=checkbox]');
+ boxes.forEach(function(cb,i){
+  var id=key+':'+i, li=cb.closest('li');
+  if(localStorage.getItem(id)==='1'){cb.checked=true;li.classList.add('done');}
+  cb.addEventListener('change',function(){
+   localStorage.setItem(id,cb.checked?'1':'0');
+   li.classList.toggle('done',cb.checked);
+  });
+ });
+ var r=document.getElementById('reset');
+ if(r)r.addEventListener('click',function(){
+  if(confirm('清除本頁所有勾選？')){boxes.forEach(function(cb,i){
+   localStorage.removeItem(key+':'+i);cb.checked=false;cb.closest('li').classList.remove('done');});}
+ });
+})();
+</script></body></html>
