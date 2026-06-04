@@ -39,8 +39,11 @@ body {
 }
 /* 側邊欄時間軸 */
 .sidebar {
-    position: sticky; top: 40px; width: 220px; flex-shrink: 0; height: max-content;
+    position: sticky; top: 40px; width: 260px; flex-shrink: 0; height: max-content;
+    max-height: calc(100vh - 80px); overflow-y: auto;
 }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
 .sidebar-title {
     font-size: 14px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px;
 }
@@ -52,7 +55,7 @@ body {
 }
 .timeline-nav li.active::before { background: var(--accent-color); box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.2); }
 .timeline-nav a {
-    text-decoration: none; color: var(--text-secondary); font-size: 15px; font-weight: 500; transition: color 0.2s; display: block;
+    text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s; display: block; line-height: 1.4;
 }
 .timeline-nav li.active a, .timeline-nav a:hover { color: var(--text-primary); font-weight: 600; }
 
@@ -72,11 +75,6 @@ body {
 .day-header { border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 30px; }
 .day-header h2 { font-size: 28px; margin: 0 0 10px 0; color: var(--text-primary); }
 .day-date { font-size: 15px; color: var(--accent-color); font-weight: 600; }
-.itinerary-box {
-    background: color-mix(in srgb, var(--accent-color) 8%, transparent); border-radius: 12px; padding: 20px 24px; margin-bottom: 30px; border-left: 4px solid var(--accent-color);
-}
-.itinerary-box h4 { margin: 0 0 10px 0; color: var(--accent-color); font-size: 15px; text-transform: uppercase; }
-.itinerary-box p { margin: 0; font-size: 15px; color: var(--text-primary); }
 
 .story-content h2, .story-content h3 { color: var(--text-primary); margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 600; }
 .story-content h2 { font-size: 22px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
@@ -91,9 +89,9 @@ body {
 /* 響應式 */
 @media (max-width: 900px) {
     .container { flex-direction: column; padding: 20px; }
-    .sidebar { position: static; width: 100%; margin-bottom: 30px; }
+    .sidebar { position: static; width: 100%; margin-bottom: 30px; max-height: none; }
     .timeline-nav { display: flex; overflow-x: auto; border-left: none; border-bottom: 2px solid var(--timeline-line); padding-bottom: 10px; }
-    .timeline-nav li { padding: 0 20px 10px 0; }
+    .timeline-nav li { padding: 0 20px 10px 0; white-space: nowrap; }
     .timeline-nav li::before { top: auto; bottom: -6px; left: 50%; transform: translateX(-50%); }
     .day-card { padding: 30px 20px; }
 }
@@ -104,19 +102,19 @@ body {
         <aside class="sidebar">
             <div class="sidebar-title">田野日誌導覽</div>
             <ul class="timeline-nav">
-                <li class="active"><a href="#day-1">Day 1</a></li>
-                <li><a href="#day-2">Day 1</a></li>
-                <li><a href="#day-3">Day 1</a></li>
-                <li><a href="#day-4">Day 2</a></li>
-                <li><a href="#day-5">Day 3</a></li>
-                <li><a href="#day-6">Day 3</a></li>
-                <li><a href="#day-7">Day 3</a></li>
-                <li><a href="#day-8">Day 3</a></li>
-                <li><a href="#day-9">Day 3</a></li>
-                <li><a href="#day-10">Day 4</a></li>
-                <li><a href="#day-11">Day 5</a></li>
-                <li><a href="#day-12">Day 5</a></li>
-                <li><a href="#day-13">Day 5</a></li>
+                <li class="active"><a href="#card-1">Day 1 - Lokamitra照片訪談</a></li>
+                <li><a href="#card-2">Day 1 - 大精舍Mahavihara</a></li>
+                <li><a href="#card-3">Day 1 - 浦那 Manuski</a></li>
+                <li><a href="#card-4">Day 2 - Jeevak與Dapodi上午觀察</a></li>
+                <li><a href="#card-5">Day 3 - Vishaka與家庭對談</a></li>
+                <li><a href="#card-6">Day 3 - 下午晚餐前 DapodiSlu...</a></li>
+                <li><a href="#card-7">Day 3 - 印度家庭觀念與城鄉二元生活 整...</a></li>
+                <li><a href="#card-8">Day 3 - 下午 JaiJawanNaga...</a></li>
+                <li><a href="#card-9">Day 3 - 晚餐家庭提問</a></li>
+                <li><a href="#card-10">Day 4 - Jambudvipa訪談 CO...</a></li>
+                <li><a href="#card-11">Day 5 - 1 移動與觀察</a></li>
+                <li><a href="#card-12">Day 5 - 2 Nagaloka校園巡禮</a></li>
+                <li><a href="#card-13">Day 5 - 3 晚間長對談</a></li>
             </ul>
         </aside>
         <main class="main-content">
@@ -125,54 +123,41 @@ body {
                 <p>Lokamitra 傳記專案 · 現場觀察與紀實</p>
             </header>
             
-        <article id="day-1" class="day-card">
+        <article id="card-1" class="day-card">
             <div class="day-header">
-                <h2>Day 1 現場敘事</h2>
+                <h2>Day 1：Lokamitra照片訪談</h2>
                 <div class="day-date">2026年5月31日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: Day 1（5/31）Lokamitra 訪談作戰包 date: 2026-05-31 project: Lokamitra 自傳專案 sources: Feedback_Matrix_V3、郵件往來（4/12、4/24、5/1、5/27）、Tej Darshan 暫定行程、田野筆記</p>
-            </div>
             <div class="story-content">
-                <h1>田野筆記：Lokamitra Day 1 照片翻閱訪談</h1>
-<blockquote>
-<p><strong>整理說明</strong>
-今天與 Lokamitra 的訪談並未照原 Day 1 作戰包逐題進行。實際發生的是照片翻閱、場景索引、早期社會工作回顧，以及全書呈現方式的討論。Lokamitra 認為這樣的方式應該更好。<br />
-這份檔案把新貼上文字整理成一份可用的田野筆記；完整原始貼文已保存於 <code>00_每日原始記錄_Daily_Raw/20260531_Day1/20260531_Lokamitra_Day1_PhotoReview_fbf064b7.txt</code>。由於來源本身已包含前次 AI 整理、清理後英文稿與中文翻譯，所有英文句子在正式書稿引用前仍須回聽錄音或比對原照片現場筆記。</p>
-</blockquote>
-<ul>
-<li>🔵 <strong>【訪談摘錄】</strong>：來源檔中保留的英文口述或清理稿，可作查核入口，不直接作正式引文</li>
-<li>🟣 <strong>【中文整理】</strong>：依來源檔整理出的中文語義，可供田野分析與章節規劃</li>
-<li>🟠 <strong>【脈絡化】</strong>：編者判斷、章節連動、風險提醒，寫入正文前須再核</li>
-<li>⚠️ <strong>【待核】</strong>：專名、時間、地點、照片標號不確定，回聽或向 Lokamitra / 達善確認</li>
+                <ul>
+<li>：來源檔中保留的英文口述或清理稿，可作查核入口，不直接作正式引文</li>
+<li>：依來源檔整理出的中文語義，可供田野分析與章節規劃</li>
+<li>：編者判斷、章節連動、風險提醒，寫入正文前須再核</li>
+<li>️：專名、時間、地點、照片標號不確定，回聽或向 Lokamitra / 達善確認</li>
 </ul>
 <hr />
 <h2>二、照片索引：可寫入書稿的核心場景</h2>
 <h3>2.1 清道夫女性：種姓制度的身體位置</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>She is from the scavenger community. Her only possible work is cleaning up other people's filth. It is horrific.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：照片中一位女性彎著身體，從垃圾桶或污物中清理廢物。Lokamitra 說她來自 scavenger community；她唯一可能的工作，就是清理別人的污穢。他用 horrific 形容這件事。</p>
-<p>🟠 <strong>脈絡化</strong>：這張照片是種姓制度的身體化證據。它不是抽象的「社會不平等」，而是把問題落在身體姿勢上：誰彎下腰？誰清理誰的污穢？誰的出生決定了可以做什麼工作？這能與 Lokamitra 其他地方談到的 mental prison 呼應：種姓不只囚禁心，也安排身體在社會中的高度、方向與動作。</p>
-<p>⚠️ <strong>待核</strong>：照片標號、拍攝年份、地點、是否可用 <code>manual scavenging community</code>，以及中文是否應譯為「清道夫社群」或改用更精確註解。</p>
+<p><strong>中文整理</strong>：照片中一位女性彎著身體，從垃圾桶或污物中清理廢物。Lokamitra 說她來自 scavenger community；她唯一可能的工作，就是清理別人的污穢。他用 horrific 形容這件事。</p>
+<p><strong>脈絡化</strong>：這張照片是種姓制度的身體化證據。它不是抽象的「社會不平等」，而是把問題落在身體姿勢上：誰彎下腰？誰清理誰的污穢？誰的出生決定了可以做什麼工作？這能與 Lokamitra 其他地方談到的 mental prison 呼應：種姓不只囚禁心，也安排身體在社會中的高度、方向與動作。</p>
+<p>️ ：照片標號、拍攝年份、地點、是否可用 <code>manual scavenging community</code>，以及中文是否應譯為「清道夫社群」或改用更精確註解。</p>
 <h3>2.2 Bhaja：不是地點，而是共同勞動</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>This is the opening of the Bhaja Center, I think.<br />
+<p>This is the opening of the Bhaja Center, I think.
 This was helping to build Bhaja, the first building. We all stood in lines and...</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 翻到 Bhaja 相關照片，提到可能是 Bhaja Center 開幕，也提到大家一起幫忙建 Bhaja 第一棟建築，排成一列傳遞或搬運材料。另有早期閉關地點：小屋已不存在，大家在外面吃飯、打坐、睡覺，物資需搬運，牛車運行李，附近有 Bhaja caves。</p>
-<p>🟠 <strong>脈絡化</strong>：Bhaja 不應只寫成「某年建立某中心」。它是一個由身體動作累積出來的場所：搬食物、牛車運行李、頭頂物資穿過田地、排隊傳建材、戶外吃飯、戶外打坐、戶外睡覺。這能補足 CH06／CH07 的制度形成：中心不是從地圖上出現，而是從共同勞動裡長出來。</p>
-<p>⚠️ <strong>待核</strong>：Bhaja Centre / Bhaja retreat centre 正式名稱、開幕年份、第一棟建築照片標號、<code>Nanda Park</code> 是否正確、<code>Badra caves</code> 是否確為 Bhaja Caves。</p>
+<p><strong>中文整理</strong>：Lokamitra 翻到 Bhaja 相關照片，提到可能是 Bhaja Center 開幕，也提到大家一起幫忙建 Bhaja 第一棟建築，排成一列傳遞或搬運材料。另有早期閉關地點：小屋已不存在，大家在外面吃飯、打坐、睡覺，物資需搬運，牛車運行李，附近有 Bhaja caves。</p>
+<p><strong>脈絡化</strong>：Bhaja 不應只寫成「某年建立某中心」。它是一個由身體動作累積出來的場所：搬食物、牛車運行李、頭頂物資穿過田地、排隊傳建材、戶外吃飯、戶外打坐、戶外睡覺。這能補足 CH06／CH07 的制度形成：中心不是從地圖上出現，而是從共同勞動裡長出來。</p>
+<p>️ ：Bhaja Centre / Bhaja retreat centre 正式名稱、開幕年份、第一棟建築照片標號、<code>Nanda Park</code> 是否正確、<code>Badra caves</code> 是否確為 Bhaja Caves。</p>
 <h3>2.3 倫敦倉庫到浦那小中心：把非宗教空間轉成 Dharma space</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>These are before I came to India... in England... at the London Buddhist Centre... a warehouse centre... they painted it themselves.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 來印度前，已參與英國佛教中心或北倫敦倉庫空間的整理與改造。他們自己粉刷、整理，把一個倉庫式空間變成佛教中心。</p>
-<p>🟠 <strong>脈絡化</strong>：這條線非常重要。Lokamitra 帶到印度的，不只是佛法理念，而是一種空間能力：把不被看作宗教空間的地方，轉化為佛法可以發生的地方。它可以串成一條書稿線：</p>
+<p><strong>中文整理</strong>：Lokamitra 來印度前，已參與英國佛教中心或北倫敦倉庫空間的整理與改造。他們自己粉刷、整理，把一個倉庫式空間變成佛教中心。</p>
+<p><strong>脈絡化</strong>：這條線非常重要。Lokamitra 帶到印度的，不只是佛法理念，而是一種空間能力：把不被看作宗教空間的地方，轉化為佛法可以發生的地方。它可以串成一條書稿線：</p>
 <ul>
 <li>階段：空間，意義</li>
 <li>英國：warehouse Buddhist centre，自己動手，把簡陋空間轉成中心</li>
@@ -183,151 +168,134 @@ This was helping to build Bhaja, the first building. We all stood in lines and..
 <li>Mumbai：BDD chawls 走廊，沒有正式廳堂時，走廊也能弘法</li>
 </ul>
 <h3>2.4 艾揚格大師與 Pune：既有 CH01 線索的新照片補證</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>These are some of my yoga students I brought out when I came in 1977. I taught them yoga in England and brought them to do yoga here with Iyengar.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：1977 年第一次來印度時，Lokamitra 帶著在英國教過的瑜伽學生到 Pune，跟艾揚格大師（B.K.S. Iyengar）學瑜伽。照片中可能有艾揚格本人和他的兒子；Lokamitra 說艾揚格對他們很好。</p>
-<p>🟠 <strong>脈絡化</strong>：這不是新人物。SSOT 與 CH01 已經有艾揚格大師的位置：1973 年在倫敦的大休息式、<code>Now you understand</code>，以及 1977 年因瑜伽回到 Pune。這次照片訪談補上的，是一個更具體的畫面：Lokamitra 不是抽象地「去印度」，而是帶著他在英國教過的瑜伽學生，走進 Pune 的艾揚格脈絡。這讓 CH01／CH02 的地理選擇更立體：Pune 同時是瑜伽地理，也是 Ambedkarite Buddhist 關係已經存在的佛教地理。</p>
-<p>⚠️ <strong>待核</strong>：照片中是否確為艾揚格本人與其子、1977 旅行日期、同行學生姓名、1977 首次赴印度與 1978 年 8 月返回印度之間的精確時間線。</p>
+<p><strong>中文整理</strong>：1977 年第一次來印度時，Lokamitra 帶著在英國教過的瑜伽學生到 Pune，跟艾揚格大師（B.K.S. Iyengar）學瑜伽。照片中可能有艾揚格本人和他的兒子；Lokamitra 說艾揚格對他們很好。</p>
+<p><strong>脈絡化</strong>：這不是新人物。SSOT 與 CH01 已經有艾揚格大師的位置：1973 年在倫敦的大休息式、<code>Now you understand</code>，以及 1977 年因瑜伽回到 Pune。這次照片訪談補上的，是一個更具體的畫面：Lokamitra 不是抽象地「去印度」，而是帶著他在英國教過的瑜伽學生，走進 Pune 的艾揚格脈絡。這讓 CH01／CH02 的地理選擇更立體：Pune 同時是瑜伽地理，也是 Ambedkarite Buddhist 關係已經存在的佛教地理。</p>
+<p>️ ：照片中是否確為艾揚格本人與其子、1977 旅行日期、同行學生姓名、1977 首次赴印度與 1978 年 8 月返回印度之間的精確時間線。</p>
 <h3>2.5 Pimpri 1983：五千盧比、鐵皮與收集材料</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>This is a community center we started. It must have been 1983 in Pimpri. We spent just 5,000 rupees on it. We used tin sheets and collected materials.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：照片中是 1983 年左右在 Pimpri 開始的社區中心。成本約 5,000 盧比，使用鐵皮和收集來的材料搭建。來源檔中也提到 <code>happy hour</code>，但語義不明，可能是兒童活動或社區聚會。</p>
-<p>🟠 <strong>脈絡化</strong>：這是 CH06／CH10 的重要基準。大精舍不是憑空出現的宏大建築，而是在很多 5,000 盧比、鐵皮、臨時材料、兒童活動、study class 的經驗之後，才出現的一個更穩固中心。若寫大精舍，應先讓讀者看見這些小中心。</p>
-<p>⚠️ <strong>待核</strong>：Pimpri 社區中心正式名稱、1983 是否精確、5,000 盧比是否可定稿、<code>happy hour</code> 原意。</p>
+<p><strong>中文整理</strong>：照片中是 1983 年左右在 Pimpri 開始的社區中心。成本約 5,000 盧比，使用鐵皮和收集來的材料搭建。來源檔中也提到 <code>happy hour</code>，但語義不明，可能是兒童活動或社區聚會。</p>
+<p><strong>脈絡化</strong>：這是 CH06／CH10 的重要基準。大精舍不是憑空出現的宏大建築，而是在很多 5,000 盧比、鐵皮、臨時材料、兒童活動、study class 的經驗之後，才出現的一個更穩固中心。若寫大精舍，應先讓讀者看見這些小中心。</p>
+<p>️ ：Pimpri 社區中心正式名稱、1983 是否精確、5,000 盧比是否可定稿、<code>happy hour</code> 原意。</p>
 <h3>2.6 耆婆健康教育中心 (Jeevak)：既有據點的新照片線索</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>This is the Achiever, which you'll see tomorrow, the Centre for Health and Educational Work.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：<code>Achiever</code> 應為 ASR 誤聽。依 SSOT，這裡應優先對照為耆婆健康教育中心（Jeevak Health Education Centre）。Lokamitra 提到明天會看到此中心。前後材料也提及 hospital / boys' hostel logo、malnutrition checks、doctor、nurse、pathology work 等線索。</p>
-<p>🟠 <strong>脈絡化</strong>：Jeevak 不是今天才出現的名稱。SSOT 已記錄它由勇賢（Virabhadra）與蓮慧（Padmasuri）自 1982 年起在浦那貧民社群中推展，包含營養監測、腹瀉治療、幼兒園、成人識字等工作。照片訪談的價值，是替這個既有據點補上 logo、建築、現場動線與可能的 1993 項目線索。它說明早期佛教運動不是只在 shrine room 裡實踐，而是進入兒童營養、幼兒園、study class、醫療、健康教育、檢驗與社區中心。這是 Day2 最該觀察的重點之一：不要只問「這是不是醫療項目」，而要問它如何把佛法、教育、身體健康與社群尊嚴連在一起。</p>
-<p>⚠️ <strong>待核</strong>：Jeevak 現場正式招牌、Centre for Health and Educational Work 是否為口述描述或正式名稱、1993 logo 指的是 hospital / hostel / health project、現今醫療工作是否仍持續。</p>
+<p><strong>中文整理</strong>：<code>Achiever</code> 應為 ASR 誤聽。依 SSOT，這裡應優先對照為耆婆健康教育中心（Jeevak Health Education Centre）。Lokamitra 提到明天會看到此中心。前後材料也提及 hospital / boys' hostel logo、malnutrition checks、doctor、nurse、pathology work 等線索。</p>
+<p><strong>脈絡化</strong>：Jeevak 不是今天才出現的名稱。SSOT 已記錄它由勇賢（Virabhadra）與蓮慧（Padmasuri）自 1982 年起在浦那貧民社群中推展，包含營養監測、腹瀉治療、幼兒園、成人識字等工作。照片訪談的價值，是替這個既有據點補上 logo、建築、現場動線與可能的 1993 項目線索。它說明早期佛教運動不是只在 shrine room 裡實踐，而是進入兒童營養、幼兒園、study class、醫療、健康教育、檢驗與社區中心。這是 Day2 最該觀察的重點之一：不要只問「這是不是醫療項目」，而要問它如何把佛法、教育、身體健康與社群尊嚴連在一起。</p>
+<p>️ ：Jeevak 現場正式招牌、Centre for Health and Educational Work 是否為口述描述或正式名稱、1993 logo 指的是 hospital / hostel / health project、現今醫療工作是否仍持續。</p>
 <h3>2.7 釋迦難陀 (Shakyanand)：SSOT 既有人物的新照片細節</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>You want to know Shakinan. [可能為 Shakyanand，待回聽]<br />
-He spent his last days travelling.<br />
+<p>You want to know Shakinan. [可能為 Shakyanand，待回聽]
+He spent his last days travelling.
 When he retired, he came to do pathology work in the Jeevak buildings because he was a pathologist.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：來源檔中的 <code>Shakinan</code> 應優先對照 SSOT 的釋迦難陀（Shakyanand）。SSOT 已將他列為印度本地法行者／Anagarika，早年為實驗室技術員，退休後披上黃袍、全職投入佛教工作。照片口述補出幾個仍需回聽的細節：他退休後因具備病理或檢驗相關能力，曾到 Jeevak 相關建築協助 pathology / laboratory work；晚年仍旅行弘法；口述還提到他體型很大，甚至以一天吃七餐自豪，具有鮮明性格。</p>
-<p>🟠 <strong>脈絡化</strong>：這不是另立新名，而是對既有人物的照片補證。釋迦難陀可以成為一個很好的側面人物：他把專業技能、幽默身體感、退休後的奉獻與醫療／健康教育工作連在一起。若核實，他能補足 CH06／CH10 裡「本地人如何接手、加入、承擔」的線，而不是只讓外來者或機構名承載整段歷史。</p>
-<p>⚠️ <strong>待核</strong>：<code>Shakinan</code> 是否確為 Shakyanand、pathology 是否應解為實驗室／病理檢驗工作、俗名、照片標號、是否有訃聞或口述紀念、與 Jeevak 的具體關係。</p>
+<p><strong>中文整理</strong>：來源檔中的 <code>Shakinan</code> 應優先對照 SSOT 的釋迦難陀（Shakyanand）。SSOT 已將他列為印度本地法行者／Anagarika，早年為實驗室技術員，退休後披上黃袍、全職投入佛教工作。照片口述補出幾個仍需回聽的細節：他退休後因具備病理或檢驗相關能力，曾到 Jeevak 相關建築協助 pathology / laboratory work；晚年仍旅行弘法；口述還提到他體型很大，甚至以一天吃七餐自豪，具有鮮明性格。</p>
+<p><strong>脈絡化</strong>：這不是另立新名，而是對既有人物的照片補證。釋迦難陀可以成為一個很好的側面人物：他把專業技能、幽默身體感、退休後的奉獻與醫療／健康教育工作連在一起。若核實，他能補足 CH06／CH10 裡「本地人如何接手、加入、承擔」的線，而不是只讓外來者或機構名承載整段歷史。</p>
+<p>️ ：<code>Shakinan</code> 是否確為 Shakyanand、pathology 是否應解為實驗室／病理檢驗工作、俗名、照片標號、是否有訃聞或口述紀念、與 Jeevak 的具體關係。</p>
 <h3>2.8 BDD chawls：走廊也是弘法空間</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>This is very common in Mumbai, in the BDD chawls. You'd often have programs in the corridors...</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：在孟買 BDD chawls 這類工人住宅／集體住宅中，活動常常就在走廊舉行。早期弘法不一定在正式講堂，可能在貧民區小 Vihara、住家外、verandah、corridor、chawl 走廊、村莊空地或臨時鐵皮中心裡發生。</p>
-<p>🟠 <strong>脈絡化</strong>：這是寫城市弘法的關鍵空間細節。人們不是等到有寺院才聽法；佛法是在走廊、門口、樓梯間、臨時棚子、社區中心裡先發生。這能避免把佛教復興寫成機構史，而改寫成空間被一點點擠出來的歷史。</p>
+<p><strong>中文整理</strong>：在孟買 BDD chawls 這類工人住宅／集體住宅中，活動常常就在走廊舉行。早期弘法不一定在正式講堂，可能在貧民區小 Vihara、住家外、verandah、corridor、chawl 走廊、村莊空地或臨時鐵皮中心裡發生。</p>
+<p><strong>脈絡化</strong>：這是寫城市弘法的關鍵空間細節。人們不是等到有寺院才聽法；佛法是在走廊、門口、樓梯間、臨時棚子、社區中心裡先發生。這能避免把佛教復興寫成機構史，而改寫成空間被一點點擠出來的歷史。</p>
 <h3>2.9 照片不按時間順序與 Nanda Park 初次閉關</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>These are not in any particular order.<br />
+<p>These are not in any particular order.
 This is the retreat at Nanda Park... first retreat...</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 一開始就提醒，照片不是按時間順序排列。其後他翻到 Nanda Park 相關照片，提到那是很早期、可能是第一次閉關的照片。</p>
-<p>🟠 <strong>脈絡化</strong>：這點必須放進田野檔，因為照片翻閱有一個很大的整理風險：我們很容易把照片出現的順序誤當年表。實際上，今天的照片訪談更像記憶索引，而不是線性口述史。Nanda Park 若確為第一次閉關，它可能連到 Lokamitra 早期學習「retreat as embodied community」的經驗；但在確認地名、年份與關係前，不應直接寫入正文。</p>
-<p>⚠️ <strong>待核</strong>：Nanda Park 拼字、地點、是否確為 first retreat、與 Lokamitra 赴印度前／赴印度後哪一階段相連。</p>
+<p><strong>中文整理</strong>：Lokamitra 一開始就提醒，照片不是按時間順序排列。其後他翻到 Nanda Park 相關照片，提到那是很早期、可能是第一次閉關的照片。</p>
+<p><strong>脈絡化</strong>：這點必須放進田野檔，因為照片翻閱有一個很大的整理風險：我們很容易把照片出現的順序誤當年表。實際上，今天的照片訪談更像記憶索引，而不是線性口述史。Nanda Park 若確為第一次閉關，它可能連到 Lokamitra 早期學習「retreat as embodied community」的經驗；但在確認地名、年份與關係前，不應直接寫入正文。</p>
+<p>️ ：Nanda Park 拼字、地點、是否確為 first retreat、與 Lokamitra 赴印度前／赴印度後哪一階段相連。</p>
 <h3>2.10 第一次赴印度、Shravasti 與 Sambharata</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>This is Sambharata, who I stayed with in Shravasti for two months.<br />
+<p>This is Sambharata, who I stayed with in Shravasti for two months.
 This is coming out to India for the first time.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：照片中有一位 Sambharata（拼字待核），Lokamitra 說自己曾在 Shravasti 與他同住兩個月。另有一張照片被他標記為第一次赴印度的照片。</p>
-<p>🟠 <strong>脈絡化</strong>：這是 CH01／CH02 之間很重要但不能急寫的銜接。CH01 已有 1977 首次赴印度、1978 年再回印度的時間線；照片訪談現在補出「第一次赴印度」的影像入口，以及 Shravasti 兩個月這條支線。它可能提供一個更具體的轉場：從英國的瑜伽與佛教中心，進入印度佛教聖地與本地同修網絡。但 <code>Sambharata</code> 人名、兩個月時間點與 Shravasti 停留性質都需核對。</p>
-<p>⚠️ <strong>待核</strong>：Sambharata 拼字、身份、照片標號、兩個月停留年份、是否與 1977 首次赴印度同一段行程。</p>
+<p><strong>中文整理</strong>：照片中有一位 Sambharata（拼字待核），Lokamitra 說自己曾在 Shravasti 與他同住兩個月。另有一張照片被他標記為第一次赴印度的照片。</p>
+<p><strong>脈絡化</strong>：這是 CH01／CH02 之間很重要但不能急寫的銜接。CH01 已有 1977 首次赴印度、1978 年再回印度的時間線；照片訪談現在補出「第一次赴印度」的影像入口，以及 Shravasti 兩個月這條支線。它可能提供一個更具體的轉場：從英國的瑜伽與佛教中心，進入印度佛教聖地與本地同修網絡。但 <code>Sambharata</code> 人名、兩個月時間點與 Shravasti 停留性質都需核對。</p>
+<p>️ ：Sambharata 拼字、身份、照片標號、兩個月停留年份、是否與 1977 首次赴印度同一段行程。</p>
 <h3>2.11 地方 Vihara、達利特小冊與 shop opening</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>This is a local Dalit pamphlet.<br />
-No, this is just a local Vihara.<br />
+<p>This is a local Dalit pamphlet.
+No, this is just a local Vihara.
 This was at the opening of our shop.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：有一組照片或物件在口述中被標為地方達利特小冊、地方 Vihara 或 local Buddhist setting；另有照片是他們的 shop 開幕。</p>
-<p>🟠 <strong>脈絡化</strong>：這些看似零碎，其實都指向早期運動的基礎設施。地方 Vihara 代表既有 Ambedkarite Buddhist 社群空間；小冊與 shop 代表文字流通、出版品販售、課後資料、運動經費與思想傳播。早期工作不是只有講座或儀式，而是講座之後有書、小冊、攤位、店面與本地讀者。這條線可與「program 後販售出版品」和後來的出版工作連接。</p>
-<p>⚠️ <strong>待核</strong>：照片中究竟是 pamphlet、Vihara 還是兩者都有；shop 的正式名稱、開幕年份、地點、販售內容與負責人。</p>
+<p><strong>中文整理</strong>：有一組照片或物件在口述中被標為地方達利特小冊、地方 Vihara 或 local Buddhist setting；另有照片是他們的 shop 開幕。</p>
+<p><strong>脈絡化</strong>：這些看似零碎，其實都指向早期運動的基礎設施。地方 Vihara 代表既有 Ambedkarite Buddhist 社群空間；小冊與 shop 代表文字流通、出版品販售、課後資料、運動經費與思想傳播。早期工作不是只有講座或儀式，而是講座之後有書、小冊、攤位、店面與本地讀者。這條線可與「program 後販售出版品」和後來的出版工作連接。</p>
+<p>️ ：照片中究竟是 pamphlet、Vihara 還是兩者都有；shop 的正式名稱、開幕年份、地點、販售內容與負責人。</p>
 <h3>2.12 僧護為本地人開課：教學方法的傳承</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>Sangharakshita used to do courses on Buddhism for local people.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 提到，僧護曾為本地人開設佛教課程。地點與照片標號仍不清楚。</p>
-<p>🟠 <strong>脈絡化</strong>：這條線很關鍵，因為它把 Lokamitra 後來在印度大量推展的 structured Dharma teaching 放回傳承中。課程、講座、問答、出版品與本地語境化教學，不是他到印度後憑空發明，而是可以回接到僧護在印度與本地人互動的教學方式。不過，寫作時要避免把所有方法都歸功於單一人物；更好的處理，是把它視為「教學方法如何被帶入、改造、在地化」的線索。</p>
-<p>⚠️ <strong>待核</strong>：僧護開課地點、年份、課程主題、參與者是否為 Ambedkarite Buddhists、照片或文件是否可查。</p>
+<p><strong>中文整理</strong>：Lokamitra 提到，僧護曾為本地人開設佛教課程。地點與照片標號仍不清楚。</p>
+<p><strong>脈絡化</strong>：這條線很關鍵，因為它把 Lokamitra 後來在印度大量推展的 structured Dharma teaching 放回傳承中。課程、講座、問答、出版品與本地語境化教學，不是他到印度後憑空發明，而是可以回接到僧護在印度與本地人互動的教學方式。不過，寫作時要避免把所有方法都歸功於單一人物；更好的處理，是把它視為「教學方法如何被帶入、改造、在地化」的線索。</p>
+<p>️ ：僧護開課地點、年份、課程主題、參與者是否為 Ambedkarite Buddhists、照片或文件是否可查。</p>
 <h3>2.13 dirty water / hell / golf course：城市不平等的剖面</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>This is looking down into hell.<br />
-This is all dirty water.<br />
+<p>This is looking down into hell.
+This is all dirty water.
 It was horrific.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 指著某張照片，再次用 <code>hell</code> 形容一處貧民區或低窪污水地景。來源整理推測可能與 Jaitavan / Jetavan Nagar、Ganesh Nagar、Lakshmi Nagar 等地名有關。照片中下方是污水、坑洞與棚屋；另一側或附近則有 golf course。</p>
-<p>🟠 <strong>脈絡化</strong>：這是浦那城市不平等最強的一張剖面圖。一邊是 golf course，一邊是污水、棚屋、惡臭與疾病風險；兩者距離很近，卻像兩個世界。這比抽象說「印度貧富不均」更有力量，也能接上 Day2 的 Dapodi 觀察：要看水、排水、地勢、牆、道路、公共設施與高價土地如何把不同階層排在一起又隔開。這段可回填 CH02，但正式引用 <code>hell</code> 前要確認它不是與既有手稿中的另一處 <code>hell</code> 引文混淆。</p>
-<p>⚠️ <strong>待核</strong>：照片標號、確切地點、golf course 名稱、是否與 Jaitavan / Ganesh / Lakshmi Nagar 有關、<code>hell</code> 是否可作正式引文或只作田野描述。</p>
+<p><strong>中文整理</strong>：Lokamitra 指著某張照片，再次用 <code>hell</code> 形容一處貧民區或低窪污水地景。來源整理推測可能與 Jaitavan / Jetavan Nagar、Ganesh Nagar、Lakshmi Nagar 等地名有關。照片中下方是污水、坑洞與棚屋；另一側或附近則有 golf course。</p>
+<p><strong>脈絡化</strong>：這是浦那城市不平等最強的一張剖面圖。一邊是 golf course，一邊是污水、棚屋、惡臭與疾病風險；兩者距離很近，卻像兩個世界。這比抽象說「印度貧富不均」更有力量，也能接上 Day2 的 Dapodi 觀察：要看水、排水、地勢、牆、道路、公共設施與高價土地如何把不同階層排在一起又隔開。這段可回填 CH02，但正式引用 <code>hell</code> 前要確認它不是與既有手稿中的另一處 <code>hell</code> 引文混淆。</p>
+<p>️ ：照片標號、確切地點、golf course 名稱、是否與 Jaitavan / Ganesh / Lakshmi Nagar 有關、<code>hell</code> 是否可作正式引文或只作田野描述。</p>
 <h3>2.14 Penang Snake Temple：旁枝但保留</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>It was in Penang.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：有一張照片來自馬來西亞檳城蛇廟，蛇被放在 Lokamitra 身上。他說是廟裡的人把蛇放上去。</p>
-<p>🟠 <strong>脈絡化</strong>：這條不是印度佛教復興主線，但仍應保留在照片索引裡。它可能只是一段旅行經歷，也可能日後在寫他早年亞洲佛教旅行、宗教場域觀察或身體記憶時有用。目前不宜擴寫，只需保留為旁枝照片項。</p>
-<p>⚠️ <strong>待核</strong>：照片年份、是否與赴印度同一趟旅行有關、是否需要進入正式書稿。</p>
+<p><strong>中文整理</strong>：有一張照片來自馬來西亞檳城蛇廟，蛇被放在 Lokamitra 身上。他說是廟裡的人把蛇放上去。</p>
+<p><strong>脈絡化</strong>：這條不是印度佛教復興主線，但仍應保留在照片索引裡。它可能只是一段旅行經歷，也可能日後在寫他早年亞洲佛教旅行、宗教場域觀察或身體記憶時有用。目前不宜擴寫，只需保留為旁枝照片項。</p>
+<p>️ ：照片年份、是否與赴印度同一趟旅行有關、是否需要進入正式書稿。</p>
 <hr />
 <h2>三、城市變化：貧民區改善，不等於貧困消失</h2>
 <h3>3.1 從鐵皮塑膠到基本房屋</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>But until twenty years ago, they were just rough brick, tin sheets, and plastic. Now they are all proper buildings. They are still very basic, but proper buildings.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 說，二十年前某些貧民區仍是粗磚、鐵皮與塑膠布搭成；今天很多已變成基本但正式的房屋。</p>
-<p>🟠 <strong>脈絡化</strong>：這不是簡單進步故事。貧困形式變了，不代表貧困消失。從棚屋到基本建築，可能是原地加固、加高、改建，也可能與基礎設施、土地使用、地方關係有關。明天若進 Dapodi slum，不能把眼前相對堅固的建築誤讀為「問題已經解決」。</p>
+<p><strong>中文整理</strong>：Lokamitra 說，二十年前某些貧民區仍是粗磚、鐵皮與塑膠布搭成；今天很多已變成基本但正式的房屋。</p>
+<p><strong>脈絡化</strong>：這不是簡單進步故事。貧困形式變了，不代表貧困消失。從棚屋到基本建築，可能是原地加固、加高、改建，也可能與基礎設施、土地使用、地方關係有關。明天若進 Dapodi slum，不能把眼前相對堅固的建築誤讀為「問題已經解決」。</p>
 <h3>3.2 原地改善與地方關係</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
 <p>People make their present situation better because often that land is free... From a town-planning point of view, it's much better to develop amenities and allow people to build up. They've got their own local relationships and local businesses.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 說，人們常在原地改善生活，因為土地本身不需購買，而土地極其昂貴。政府有時想把人移走，但從較正面的都市規劃角度看，改善基礎設施、讓居民在原地往上蓋，可能更好，因為他們有自己的地方關係、小生意與生活網絡。</p>
-<p>🟠 <strong>脈絡化</strong>：這提供明天觀察貧民區的框架。不要只看房屋是否破舊，也要看居民如何在原地建立關係、工作、店鋪、學校、佛堂、社區中心。搬遷不一定是改善；原地改善也不等於問題消失。</p>
+<p><strong>中文整理</strong>：Lokamitra 說，人們常在原地改善生活，因為土地本身不需購買，而土地極其昂貴。政府有時想把人移走，但從較正面的都市規劃角度看，改善基礎設施、讓居民在原地往上蓋，可能更好，因為他們有自己的地方關係、小生意與生活網絡。</p>
+<p><strong>脈絡化</strong>：這提供明天觀察貧民區的框架。不要只看房屋是否破舊，也要看居民如何在原地建立關係、工作、店鋪、學校、佛堂、社區中心。搬遷不一定是改善；原地改善也不等於問題消失。</p>
 <h3>3.3 他們做的是有效介入，不是完整 development work</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>We can't say that we were doing development work helping in the area. We didn't have the skills and the capacity.<br />
+<p>We can't say that we were doing development work helping in the area. We didn't have the skills and the capacity.
 Where we could do things was in terms of running kindergartens, study classes, cultural activities, Balwadi classes, and when we had the doctor, medical work.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 明確劃界：他們不能說自己做了整個地區的 development work，因為沒有那種技能與能力。他們能做的是幼兒園、study classes、文化活動、Balwadi classes，以及有醫生時的醫療工作。</p>
-<p>🟠 <strong>脈絡化</strong>：這句非常重要，因為它反英雄化。Lokamitra 沒有把自己寫成都市改造者或大型 NGO 領袖。他說的是「看到需要，找到能有效介入的地方」。可用 <code>patchwork</code> 理解：不是翻新世界，而是在世界破洞處先補上一塊。</p>
+<p><strong>中文整理</strong>：Lokamitra 明確劃界：他們不能說自己做了整個地區的 development work，因為沒有那種技能與能力。他們能做的是幼兒園、study classes、文化活動、Balwadi classes，以及有醫生時的醫療工作。</p>
+<p><strong>脈絡化</strong>：這句非常重要，因為它反英雄化。Lokamitra 沒有把自己寫成都市改造者或大型 NGO 領袖。他說的是「看到需要，找到能有效介入的地方」。可用 <code>patchwork</code> 理解：不是翻新世界，而是在世界破洞處先補上一塊。</p>
 <h3>3.4 雨季、橋下與仍未完成的工作</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>People still live in appalling situations... the number of people you see living under bridges in Mumbai, and even in Pune, in the rains, is shocking.<br />
-If you have heavy rains, there are lots of deaths and difficulties.<br />
+<p>People still live in appalling situations... the number of people you see living under bridges in Mumbai, and even in Pune, in the rains, is shocking.
+If you have heavy rains, there are lots of deaths and difficulties.
 Priyadarshi did that.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：即使一些人往上流動，仍有人住在橋下，雨季時尤其震撼。浦那大雨也會造成死亡與困難。來源檔提到 Priyadarshi 曾做過救援或 relief work。</p>
-<p>🟠 <strong>脈絡化</strong>：這段能放在 Day2 的貧民區觀察裡。它提醒我們：不要把當前房屋改善寫成全面成功，也不要把貧困美學化。雨季、水、橋下、死亡、救援，都是城市貧困的硬邊。</p>
+<p><strong>中文整理</strong>：即使一些人往上流動，仍有人住在橋下，雨季時尤其震撼。浦那大雨也會造成死亡與困難。來源檔提到 Priyadarshi 曾做過救援或 relief work。</p>
+<p><strong>脈絡化</strong>：這段能放在 Day2 的貧民區觀察裡。它提醒我們：不要把當前房屋改善寫成全面成功，也不要把貧困美學化。雨季、水、橋下、死亡、救援，都是城市貧困的硬邊。</p>
 <hr />
 <h2>四、合作方式與英文敏感度</h2>
 <h3>4.1 Lokamitra 想先看全書 scaffold</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>If I can have an understanding of the whole, I can engage more with it.<br />
+<p>If I can have an understanding of the whole, I can engage more with it.
 I don't need to see all the writing, just so I get an idea of how you want to present things. That is a better way.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 不需要先看完整正文。他希望先看一份 chapter-by-chapter scaffold / scheme，知道全書每章打算怎麼呈現。看見整體後，他才能更有效地參與。</p>
-<p>🟠 <strong>工作流影響</strong>：下一輪寄給 Lokamitra 的不應是一章章完整文字，而應是一份新版全書 scaffold：每章標題、核心問題、主要事件、人物、主題、哪些章大幅重寫、哪些只局部修正。這比丟整本書給他更符合他的閱讀方式。</p>
+<p><strong>中文整理</strong>：Lokamitra 不需要先看完整正文。他希望先看一份 chapter-by-chapter scaffold / scheme，知道全書每章打算怎麼呈現。看見整體後，他才能更有效地參與。</p>
+<p><strong>工作流影響</strong>：下一輪寄給 Lokamitra 的不應是一章章完整文字，而應是一份新版全書 scaffold：每章標題、核心問題、主要事件、人物、主題、哪些章大幅重寫、哪些只局部修正。這比丟整本書給他更符合他的閱讀方式。</p>
 <h3>4.2 中文可能沒問題，英文翻譯會出事</h3>
-<p>🔵 <strong>【訪談摘錄】</strong></p>
 <blockquote>
-<p>I was sure the Chinese, I had no problem with the Chinese... But what the Indian government will see is the English translation.<br />
+<p>I was sure the Chinese, I had no problem with the Chinese... But what the Indian government will see is the English translation.
 If they see "fighting for this"... people may say, "Who is this person?" It is delicate and different.</p>
 </blockquote>
-<p>🟣 <strong>中文整理</strong>：Lokamitra 對 Facebook / 對外文字的提醒是：中文原文他可能沒有問題，但印度政府、印度讀者或外部社群看到的往往是英文翻譯。若英文出現 fighting 等語彙，可能被理解成政治對抗，尤其在今日印度語境下更敏感。</p>
-<p>🟠 <strong>英文替換策略</strong>：</p>
+<p><strong>中文整理</strong>：Lokamitra 對 Facebook / 對外文字的提醒是：中文原文他可能沒有問題，但印度政府、印度讀者或外部社群看到的往往是英文翻譯。若英文出現 fighting 等語彙，可能被理解成政治對抗，尤其在今日印度語境下更敏感。</p>
+<p><strong>英文替換策略</strong>：</p>
 <ul>
 <li>高風險英文：建議替代</li>
 <li>fighting caste：responding to caste discrimination</li>
@@ -337,10 +305,10 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <li>mobilizing people against caste Hindus：building education, dignity, and community work among Ambedkarite Buddhists</li>
 <li>battle / war / fight：work, effort, response, transformation, practice, education</li>
 </ul>
-<p>🟠 <strong>寫作原則</strong>：中文也要自我克制，但英文尤其要避開對抗式動詞。全書的主動姿態應是教育、尊嚴、佛法實踐與社會轉化，不是「攻擊」或「戰鬥」。</p>
+<p><strong>寫作原則</strong>：中文也要自我克制，但英文尤其要避開對抗式動詞。全書的主動姿態應是教育、尊嚴、佛法實踐與社會轉化，不是「攻擊」或「戰鬥」。</p>
 <h3>4.3 出版合作模式備忘：英文作為作者核可參照稿</h3>
-<p>🟠 <strong>後續決策</strong>：為回應 Lokamitra 對 AI 英譯與印度政府敏感度的擔憂，後續合作模式暫定為「中文版先行出版 + 作者核可英文參照稿」。Antony 仍以中文撰稿為主，並用 AI 工作流程同步產出英文參照稿；Lokamitra 依英文稿檢查事實、語氣、政治敏感詞與可能被印度讀者誤解的地方；Antony 再依審過的英文稿回修中文終稿。</p>
-<p>🟠 <strong>權利原則</strong>：英文參照稿目前不是公開出版稿，也不作為台灣出版社主張英文出版權的工具。若未來 Lokamitra 希望出版英文版，原則上交由 Lokamitra 自行或透過其熟悉的出版社處理；台灣出版社不收取英文版權費或分潤，只要求合理致謝。完整備忘見：<code>07_田野調查記錄_Fieldwork/01_統整筆記_Consolidated/20260531_Day1_出版合作備忘_作者核可英文參照稿.md</code>。</p>
+<p><strong>後續決策</strong>：為回應 Lokamitra 對 AI 英譯與印度政府敏感度的擔憂，後續合作模式暫定為「中文版先行出版 + 作者核可英文參照稿」。Antony 仍以中文撰稿為主，並用 AI 工作流程同步產出英文參照稿；Lokamitra 依英文稿檢查事實、語氣、政治敏感詞與可能被印度讀者誤解的地方；Antony 再依審過的英文稿回修中文終稿。</p>
+<p><strong>權利原則</strong>：英文參照稿目前不是公開出版稿，也不作為台灣出版社主張英文出版權的工具。若未來 Lokamitra 希望出版英文版，原則上交由 Lokamitra 自行或透過其熟悉的出版社處理；台灣出版社不收取英文版權費或分潤，只要求合理致謝。完整備忘見：<code>07_田野調查記錄_Fieldwork/01_統整筆記_Consolidated/20260531_Day1_出版合作備忘_作者核可英文參照稿.md</code>。</p>
 <hr />
 <h2>六、Day2 立即轉用：明天觀察與追問</h2>
 <h3>6.1 Jeevak / 耆婆健康教育中心</h3>
@@ -407,27 +375,17 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
         </article>
         
             
-        <article id="day-2" class="day-card">
+        <article id="card-2" class="day-card">
             <div class="day-header">
-                <h2>Day 1 現場敘事</h2>
+                <h2>Day 1：大精舍Mahavihara</h2>
                 <div class="day-date">2026年5月31日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: Day 1（5/31）Lokamitra 訪談作戰包 date: 2026-05-31 project: Lokamitra 自傳專案 sources: Feedback_Matrix_V3、郵件往來（4/12、4/24、5/1、5/27）、Tej Darshan 暫定行程、田野筆記</p>
-            </div>
             <div class="story-content">
-                <h1>田野筆記：5/31 上午 · 法輪轉動大精舍</h1>
-<blockquote>
-<p><strong>整理說明</strong>
-本檔重整自 2026-05-31 上午在達波迪法輪轉動大精舍的現場觀察、達善導覽、彌勒種補述，以及後續回訪補記。<br />
-逐字稿均以 ASR 原文保留，錯字、誤聽與口語中斷不擅自修正；整理段落另以中文翻譯與脈絡化說明。凡牽涉數字、年代、專名而來源互有差異者，列入「待核」。</p>
-</blockquote>
-<ul>
-<li>🟢 <strong>【現場觀察】</strong>：親眼所見、現場照片或當日回憶補記，可作一手材料</li>
-<li>🔵 <strong>【訪談】</strong>：達善／彌勒種等人現場口述與 ASR 原文，一手，但需核對 ASR 誤聽</li>
-<li>🟣 <strong>【回訪補記】</strong>：使用者當天回來後補正或追問所得，一手補記，優先於 AI 推測</li>
-<li>🟠 <strong>【脈絡化】</strong>：編者整理、章節連動、AI 分析或二手查證，寫入正文前須再核</li>
+                <ul>
+<li>：親眼所見、現場照片或當日回憶補記，可作一手材料</li>
+<li>：達善／彌勒種等人現場口述與 ASR 原文，一手，但需核對 ASR 誤聽</li>
+<li>：使用者當天回來後補正或追問所得，一手補記，優先於 AI 推測</li>
+<li>：編者整理、章節連動、AI 分析或二手查證，寫入正文前須再核</li>
 </ul>
 <hr />
 <h2>二、在場人物與場域</h2>
@@ -439,55 +397,55 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <li><strong>Lucky、Sharanya、Maitriratna</strong>：接待／工作人員，待補背景，不宜目前放大</li>
 </ul>
 <h3>2.2 場域定位</h3>
-<p>🟢 <strong>【現場觀察】</strong> 法輪轉動大精舍位於達波迪（Dapodi），周邊可辨識出 Jai Bhim Nagar、Siddharth Nagar、CME（College of Military Engineering）軍事綠地、Pimpri-Chinchwad 工業帶、MIDC 產業區等空間層次。</p>
-<p>🔵 <strong>【訪談】</strong> 達善與彌勒種都把這裡放在浦那北側的工業、軍工與達利特佛教社群交界處理解，而不是孤立寺院。附近工作機會與工業發展吸引來自村莊、較貧困家庭與 Scheduled Caste 社群的人移入，逐漸形成今日地景。</p>
-<p>🟠 <strong>脈絡化</strong>：這個場域不是「寺院插入貧民窟」，而是「一座大精舍、訓練中心、辦公室、圖書館、宿舍和周邊 vasti 共同生成的社群基礎設施」。對傳記而言，Dapodi 不是背景板，而是 Lokamitra 工作從零散課程走向制度化的物理基地。</p>
+<p>法輪轉動大精舍位於達波迪（Dapodi），周邊可辨識出 Jai Bhim Nagar、Siddharth Nagar、CME（College of Military Engineering）軍事綠地、Pimpri-Chinchwad 工業帶、MIDC 產業區等空間層次。</p>
+<p>達善與彌勒種都把這裡放在浦那北側的工業、軍工與達利特佛教社群交界處理解，而不是孤立寺院。附近工作機會與工業發展吸引來自村莊、較貧困家庭與 Scheduled Caste 社群的人移入，逐漸形成今日地景。</p>
+<p><strong>脈絡化</strong>：這個場域不是「寺院插入貧民窟」，而是「一座大精舍、訓練中心、辦公室、圖書館、宿舍和周邊 vasti 共同生成的社群基礎設施」。對傳記而言，Dapodi 不是背景板，而是 Lokamitra 工作從零散課程走向制度化的物理基地。</p>
 <h3>2.3 5/31 早期地景補錄：Manuski、Dapodi、軍工城市與公共記憶</h3>
-<p>🟢 <strong>【現場觀察】</strong> 同日上午的路線不應被拆成孤立地點：Manuski、Dapodi、Yerawada、Jai Bhim Nagar、Siddharth Nagar、CME 軍事區與 Pimpri-Chinchwad 工業帶，其實形成一個相互貼近的城市地景。實地走過後才看出，Lokamitra 早期工作不是從遠處「前往貧民區」，而是生活、辦公、弘法與社會工作都貼在這些聚落邊上。</p>
-<p>🟠 <strong>脈絡化</strong>：這個修正對 CH02／CH03 很重要。不要把浦那寫成一張寬廣地圖上相距遙遠的點，而要寫成一組可步行、可騎車、可每天往返的聚落網絡。早年沒有汽車時，距離仍可能意味著數小時步行；但它不是抽象遠方，而是「住在離需要的人群很近的地方」。</p>
-<p>🔵 <strong>【訪談整理】</strong> 舊早期地景檔補出三條社會背景線：</p>
+<p>同日上午的路線不應被拆成孤立地點：Manuski、Dapodi、Yerawada、Jai Bhim Nagar、Siddharth Nagar、CME 軍事區與 Pimpri-Chinchwad 工業帶，其實形成一個相互貼近的城市地景。實地走過後才看出，Lokamitra 早期工作不是從遠處「前往貧民區」，而是生活、辦公、弘法與社會工作都貼在這些聚落邊上。</p>
+<p><strong>脈絡化</strong>：這個修正對 CH02／CH03 很重要。不要把浦那寫成一張寬廣地圖上相距遙遠的點，而要寫成一組可步行、可騎車、可每天往返的聚落網絡。早年沒有汽車時，距離仍可能意味著數小時步行；但它不是抽象遠方，而是「住在離需要的人群很近的地方」。</p>
+<p>舊早期地景檔補出三條社會背景線：</p>
 <ol>
 <li><strong>公共肖像與記憶政治</strong>：街頭可以看見政治領袖、guru、社會改革者等肖像。Balasaheb Thackeray / Shiv Sena 與安貝卡像同在公共空間中，說明街頭不是中性背景，而是記憶與選票競逐的場域。政客未必信奉安貝卡思想，但會以他的像爭取追隨者或社群認同。</li>
 <li><strong>軍事浦那與穩定職業</strong>：達善提到浦那有許多軍事設施，佛教徒／達利特家庭常把軍隊、鐵路、郵政、政府部門視為穩定生活路徑。他父親曾在 ammunition factory 工作；Mahar battalion、Gurkha、Maratha、Sikh battalion 等編制可追溯到 British Raj。</li>
 <li><strong>教育 → 公職／軍工 → 社會流動</strong>：1956 改宗後，許多安貝卡世代家庭把教育與公職視為可行上升路徑。這能幫助理解為什麼宿舍、study class、Balwadi、社區中心與書籍出版不只是慈善，而是新佛教社群的社會流動基礎設施。</li>
 </ol>
-<p>🟠 <strong>寫作提示</strong>：Wi-Fi 名稱、街頭肖像、軍事綠地、工業帶與大精舍不是彼此無關的小觀察；它們共同構成「浦那東北側的公共身份地圖」。若寫正文，可以用「私人空間的 Wi-Fi 名稱」對照「公共空間的安貝卡像」，再把大精舍放進這張地圖：它不是裝飾性地標，而是新佛教徒可見、可進入、可聚集的公共中心。</p>
+<p><strong>寫作提示</strong>：Wi-Fi 名稱、街頭肖像、軍事綠地、工業帶與大精舍不是彼此無關的小觀察；它們共同構成「浦那東北側的公共身份地圖」。若寫正文，可以用「私人空間的 Wi-Fi 名稱」對照「公共空間的安貝卡像」，再把大精舍放進這張地圖：它不是裝飾性地標，而是新佛教徒可見、可進入、可聚集的公共中心。</p>
 <hr />
 <h2>三、空間觀察：同一扇窗，三十年兩個世界</h2>
 <h3>3.1 Lokamitra 的早期辦公室</h3>
-<p>🟢🟣 <strong>【現場觀察＋回訪補記】</strong></p>
+<p>🟣</p>
 <p>這是 Lokamitra 在大精舍時期的辦公室。從 1990 年大精舍啟用後，他曾長期在此工作，直到 Manuski 中心成立後才搬離。</p>
 <p>辦公室窗外有一棵芒果樹。芒果季節時，樹上果實累累，望出去是一片金色；再往外，就是剛才做禮拜或晨修的金色佛堂。上班時，他就在這裡；對面是達善與其他執事曾經所在的辦公室。</p>
 <p>辦公室旁邊是一間小禪修室。下樓是宿舍、餐廳與廚房。今天補記中特別確認：現在每天會與住在此地的 <strong>26 個人</strong>一起共餐。ASR 中另有「36 人」說法，應指 1990 年代訓練中心全盛時期約 36 名住眾／學員；兩者需分清。</p>
-<p>🟠 <strong>可回填章節的位置</strong>：
+<p><strong>可回填章節的位置</strong>：
 - <strong>CH06／CH07 大精舍段落</strong>：用作「從建築落成到日常制度」的空間錨點。
 - <strong>CH10 local colour</strong>：用「芒果樹、金色佛堂、對面辦公室、樓下共餐」取代抽象的「中心運作」。
 - <strong>辦公室窗外思考</strong>：不要代寫 Lokamitra 的心理，只寫窗外物理變化與制度化痕跡。若要寫內心，需等 Lokamitra 或達善本人給出語句。</p>
 <h3>3.2 空地、火葬場與後來的聚落</h3>
-<p>🔵 <strong>【訪談】</strong> 達善說，這棟建築開始興建時，周圍沒有房子，幾乎是一片空地。這裡以前甚至是火葬場。大精舍建起來後，人們開始來，周邊的 basti / vasti 才逐漸形成，包含 Jai Bhim Nagar 與 Siddharth Nagar。</p>
-<p>🟣 <strong>【回訪補記】</strong> 使用者當天又確認：大精舍建立時，周圍非常空曠，連今天周邊的貧民窟都尚未形成。隨報紙報導精舍將建立或落成，消息傳開，兩、三千人從四面八方湧來，擠在周圍參與開幕慶典。今天兩側有圍籬，但當年連圍籬外都站滿了人。</p>
-<p>⚠️ <strong>來源衝突註記</strong>：
+<p>達善說，這棟建築開始興建時，周圍沒有房子，幾乎是一片空地。這裡以前甚至是火葬場。大精舍建起來後，人們開始來，周邊的 basti / vasti 才逐漸形成，包含 Jai Bhim Nagar 與 Siddharth Nagar。</p>
+<p>使用者當天又確認：大精舍建立時，周圍非常空曠，連今天周邊的貧民窟都尚未形成。隨報紙報導精舍將建立或落成，消息傳開，兩、三千人從四面八方湧來，擠在周圍參與開幕慶典。今天兩側有圍籬，但當年連圍籬外都站滿了人。</p>
+<p>️ <strong>來源衝突註記</strong>：
 - 使用者回訪補記：兩、三千人。
 - 附件 ASR 某段出現「around 30,000 people」。
 - 既有 CH06 草稿與作者回饋脈絡曾出現「some estimated / 約 25,000」。
 - 本檔正式整理先採使用者今日回訪補記的「兩、三千人」，其他數字保留於逐字稿附錄，列為待向 Lokamitra／達善／彌勒種核對。</p>
-<p>🟠 <strong>脈絡化</strong>：這個場景已經能回答「為什麼需要一座大精舍」。不是因為 Lokamitra 想做一個宏大紀念物，而是因為社群需求已經超過鐵皮棚、小房間、臨時課堂。當報紙一刊出，兩三千人湧到空地上，空間尺度就不再是理想，而是被人群撐出來的需要。</p>
+<p><strong>脈絡化</strong>：這個場景已經能回答「為什麼需要一座大精舍」。不是因為 Lokamitra 想做一個宏大紀念物，而是因為社群需求已經超過鐵皮棚、小房間、臨時課堂。當報紙一刊出，兩三千人湧到空地上，空間尺度就不再是理想，而是被人群撐出來的需要。</p>
 <h3>3.3 建築語彙：外來者的教堂感，當地人的石窟記憶</h3>
-<p>🟢 <strong>【現場觀察】</strong> 初見大精舍，白色廊道、連續拱形、高挑空間容易讓人聯想到教堂或現代集會堂，而非台灣讀者熟悉的佛寺。</p>
-<p>🔵 <strong>【訪談】</strong> 達善立即補充，在印度有許多佛教石窟，這座建築的形式可理解為現代與傳統的結合，呼應阿旃陀、埃洛拉、卡爾拉、巴賈一類佛教洞窟空間。</p>
-<p>🟠 <strong>脈絡化</strong>：這個修正很重要。不要把「像教堂」寫成定論。較準的寫法是：外來者第一眼可能聯想到教堂；但在當地佛教徒眼中，它連回的是西印度古代佛教石窟傳統。這正符合安貝卡佛教復興的張力：建築是現代的，精神地基卻接回古代佛教。</p>
+<p>初見大精舍，白色廊道、連續拱形、高挑空間容易讓人聯想到教堂或現代集會堂，而非台灣讀者熟悉的佛寺。</p>
+<p>達善立即補充，在印度有許多佛教石窟，這座建築的形式可理解為現代與傳統的結合，呼應阿旃陀、埃洛拉、卡爾拉、巴賈一類佛教洞窟空間。</p>
+<p><strong>脈絡化</strong>：這個修正很重要。不要把「像教堂」寫成定論。較準的寫法是：外來者第一眼可能聯想到教堂；但在當地佛教徒眼中，它連回的是西印度古代佛教石窟傳統。這正符合安貝卡佛教復興的張力：建築是現代的，精神地基卻接回古代佛教。</p>
 <h3>3.4 布施與「非歸鄉」：今日觀察已足以回答</h3>
-<p>🟣 <strong>【回訪補記】</strong> 關於「為什麼需要做大精舍」以及「布施／歸鄉」這組問題，今天已不需要再以明知故問方式追問。現場觀察與回訪補記已能處理：空地上的新精舍、報紙傳開後湧來的人群、圍籬外站滿的人，說明這座建築回應的是一個正在成形的新佛教社群，而非個人紀念物。</p>
-<p>🟠 <strong>脈絡化</strong>：若使用 <strong>dāna／布施</strong> 框架，重點應放在「給浦那新佛教徒一個可進入、可學習、可自豪的公共空間」。它不是外國人對窮人的施捨，而是三寶佛教社團與印度本地團隊共同送給社群的一套條件：佛堂、宿舍、辦公室、圖書館、訓練與共食。</p>
-<p>⚠️ <strong>非歸鄉框架</strong>：Lokamitra 曾否定 homecoming 的理解；今天的田野也支持這一點。這不是某個人的返鄉，而是新社群第一次有了能聚攏自己的中心。若未來寫正文，應避免把「歸鄉」當成主題句，可改寫為「聚攏」「落腳」「取得一個可共同使用的地方」。</p>
+<p>關於「為什麼需要做大精舍」以及「布施／歸鄉」這組問題，今天已不需要再以明知故問方式追問。現場觀察與回訪補記已能處理：空地上的新精舍、報紙傳開後湧來的人群、圍籬外站滿的人，說明這座建築回應的是一個正在成形的新佛教社群，而非個人紀念物。</p>
+<p><strong>脈絡化</strong>：若使用 <strong>dāna／布施</strong> 框架，重點應放在「給浦那新佛教徒一個可進入、可學習、可自豪的公共空間」。它不是外國人對窮人的施捨，而是三寶佛教社團與印度本地團隊共同送給社群的一套條件：佛堂、宿舍、辦公室、圖書館、訓練與共食。</p>
+<p>️ <strong>非歸鄉框架</strong>：Lokamitra 曾否定 homecoming 的理解；今天的田野也支持這一點。這不是某個人的返鄉，而是新社群第一次有了能聚攏自己的中心。若未來寫正文，應避免把「歸鄉」當成主題句，可改寫為「聚攏」「落腳」「取得一個可共同使用的地方」。</p>
 <hr />
 <h2>四、訪談整理：大精舍不是寺廟，而是制度基地</h2>
 <h3>4.1 Sunday Puja 與共食</h3>
-<p>🔵 <strong>【訪談整理】</strong> 達善說，星期日不一定每天都有，但有些星期日會有一日靜修。午餐通常由外部餐飲送來，有人 sponsor，大家在此共食。這不是普通廟會，而是社群維繫與共同生活的一部分。</p>
-<p>🟠 <strong>寫作提示</strong>：<code>sponsor</code> 在佛教語境中可視為 <strong>dāna／布施／供養</strong>。若寫正文，不宜只譯為「贊助」，可用「有人供養當天餐食」。</p>
+<p>達善說，星期日不一定每天都有，但有些星期日會有一日靜修。午餐通常由外部餐飲送來，有人 sponsor，大家在此共食。這不是普通廟會，而是社群維繫與共同生活的一部分。</p>
+<p><strong>寫作提示</strong>：<code>sponsor</code> 在佛教語境中可視為 <strong>dāna／布施／供養</strong>。若寫正文，不宜只譯為「贊助」，可用「有人供養當天餐食」。</p>
 <h3>4.2 Dharma Training Centre：36 人共同生活</h3>
-<p>🔵 <strong>【訪談整理】</strong> 大精舍曾是 Dharma Training Centre。達善說自己就是在這裡受訓的「產品」。當時約 28 人從全印度被選來接受一年訓練，也有段落提到約 36 人常住。學員在此學佛法、禪修、清潔、輪流做飯，並到周邊 locality 做社會工作。每天兩個人負責煮早餐、午餐、晚餐。這不是只聽課，而是一套把佛法、生活技能、社群合作和社會服務合在一起的訓練。</p>
-<p>🟠 <strong>脈絡化</strong>：這是理解大精舍的核心。它不是一座只供禮拜的寺院，而是：
+<p>大精舍曾是 Dharma Training Centre。達善說自己就是在這裡受訓的「產品」。當時約 28 人從全印度被選來接受一年訓練，也有段落提到約 36 人常住。學員在此學佛法、禪修、清潔、輪流做飯，並到周邊 locality 做社會工作。每天兩個人負責煮早餐、午餐、晚餐。這不是只聽課，而是一套把佛法、生活技能、社群合作和社會服務合在一起的訓練。</p>
+<p><strong>脈絡化</strong>：這是理解大精舍的核心。它不是一座只供禮拜的寺院，而是：
 - 佛堂
 - 訓練中心
 - 宿舍
@@ -496,69 +454,67 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 - 信託辦公室
 - 社工與教育工作的後勤中樞</p>
 <h3>4.3 Central Office：兩個信託、土地與運作</h3>
-<p>🔵 <strong>【訪談整理】</strong> 達善提到印度有兩個主要信託，一個偏佛法／僧團工作，一個偏社會工作。ASR 中出現 TBMJ Pune、Bahujan Hithai Pune 等拼寫，需回頭核對正式名稱。早期兩個信託可以在同一辦公空間密切合作，後來因政府法律與信託規範，需要分開管理。大精舍因此也是組織治理和財產管理的核心位置。</p>
-<p>🟠 <strong>脈絡化</strong>：這段能把傳記從「理想」拉回「制度」。土地誰持有、辦公室誰使用、財產歸哪個 trust、法律如何要求信託分離，這些看似行政的細節，正是運動能否存續三四十年的骨架。</p>
+<p>達善提到印度有兩個主要信託，一個偏佛法／僧團工作，一個偏社會工作。ASR 中出現 TBMJ Pune、Bahujan Hithai Pune 等拼寫，需回頭核對正式名稱。早期兩個信託可以在同一辦公空間密切合作，後來因政府法律與信託規範，需要分開管理。大精舍因此也是組織治理和財產管理的核心位置。</p>
+<p><strong>脈絡化</strong>：這段能把傳記從「理想」拉回「制度」。土地誰持有、辦公室誰使用、財產歸哪個 trust、法律如何要求信託分離，這些看似行政的細節，正是運動能否存續三四十年的骨架。</p>
 <h3>4.4 Triple C：Community, Centre, Cooperative</h3>
-<p>🔵 <strong>【訪談整理】</strong> 達善說，僧護教給他們 Triple C：
+<p>達善說，僧護教給他們 Triple C：
 - <strong>Community</strong>：共同生活、共同修行、互相鼓勵。
 - <strong>Centre</strong>：佛教中心，教佛法、禪修、瑜伽，讓人與佛法接觸。
 - <strong>Cooperative</strong>：合作社或事業，用經濟活動支持共同體。</p>
 <p>在印度，cooperative 事業未如西方成功，但 Karuna Trust 的前身 Aid for India 在倫敦以挨家挨戶募款支持印度工作。早期的 slum community centre 一天從早到晚運作：清晨禪修與運動，上午與中午幼兒照顧，下午縫紉課，晚上學生課輔，每週一次佛法課。</p>
-<p>🟠 <strong>脈絡化</strong>：Triple C 是今日田野最重要的概念之一。它說明大精舍不是「蓋一座佛堂」的結果，而是三寶佛教社團在印度落地時的一套社會實驗：共同生活、公共中心、自力經濟。若將來寫 CH06／CH07，這能取代空泛的「佛教與社會服務結合」。</p>
+<p><strong>脈絡化</strong>：Triple C 是今日田野最重要的概念之一。它說明大精舍不是「蓋一座佛堂」的結果，而是三寶佛教社團在印度落地時的一套社會實驗：共同生活、公共中心、自力經濟。若將來寫 CH06／CH07，這能取代空泛的「佛教與社會服務結合」。</p>
 <h3>4.5 Lokamitra 的願景：倫理、精神與文化</h3>
-<p>🔵 <strong>【訪談整理】</strong> 被問到 Lokamitra 帶來的願景時，達善不是回答「蓋更多佛堂」或「擴大組織」，而是說他的願景很大：<strong>creating a society based on ethics</strong>，並幫助人們在精神與文化上成長。很多人得到幫助。佛法工作與社會工作從浦那開始，逐漸複製到那格浦爾、瓦爾達、阿姆拉瓦蒂、科拉普爾、索拉普爾、孟買、奧蘭加巴德等地。達善提到現在印度約有 60 個中心、25 所貧困學生宿舍。</p>
-<p>🟠 <strong>脈絡化</strong>：這是反英雄化的好材料。達善的論證不是「Lokamitra 多偉大」，而是「我們就是那套訓練的結果」。焦點應放在本地團隊、訓練制度與後續擴散，而不是外國人獨力拯救。</p>
+<p>被問到 Lokamitra 帶來的願景時，達善不是回答「蓋更多佛堂」或「擴大組織」，而是說他的願景很大：<strong>creating a society based on ethics</strong>，並幫助人們在精神與文化上成長。很多人得到幫助。佛法工作與社會工作從浦那開始，逐漸複製到那格浦爾、瓦爾達、阿姆拉瓦蒂、科拉普爾、索拉普爾、孟買、奧蘭加巴德等地。達善提到現在印度約有 60 個中心、25 所貧困學生宿舍。</p>
+<p><strong>脈絡化</strong>：這是反英雄化的好材料。達善的論證不是「Lokamitra 多偉大」，而是「我們就是那套訓練的結果」。焦點應放在本地團隊、訓練制度與後續擴散，而不是外國人獨力拯救。</p>
 <h3>4.6 Christopher Benninger：美，是尊嚴的空間條件</h3>
-<p>🔵 <strong>【訪談整理】</strong> 達善說，Christopher Benninger 是 Mahavihara 與 Nagaloka 的建築師，也是 Lokamitra 的好朋友。他想建造一個能讓新佛教徒感到 pride 的空間。對剛離開被羞辱位置的新佛教徒而言，美不是裝飾，而是尊嚴。</p>
-<p>🟠 <strong>脈絡化</strong>：這句可以直接回應「為何蓋得這麼漂亮」。如果只是實用，鐵皮棚夠用；如果只是授課，租教室也可以。但大精舍必須讓人走進去時覺得「這是我們的空間」。這種 positive pride 與安貝卡佛教運動非常貼合。</p>
+<p>達善說，Christopher Benninger 是 Mahavihara 與 Nagaloka 的建築師，也是 Lokamitra 的好朋友。他想建造一個能讓新佛教徒感到 pride 的空間。對剛離開被羞辱位置的新佛教徒而言，美不是裝飾，而是尊嚴。</p>
+<p><strong>脈絡化</strong>：這句可以直接回應「為何蓋得這麼漂亮」。如果只是實用，鐵皮棚夠用；如果只是授課，租教室也可以。但大精舍必須讓人走進去時覺得「這是我們的空間」。這種 positive pride 與安貝卡佛教運動非常貼合。</p>
 <h3>4.7 圖書館與書店：不是英國佛教展示館</h3>
-<p>🔵 <strong>【訪談整理】</strong> 圖書館藏書來源混雜，不是單純從英國帶來。有巴利文經典、Triratna 出版物、印度作者作品、安貝卡著作與演講全集、《The Buddha and His Dhamma》、Buddhayan 等。書店則販售禮誦書、小冊子與佛教生活儀式用品，是佛教中心與 cooperative 的一部分。</p>
-<p>🟠 <strong>脈絡化</strong>：Mahavihara 的圖書館與書店呈現出一個已在地化的知識生態。它不是「英國佛教輸入印度」，而是英國三寶佛教社團、印度安貝卡佛教、馬拉地語出版、巴利／梵文傳統與本地儀式需求共同生成的場所。</p>
+<p>圖書館藏書來源混雜，不是單純從英國帶來。有巴利文經典、Triratna 出版物、印度作者作品、安貝卡著作與演講全集、《The Buddha and His Dhamma》、Buddhayan 等。書店則販售禮誦書、小冊子與佛教生活儀式用品，是佛教中心與 cooperative 的一部分。</p>
+<p><strong>脈絡化</strong>：Mahavihara 的圖書館與書店呈現出一個已在地化的知識生態。它不是「英國佛教輸入印度」，而是英國三寶佛教社團、印度安貝卡佛教、馬拉地語出版、巴利／梵文傳統與本地儀式需求共同生成的場所。</p>
 <h3>4.8 《三寶佛教禮誦集》：生活儀典手冊</h3>
-<p>🔵 <strong>【訪談整理】</strong> 達善介紹一本禮誦書，封面稱銷售超過 30 萬冊。它分成兩部分：</p>
+<p>達善介紹一本禮誦書，封面稱銷售超過 30 萬冊。它分成兩部分：</p>
 <ol>
 <li><strong>共修與唱誦</strong>：設佛壇、禮敬、三皈依、五戒、正向五戒、安貝卡二十二誓願、Buddha Puja、Triratna Vandana、Mahamangala Sutta、Karaniya Metta Sutta、Ratana Sutta、Jayamangala Sutta、Dhammapalana Gatha 等。</li>
 <li><strong>人生與社會儀式</strong>：命名、皈依、婚禮、葬禮、功德回向、入厝、奠基、落成、每日功課。</li>
 </ol>
-<p>🟠 <strong>脈絡化</strong>：這本書不是單純經本，而是新佛教社會的生活手冊。安貝卡改宗後，追隨者不只需要新的信仰，也需要新的出生、婚禮、葬禮、入厝、奠基、落成儀式。這本書等於把生活從婆羅門儀式中移出，重新安放到佛教框架裡。</p>
-<p>⚠️ <strong>待核</strong>：
+<p><strong>脈絡化</strong>：這本書不是單純經本，而是新佛教社會的生活手冊。安貝卡改宗後，追隨者不只需要新的信仰，也需要新的出生、婚禮、葬禮、入厝、奠基、落成儀式。這本書等於把生活從婆羅門儀式中移出，重新安放到佛教框架裡。</p>
+<p>️ ：
 - 「銷售超過 30 萬冊」。
 - <code>Dhammapalana Gatha</code> 是否由安貝卡從巴利文編纂。
 - 這一特定版本的編者與 Sangharakshita／Triratna 的角色。</p>
 <h3>4.9 Maitreyanath 的土地與早期記憶</h3>
-<p>🔵 <strong>【訪談整理】</strong> Maitreyanath 說，Dapodi 土地與建築許可極其困難。ASR 中的「36 corners」應是 <code>36 co-owners / concerned persons / landholders</code>，因後文說每一個人都必須簽字。為了一棟建築取得許可至少花了三年。他需要每週去政府辦公室，有時一週兩次，等候、排隊、被要求補文件，去了上百次。</p>
-<p>🔵 <strong>【訪談整理】</strong> 他回憶 1980 年代初，沒有 estate、office、centre，什麼都沒有；十個人擠在房子裡，物質條件很差，但有很強的 spirit、鼓勵與奉獻。他 19 歲遇見 Lokamitra，後來辭去政府電力局工作，投入更大的 mission。從第一間男孩宿舍開始，後來擴展到 27 所宿舍、約 80 個社區中心。</p>
-<p>🟠 <strong>脈絡化</strong>：這段能平衡「建築美學」與「行政奔走」。大精舍不是一個願景自然長出的結果，而是有人一次次去政府辦公室、一次次簽字、一次次被退回之後，才在土地上站起來。</p>
+<p>Maitreyanath 說，Dapodi 土地與建築許可極其困難。ASR 中的「36 corners」應是 <code>36 co-owners / concerned persons / landholders</code>，因後文說每一個人都必須簽字。為了一棟建築取得許可至少花了三年。他需要每週去政府辦公室，有時一週兩次，等候、排隊、被要求補文件，去了上百次。</p>
+<p>他回憶 1980 年代初，沒有 estate、office、centre，什麼都沒有；十個人擠在房子裡，物質條件很差，但有很強的 spirit、鼓勵與奉獻。他 19 歲遇見 Lokamitra，後來辭去政府電力局工作，投入更大的 mission。從第一間男孩宿舍開始，後來擴展到 27 所宿舍、約 80 個社區中心。</p>
+<p><strong>脈絡化</strong>：這段能平衡「建築美學」與「行政奔走」。大精舍不是一個願景自然長出的結果，而是有人一次次去政府辦公室、一次次簽字、一次次被退回之後，才在土地上站起來。</p>
 <h3>4.10 待匯入文字整併：Maitreyanath、DTC、辦公室與檔案線</h3>
-<blockquote>
-<p><strong>整併狀態（2026-06-03）</strong>：本節吸收待匯入資料夾中 <code>maitreyanath_interview_transcripts_merged.md</code> 與 Day1 分場地稿的內容。它們不作為獨立新檔保存；有用的文字線索併入本 Mahavihara 主稿，專名與數字仍保留待核。</p>
-</blockquote>
-<p>🔵 <strong>【Maitreyanath 補入】</strong></p>
 <ul>
 <li>路上對話先出現 Pune 近年的 software office / IT hub 地景，對照 1980 年代 Dapodi / Mahavihara 還是荒地、貧民區與行政奔走的世界。這條對照可在書稿中呈現同一城市不同時代的速度。</li>
 <li>Maitreyanath 說他約 19 歲遇見 Lokamitra；Lokamitra 當時約 30 歲。他原本在 government electricity board 工作，約 23 歲辭職，因為想和 Lokamitra 做一個 larger mission。</li>
 <li>他回憶第一次聽 Lokamitra / Anagarika Loknath Maharaj 講法，與一次佛教婚禮延遲、在餐廳附近看到公開演講訊息有關。這是高價值生命史場景，但時間、地點與人名必須回聽。</li>
 <li>他提到早期有幾位人也像他一樣離開政府工作，全職投入。這可補強「本地人不是被動受助者，而是共同建設者」的主軸。</li>
 <li>1979 年 6 月左右成立 charitable trust 的說法，與「印度工作第一個 NGO 平台」相關；正式寫入前需與 trust 文件核對。</li>
-<li>1996 年 6 月他前往 Nagaloka，當時是 barren land；到 2026 年 6 月已投入約 30 年。此線可連到後續 Nagaloka 田野。</li>
-</ul>
-<p>🔵 <strong>【Dharma Training Centre / 生活細節補入】</strong></p>
-<ul>
-<li>Day1 分場地稿補出 DTC 不只是建築，而是共同生活與訓練空間：首批/容量數字在 28、36 間混亂，需回聽；較穩的是「約 36 人共同訓練與生活」這條線。</li>
+<li>
+<p>1996 年 6 月他前往 Nagaloka，當時是 barren land；到 2026 年 6 月已投入約 30 年。此線可連到後續 Nagaloka 田野。</p>
+</li>
+<li>
+<p>Day1 分場地稿補出 DTC 不只是建築，而是共同生活與訓練空間：首批/容量數字在 28、36 間混亂，需回聽；較穩的是「約 36 人共同訓練與生活」這條線。</p>
+</li>
 <li>廚房曾由學員輪值，兩人為全部人做飯；燃料曾包括瓦斯與煤炭。這是可寫入 CH07 的日常制度細節。</li>
 <li>達善曾住在其中一個宿舍房間；應追問他睡哪張床、室友是誰、夜間生活、洗衣與浴廁安排。這些比抽象「訓練中心」更能寫出制度如何進入身體生活。</li>
-<li><code>25 hostels</code>、<code>60 centres</code>、<code>80 community centres</code> 等數字在不同口述中有混用風險，需分清「當時 / 後來 / 全印度 / 單一組織」。</li>
-</ul>
-<p>🔵 <strong>【辦公室、Trust、圖書館與 archives 補入】</strong></p>
-<ul>
-<li>Lokamitra 舊辦公室在 Mahavihara / DTC 建築群中有具體位置：達善辦公室在斜對面，Lokamitra 桌旁有陽台，陽台邊有芒果樹。這一幕可作 CH10 的空間記憶。</li>
+<li>
+<p><code>25 hostels</code>、<code>60 centres</code>、<code>80 community centres</code> 等數字在不同口述中有混用風險，需分清「當時 / 後來 / 全印度 / 單一組織」。</p>
+</li>
+<li>
+<p>Lokamitra 舊辦公室在 Mahavihara / DTC 建築群中有具體位置：達善辦公室在斜對面，Lokamitra 桌旁有陽台，陽台邊有芒果樹。這一幕可作 CH10 的空間記憶。</p>
+</li>
 <li>TBMSG Pune 與 Bahujan Hitay 的辦公室曾共用；後來因政府法律與 trust 管理規範需要分離。此處不宜憑口述直接寫法律結論，應與 trust 文件核對。</li>
 <li>受訪者對 Lokamitra 的早期印象不是神化，而是 gratitude：一個從英國來的人住在這裡、與大家一起生活、教佛法、做 social work。</li>
 <li>願景句應保留：他要創造一個以 ethics 為基礎的 society，並幫助人們 spiritually and culturally grow。</li>
 <li>圖書館不只是藏書處，也像 reading room / study centre；藏書包括 Ambedkar writings and speeches、<em>The Buddha and His Dhamma</em>、Buddhayan / Buddhayan 雜誌、巴利文/佛教出版品。<code>Buddhayan</code> 拼字、出版年份與館藏清單待核。</li>
 <li>待安排 Archives Day：Day1 分場地稿中明確出現「full archives / lots of photographs」線索。這不等於照片已取得，只表示應排入後續工作。</li>
 </ul>
-<p>🟠 <strong>【去重與寫作警戒】</strong> 本節不是要把所有 Day1 逐字稿再貼一次，而是確保待匯入文字中的獨特內容已進入主稿：Maitreyanath 的生命史、DTC 共同生活、辦公室物理位置、Trust 分離、圖書館與 archives。已在 §4.6-§4.9 出現的 Mahavihara 建築、Benninger、禮誦書與土地許可，不重複改寫成新版本。</p>
+<p>本節不是要把所有 Day1 逐字稿再貼一次，而是確保待匯入文字中的獨特內容已進入主稿：Maitreyanath 的生命史、DTC 共同生活、辦公室物理位置、Trust 分離、圖書館與 archives。已在 §4.6-§4.9 出現的 Mahavihara 建築、Benninger、禮誦書與土地許可，不重複改寫成新版本。</p>
 <hr />
 <h2>七、待核清單</h2>
 <ul>
@@ -592,45 +548,32 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
         </article>
         
             
-        <article id="day-3" class="day-card">
+        <article id="card-3" class="day-card">
             <div class="day-header">
-                <h2>Day 1 現場敘事</h2>
+                <h2>Day 1：浦那 Manuski</h2>
                 <div class="day-date">2026年5月31日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: Day 1（5/31）Lokamitra 訪談作戰包 date: 2026-05-31 project: Lokamitra 自傳專案 sources: Feedback_Matrix_V3、郵件往來（4/12、4/24、5/1、5/27）、Tej Darshan 暫定行程、田野筆記</p>
-            </div>
             <div class="story-content">
-                <h1>田野筆記：浦那 · Manuski 中心 · Ambedkarite Buddhist 社區</h1>
-<blockquote>
-<p><strong>整理說明</strong>
-本檔由田野途中與 AI 的對話整理而成，已去重、合併重複論述。
-為維持田野資料的可信度，全文以三種標記嚴格區分素材來源：</p>
-<p>| 標記 | 含義 | 可信度 |
-|---|---|---|
-| 🟢 <strong>【現場觀察】</strong> | 你親眼所見、親耳所聞的第一手記錄 | 一手，高 |
-| 🔵 <strong>【訪談】</strong> | 受訪者原話與訪談逐字稿（含英文原文） | 一手，高 |
-| 🟠 <strong>【AI 延伸】</strong> | AI 的分析、推論、背景補充、定位判斷 | 二手，<strong>須查證</strong> |</p>
-<p>凡標 🟠 者，皆為待驗證的「假設」而非事實，寫入正式 SSOT 前須再核對。</p>
-</blockquote>
-<hr />
+                <hr />
 <h2>一、現場觀察（第一手）</h2>
 <h3>1.1 居住地點</h3>
-<p>🟢 <strong>【現場觀察】</strong>
-- 現居地址：<strong>Plot No. 3, Survey No. 247, 14B, Deccan College Rd, Pune, Maharashtra 411006</strong>，即 <strong>Manuski 中心（Manuski Centre）</strong> 所在。
-- 這一帶是<strong>達利特佛教徒（Dalit Buddhist）／安貝卡主義者（Ambedkarite）</strong>聚居的區域。
-- 街區有一面<strong>代表安貝卡博士的招牌，顏色是淺藍色</strong>。</p>
+<ul>
+<li>現居地址：<strong>Plot No. 3, Survey No. 247, 14B, Deccan College Rd, Pune, Maharashtra 411006</strong>，即 <strong>Manuski 中心（Manuski Centre）</strong> 所在。</li>
+<li>這一帶是<strong>達利特佛教徒（Dalit Buddhist）／安貝卡主義者（Ambedkarite）</strong>聚居的區域。</li>
+<li>街區有一面<strong>代表安貝卡博士的招牌，顏色是淺藍色</strong>。</li>
+</ul>
 <h3>1.2 環境感官</h3>
-<p>🟢 <strong>【現場觀察】</strong>
-- 鄰近馬路。<strong>到了半夜十一點多，外頭仍車水馬龍</strong>，能聽到不間斷的車聲。
-- 以印度的基礎建設來說，<strong>這裡還有很多尚未完工的地方</strong>，完善度有待加強。
-- 主觀感受：整體而言應該也算是一個不錯的地方。</p>
+<ul>
+<li>鄰近馬路。<strong>到了半夜十一點多，外頭仍車水馬龍</strong>，能聽到不間斷的車聲。</li>
+<li>以印度的基礎建設來說，<strong>這裡還有很多尚未完工的地方</strong>，完善度有待加強。</li>
+<li>主觀感受：整體而言應該也算是一個不錯的地方。</li>
+</ul>
 <h3>1.3 你提出的初步定位假設</h3>
-<p>🟢 <strong>【現場觀察／你的提問】</strong>
-- 浦那是馬哈拉施特拉邦僅次於孟買的第二大城。
-- 直覺判斷：這裡「有點像中國一線城市旁邊的『城中村』或城郊」。
-- 待確認的問題：這個比喻準不準？這裡在浦那城區裡到底是什麼位置？</p>
+<ul>
+<li>浦那是馬哈拉施特拉邦僅次於孟買的第二大城。</li>
+<li>直覺判斷：這裡「有點像中國一線城市旁邊的『城中村』或城郊」。</li>
+<li>待確認的問題：這個比喻準不準？這裡在浦那城區裡到底是什麼位置？</li>
+</ul>
 <h3>1.4 地理定位與城市性質（延伸分析；關鍵事實已查證 ≥90%）</h3>
 <blockquote>
 <p>✅ <strong>查證狀態</strong>：下列地理與史實已由 Grok 即時搜尋查證（2026-05-31），可信度 90–95%，來源見本節末。判斷性、詮釋性的句子仍屬 🟠 推論。</p>
@@ -654,27 +597,26 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <blockquote>
 <p>👤 <strong>受訪者身份（2026-05-31 確認）</strong>：本章 §2.1–§2.3 的受訪者為 <strong>達善（Tej Darshan）</strong>——Lokamitra 的秘書（1996 年中期任命、旅英 17 年後回歸）、Manuski 核心成員、Jambudvipa Trust 執行董事。聰明、沉穩、言談有料。其個人生命史待補（見待問清單 🟢）。</p>
 </blockquote>
-<p>🔵 <strong>【訪談・達善 Tej Darshan】</strong> 他說宗教實踐與社會服務的結合，正是安貝卡（Ambedkar）追隨者的特質：</p>
+<p>他說宗教實踐與社會服務的結合，正是安貝卡（Ambedkar）追隨者的特質：</p>
 <ol>
 <li><strong>探究本源</strong>：他們在進行宗教學習時，本來就被鼓勵要探究問題的本源，而不只是跟隨上師或經典，所以也更容易進行社會參與。</li>
 <li><strong>慈悲心（Passion／Compassion）</strong>：佛教本身就有一種 Passion，看到別人的難過，還是會伸出援手。</li>
 <li><strong>互助抗爭</strong>：他們長期受到打壓、被欺負時，會互助並一起站出來進行抗爭。</li>
 </ol>
-<p>🟢 <strong>【現場觀察】</strong> 你補充判斷：這三點確實也是這個社群的特色。</p>
-<p>🟠→✅ <strong>延伸說明（宗教社會學脈絡；其中歷史事實已查證 ≥90%）</strong>：這三特質可對應一條清楚的行動邏輯——
+<p>你補充判斷：這三點確實也是這個社群的特色。</p>
+<p>→✅ <strong>延伸說明（宗教社會學脈絡；其中歷史事實已查證 ≥90%）</strong>：這三特質可對應一條清楚的行動邏輯——
 - <strong>① 探究本源 → 方法論（怎麼想）</strong>：傳統佛教（南傳、藏傳）較強調依止上師、依循經典、個人內觀；而 Ambedkar 在 1956 年帶領約 50 萬人於那格浦爾 Deekshabhoomi 集體改宗時（✅ 95%），特別強調<strong>批判性思考與社會分析</strong>，把佛教重釋為「<strong>解放的工具</strong>」，鼓勵信眾探究苦的<strong>社會根源</strong>（種姓、結構性不平等），而非只停在個人業力或內心。這讓工作人員更容易把宗教學習轉成社會服務與行動。
 - <strong>② 慈悲心 → 情感驅動力（為何做）</strong>：佛教本有「慈悲」（karuṇā）核心；在 Ambedkarite 脈絡下被進一步<strong>政治化與集體化</strong>——不只是個人柔軟，而是對受壓迫群體的<strong>集體關懷與行動</strong>，成為一種<strong>社群倫理</strong>，也解釋了 Manuski 為何同時做教育、宿舍、社會服務。
 - <strong>③ 互助抗爭 → 實踐形式（怎麼一起做）</strong>：Ambedkar 在《佛陀與他的教法》（<em>The Buddha and His Dhamma</em>）強調<strong>自由、平等、博愛</strong>與理性（✅ 95%）；由於 Dalit 長期受種姓壓迫，「互助」與「集體抗爭」成為重要的<strong>生存策略與宗教實踐</strong>。
 - <strong>三者合一（🟠 詮釋）</strong>：探究本源（怎麼想）＋慈悲心（為何做）＋互助抗爭（怎麼一起做），使 Ambedkarite Buddhism 比傳統佛教更具<strong>社會轉化性</strong>——這正解釋了為何此社群的宗教實踐與社會服務如此緊密結合。</p>
 <h3>2.2 受訪者談「自然而然的行動」與千手千眼觀音</h3>
-<p>🔵 <strong>【訪談／受訪者觀點】</strong>
-受訪者認為，<strong>佛教徒並不是為了要做什麼、成為什麼，而是自然而然發生的</strong>。佛教徒看到了這些苦難，憑藉自己的智慧能夠分辨並有所作為，於是就行動了；他認為這才是主因。</p>
+<p>受訪者認為，<strong>佛教徒並不是為了要做什麼、成為什麼，而是自然而然發生的</strong>。佛教徒看到了這些苦難，憑藉自己的智慧能夠分辨並有所作為，於是就行動了；他認為這才是主因。</p>
 <ul>
 <li>當被問到自己究竟更像社會工作者、佛教弘法者，還是宗教行政工作者時，他<strong>不接受這個區分</strong>——在他看來，這些身份本來就無法分開。</li>
 <li>佛教徒不是先決定要成為某一種人才去行動，而是<strong>因為看見了苦，不能對苦無動於衷，行動便自然發生</strong>。</li>
 <li>這也是他理解 Ambedkarite Buddhists 的方式：他們常在社會不公面前第一個站出來，不只因為某種政治身份，而是因為<strong>教育使他們更能分辨不義，佛法使他們更不能忍受眾生受苦</strong>。</li>
 </ul>
-<p>🔵 <strong>【訪談／受訪者使用的比喻】</strong> 他用<strong>千手千眼觀音</strong>作比喻：
+<p>他用<strong>千手千眼觀音</strong>作比喻：
 - 觀音有無數的眼睛，觀看四方眾生的苦；也有無數的手，伸出去救助受難者。對他而言，這不是遙遠的神話，而是佛教徒應有的生命姿態：<strong>要能看見苦，也要能伸手做事</strong>。
 - 他還說：當人<strong>雙手合十</strong>時，手不只是祈禱的姿勢。手心中的眼睛提醒人回看自己的內心，也觀看外在世界；雙手本身則提醒人，慈悲不能停在感受或語言裡，還必須變成實際的幫助。</p>
 <blockquote>
@@ -683,7 +625,6 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 但「雙手合十時手心的眼睛提醒觀照內外並行動」這一句，<strong>應視為受訪者的當代詮釋／教學性說法</strong>，不可直接寫成傳統經典原意。觀音信仰屬東亞大乘脈絡，與印度 Ambedkarite Buddhist 脈絡需分清，勿混為一談。</p>
 </blockquote>
 <h3>2.3 訪談逐字稿：禪修後的 Dhamma talk 與「改宗」</h3>
-<p>🔵 <strong>【訪談 · 逐字原文（ASR 轉錄，未潤飾，供查核）】</strong></p>
 <blockquote>
 <p>This meditation after them and the Lama Ra. What is that? The speech talk on Buddhism. Okay, okay. Is it like prayer? No, it is a speech on various like Pali verses or anything, various topics. Just like what is the Buddha's teaching? By the books, like by the Bible, Buddhist and Bible. Yeah. I got it. From Dhammapada. Yes. Or any books or any topics. Just choose a topic by yourself and just read it out. That's right. Okay. How does people here, they switch their religions? Is there any new coming here? [...] Today also new people come. But before then, they are claiming maybe Hinduism. [...] But if they come here, how did they make a living? [...] when they realize the Buddha's teaching, which is useful for them, for their development, or their peace of mind [...] then they start coming here. And then they learn the Dhamma, they learn the meditation [...] they start reflecting, and then they come in a contact with good people who's practicing Buddhism. And they get impressed by it. They think, oh, these are the good people. They are ethical people [...] they don't hate each other.</p>
 <p>So, is there any people that they once believe in Buddhism, then they come back to the original religion and back and forth [...] Because there must be stress [...] based on their family [...] if one person comes, not necessarily their family is accepted. But [...] then they see the changes. That is the model. And then his family will accept. [...] Then they start bringing their families also [...] Their mother, father, wife, brother, and neighbor.</p>
@@ -691,15 +632,14 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <p>But is there any violence or some conflict here in this district? Well, yeah, the people do get upset, their families. It's not easy. [...] sometimes people also think, oh, if you don't follow this, you may go to hell after death. [...] They will drag the whole family back to the hell if you don't believe in the caste system.</p>
 <p>So what happened, most of the lower caste people suffered because of the casteism. Most of them could get converted, and now these days, the people are very, very educated who are in the IT field. [...] they have stress. So they want a peace of mind. [...] So that is the another sort of people come to the Buddhism. They get attracted to the Buddha. It's growing very fast. [...] The 55 billion people to believe in Buddhism in 1966. [...] May I get the tea, please?</p>
 </blockquote>
-<p>🔵 <strong>【訪談重點整理（源自上文逐字稿，措辭經整理）】</strong></p>
 <ul>
 <li><strong>「Dhamma talk」是什麼</strong>：禪修之後的那段不是 prayer（祈禱），而是<strong>佛法開示／誦讀／分享</strong>。內容可來自《法句經》（Dhammapada）或其他佛教書籍，由講者自選主題讀出、講出，讓大家理解佛陀教法。</li>
 <li><strong>人們如何轉向佛教</strong>：許多人原本被歸類為印度教徒（Hinduism），受種姓制度壓迫；接觸佛法後，發現它對生活、內心和平、人格發展有幫助，便開始前來學習禪修與佛法。</li>
 <li><strong>轉向的四個拉力</strong>：
-  1. <strong>想擺脫種姓制度</strong>——種姓對低種姓者而言「像地獄（hell）」，沒有平等；佛教給他們一條走出壓迫的路。
-  2. <strong>佛法實用</strong>——學 Dhamma、禪修，對生活與內心安定有幫助。
-  3. <strong>社群吸引力</strong>——接觸到修行佛法的人，發現他們有倫理、不互相仇恨，因而受感動。
-  4. <strong>新族群加入</strong>——不只受種姓壓迫者；現在也有<strong>受過教育、在 IT 業工作</strong>的人，因壓力大、想尋求內心安定（peace of mind）而被佛教吸引。</li>
+1. <strong>想擺脫種姓制度</strong>——種姓對低種姓者而言「像地獄（hell）」，沒有平等；佛教給他們一條走出壓迫的路。
+2. <strong>佛法實用</strong>——學 Dhamma、禪修，對生活與內心安定有幫助。
+3. <strong>社群吸引力</strong>——接觸到修行佛法的人，發現他們有倫理、不互相仇恨，因而受感動。
+4. <strong>新族群加入</strong>——不只受種姓壓迫者；現在也有<strong>受過教育、在 IT 業工作</strong>的人，因壓力大、想尋求內心安定（peace of mind）而被佛教吸引。</li>
 <li><strong>家庭壓力與「來回改宗」</strong>：不是每個家庭一開始都接受；家人若看到這個人變好（see the changes），可能跟著接受，後來甚至帶母親、父親、妻子、兄弟、鄰居一起來。家庭間確有張力（「不信就會下地獄／拖累全家」之類的說法）。</li>
 <li><strong>核心觀察（最值得保留的一句）</strong>：對這裡的人來說，<strong>佛教首先不是被當成抽象哲學，而是被當成走出種姓羞辱、家庭恐懼與心理壓力的出路</strong>。人們前來，是因為看見別人身上可見的改變——更平靜、更有尊嚴、更合倫理，以及一種不同的社群。因此改宗是<strong>漸進的、關係性的、實用的</strong>，而非單純教義上的。</li>
 </ul>
@@ -707,26 +647,23 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <p>⚠️ <strong>查證註記（🟠 AI 提醒）</strong>：逐字稿末「The 55 billion people to believe in Buddhism in 1966」明顯是 ASR 誤聽或受訪者口誤（全球人口都不到 55 億；1966 年更不可能）。<strong>待向受訪者確認原意</strong>——Grok 查證（2026-05-31，90%）：1966 年全球人口僅約 34 億，此數字明顯有誤；最可能指 1956 年 Ambedkar 在那格浦爾帶動的改宗規模（約 50 萬人），或誤記為全印佛教徒人數。</p>
 </blockquote>
 <h3>2.3.1 待匯入文字整併：集體改宗、城鄉壓力與 Ambedkarite 公民行動</h3>
-<blockquote>
-<p><strong>整併狀態（2026-06-03）</strong>：本節吸收後續對話整理稿中的可用文字內容。該批材料不是重新聽打原音訊，仍需回聽；但其主題足以補強本日 Manuski 訪談的第一手線索。這裡只整併內容，不另把待匯入 Markdown / zip 檔作為專案資料副本保存。</p>
-</blockquote>
-<p>🔵 <strong>【訪談補入】</strong> 關於 conversion，受訪者補出幾層制度與社會壓力：</p>
+<p>關於 conversion，受訪者補出幾層制度與社會壓力：</p>
 <ul>
 <li><strong>集體改宗形式</strong>：有時不是個人單獨改宗，而是 500 人、1,000 人左右一起改宗。此數字先視為受訪者口述範圍，不作統計事實。</li>
 <li><strong>登記與自願聲明</strong>：受訪者提到近年政府曾要求改宗者書面聲明不是被強迫，而是出於自己的意願。這與印度憲法宗教自由、以及社會層面的疑慮並存。</li>
 <li><strong>城市與村莊差異</strong>：在 Pune、Mumbai 等大城市，宗教身分較不容易被整個社群盯住；在村莊中，誰改宗更容易被鄰里知道，社會壓力更強。受訪者口述中也提到 village / town / district 的分級，但其人口與家庭數應再核。</li>
 <li><strong>政治比例不可硬寫</strong>：受訪者估計 Maharashtra 的 Buddhists / Ambedkarites 約 8-10%；正式寫作前必須用 Census 或研究資料核對，不能直接當客觀數字。</li>
 </ul>
-<p>🔵 <strong>【訪談補入】</strong> 受訪者把 Ambedkarite Buddhist 的「覺醒」連到三個行動面：</p>
+<p>受訪者把 Ambedkarite Buddhist 的「覺醒」連到三個行動面：</p>
 <ul>
 <li><strong>Kalama Sutta / questioning</strong>：他用 Kālāma Sutta 說明不要只因傳統、經典、老師、guru、monk，甚至 Buddha 本人而盲信；必須提問、檢驗，判斷它是否對自己與社會有益。</li>
 <li><strong>Ambedkar 的教育哲學</strong>：受訪者說 Ambedkar 要 followers 重視 libraries、schools、colleges，而不是只建 temples。這是受訪者現場觀點，可寫作為 Ambedkarite Buddhist 對教育的理解。</li>
 <li><strong>公共行動</strong>：遇到 atrocity 或水電、垃圾、環境等公共問題，Ambedkar followers 會上街抗議，因為他們更 aware、更受教育、也更懂得要求合理權利。這應寫成「受訪者觀察中的 Ambedkarite 社群特徵」，不擴大成所有印度人的通則。</li>
 </ul>
-<p>🟠 <strong>【寫作用法】</strong> 這段可補強 §2.4 的五層結構：conversion 不是換宗教標籤，而是從村莊監控、種姓記名、權威盲從與家庭恐懼中，移向教育、提問、城市互助與公共行動。城市中的 Ambedkar Nagar / Buddha Nagar / Siddhartha Nagar 等地名，不只是地理名，而是社群安全感與公共記憶的標記。</p>
+<p>這段可補強 §2.4 的五層結構：conversion 不是換宗教標籤，而是從村莊監控、種姓記名、權威盲從與家庭恐懼中，移向教育、提問、城市互助與公共行動。城市中的 Ambedkar Nagar / Buddha Nagar / Siddhartha Nagar 等地名，不只是地理名，而是社群安全感與公共記憶的標記。</p>
 <h3>2.3.2 待匯入文字整併：早餐、Sujātā 與 dāna</h3>
-<p>🔵 <strong>【生活場景補入】</strong> 後續整理稿中另有早餐片段：用餐現場談到 porridge、rice pudding / milk-rice，受訪者開玩笑說吃了之後「快要開悟」，並連到佛陀放棄苦行後接受 Sujātā 供養乳糜的故事。現場也出現 karma / dharma / dāna 的語義混淆。</p>
-<p>🟠 <strong>【寫作用法】</strong> 這段不宜寫成嚴肅教義討論，而是很好的人情與日常入口：佛教典故不是只在課堂或書本裡，也會在早餐桌邊，以玩笑、食物與供養語彙自然冒出來。若正式引用，食物供養較精準的佛教詞應補註為 <strong>dāna</strong>；Sujātā / milk-rice 的具體食物名稱仍需回聽或問主人確認。</p>
+<p>後續整理稿中另有早餐片段：用餐現場談到 porridge、rice pudding / milk-rice，受訪者開玩笑說吃了之後「快要開悟」，並連到佛陀放棄苦行後接受 Sujātā 供養乳糜的故事。現場也出現 karma / dharma / dāna 的語義混淆。</p>
+<p>這段不宜寫成嚴肅教義討論，而是很好的人情與日常入口：佛教典故不是只在課堂或書本裡，也會在早餐桌邊，以玩笑、食物與供養語彙自然冒出來。若正式引用，食物供養較精準的佛教詞應補註為 <strong>dāna</strong>；Sujātā / milk-rice 的具體食物名稱仍需回聽或問主人確認。</p>
 <h3>2.4 綜合：這套「解放敘事系統」的五層結構（AI 歸納）</h3>
 <blockquote>
 <p>🟠 這是 AI 把 §2.1–§2.3 訪談歸納出的一條行動邏輯，作為理解整段訪談的「總鑰匙」。屬<strong>詮釋框架</strong>，非事實宣稱；其中引用的史實（Kalama Sutta、Ambedkar 改宗）已查證 ≥90%。</p>
@@ -743,8 +680,8 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 </blockquote>
 <hr />
 <h2>三、專業詞彙與典故對照表</h2>
-<p>🔵 <strong>【詞彙來源】</strong> 下列詞彙皆<strong>在訪談現場出現</strong>（你親耳聽到、或受訪者使用）。
-🟠 <strong>【解釋來源】</strong> 「再詮釋」與「查證註記」兩欄為 <strong>AI 整理的背景知識與提醒，須查證</strong>；尤其要分清「傳統佛教語義」與「Ambedkarite Buddhist 的當代再詮釋」這兩層。</p>
+<p>下列詞彙皆<strong>在訪談現場出現</strong>（你親耳聽到、或受訪者使用）。
+「再詮釋」與「查證註記」兩欄為 <strong>AI 整理的背景知識與提醒，須查證</strong>；尤其要分清「傳統佛教語義」與「Ambedkarite Buddhist 的當代再詮釋」這兩層。</p>
 <blockquote>
 <p><strong>總綱（AI 觀察，🟠）</strong>：受訪者使用的不是單純宗教詞，而是一整套 <strong>Ambedkarite Buddhist 的「解放敘事系統」</strong>——把佛教詞彙、種姓現實、Ambedkar 的社會改革、城市遷徙、教育、抗議、公民意識連在一起。它的特徵是：把個人修行轉化為集體解放、強調理性檢驗而非盲信、宗教空間的功能從「禮拜」轉為「覺醒與組織」。</p>
 </blockquote>
@@ -755,16 +692,16 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <li><strong>Dhamma / Dharma</strong>（法、佛法）：佛法、真理、道德秩序，不是抽象信仰，而是<strong>解苦的方法、社會倫理、人如何正確共同生活的方式</strong>，受訪者把 Dhamma 直接連到教育、抗議、公共問題</li>
 <li><strong>Dāna</strong>（布施／供養）：出於善意、信仰、功德而給予食物、場所、資源，早餐「有人 sponsor」其實是 dāna，屬 Dhamma practice 一部分，勿只譯「贊助」；「供養」較貼佛教語境</li>
 <li><strong>Karma / Kamma</strong>（業）：行為與其後果；因果，重點<strong>不是前世命運論</strong>，而是「<strong>人的行動形塑人的生命</strong>」——不把人生交給神明、儀式、命運，與 Ambedkar 反對「長期向印度教神祇做 ritual 卻什麼都沒改變」的立場一致</li>
-<li><strong>Mano-vijñāṇa / Mano-viññāṇa</strong>（心識／意識）：傳統佛教心理學中「識」的一層（意識），受訪者借以說明「<strong>心會不斷分別</strong>」——種姓不只是外在制度，也是<strong>被訓練出來的分別習慣（內化的歧視）</strong>，⚠️ 你聽到的 "your mind discriminates" 應為 mano-vijñāṇa；<strong>勿寫成「佛教說 manovijnana 就是歧視」</strong>，這是當代詮釋</li>
+<li><strong>Mano-vijñāṇa / Mano-viññāṇa</strong>（心識／意識）：傳統佛教心理學中「識」的一層（意識），受訪者借以說明「<strong>心會不斷分別</strong>」——種姓不只是外在制度，也是<strong>被訓練出來的分別習慣（內化的歧視）</strong>，️ 你聽到的 "your mind discriminates" 應為 mano-vijñāṇa；<strong>勿寫成「佛教說 manovijnana 就是歧視」</strong>，這是當代詮釋</li>
 <li><strong>Atrocity</strong>（暴行）：（非佛教詞），印度語境中特指<strong>針對 Dalit／低種姓／弱勢的暴力、羞辱、排斥、侵權</strong>，受訪者說 Ambedkarites 遇 atrocity 會上街——把暴行變成公共事件。勿譯成普通「壞事」</li>
 <li><strong>Ambedkarite / Ambedkarite Buddhist</strong>：追隨 Dr. B. R. Ambedkar 思想的人；馬邦 Dalit Buddhist 運動的重要身份，不只是「信佛的人」，還包含受教育、反種姓、重視憲法權利、願意公共行動，不是每個 Ambedkarite 都是佛教徒。受訪者說的 "aware" 宜譯「覺醒／權利意識／公民意識／能辨認不義」</li>
-<li><strong>Navayana</strong>（新乘）：常指 Ambedkar 發展的現代印度佛教路線（亦稱 Neo-Buddhism），以平等、教育、理性檢驗為核心的佛教重釋，⚠️ <strong>寫 Lokamitra 傳記時謹慎使用此詞</strong>——Ambedkar 本人使用此詞的情況需謹慎處理；宜改寫為「Ambedkarite Buddhism／受安貝卡啟發的佛教復興」</li>
+<li><strong>Navayana</strong>（新乘）：常指 Ambedkar 發展的現代印度佛教路線（亦稱 Neo-Buddhism），以平等、教育、理性檢驗為核心的佛教重釋，️ <strong>寫 Lokamitra 傳記時謹慎使用此詞</strong>——Ambedkar 本人使用此詞的情況需謹慎處理；宜改寫為「Ambedkarite Buddhism／受安貝卡啟發的佛教復興」</li>
 <li><strong>Deekshabhoomi / Dhamma Diksha</strong>：1956 年 Ambedkar 於那格浦爾改宗佛教的地點／皈依儀式，集體皈依成為運動形式：<strong>個人不是孤單改宗，而是與群體一起離開種姓身份</strong>，受訪者談「500、1000 人一起 conversion」即繼承此集體解放模式</li>
 <li><strong>Jay Bhim</strong>（致敬語）：Bhim 指 Bhimrao Ramji Ambedkar；Jay 意為勝利／致敬，「向 Bhim 致敬／平等與解放萬歲」的問候或口號，Jay Bhim Nagar = 以 Ambedkar 精神命名的社區</li>
 <li><strong>Nagar</strong>（城／區／社區）：印度地名常見字尾，Ambedkar Nagar、Buddha Nagar、Ramabai Nagar 等是 <strong>Ambedkarite 的地景記憶</strong>：住處也要記得精神譜系，—</li>
 <li><strong>精神家族</strong>：Buddha、Saint Kabir、Mahatma Phule、Shahu (Maharaj)、Ramabai：佛陀；中世紀反形式主義詩人聖者；19 世紀反婆羅門／重教育改革者；馬邦反種姓教育改革者；Ambedkar 之妻，把 Ambedkar 放進一條<strong>更長的反種姓、教育、平等、社會改革傳統</strong>裡，Ramabai 一般指 Ramabai Ambedkar</li>
 <li><strong>Sujātā / milk-rice</strong>（善生女供養乳糜）：善生女供養悉達多乳糜（kheer），使其從苦行恢復、走向中道，餐桌上的文化連結：吃到甜粥／米布丁時，被開玩笑說「快開悟了」，此處非嚴肅教義，屬生活化敘事</li>
-<li><strong>千手千眼觀音</strong>（Sahasrabhuja Sahasranetra Avalokiteśvara）：每隻手掌中有一眼，眼見苦、手救苦，見 <a href="#22-受訪者談自然而然的行動與千手千眼觀音">2.2</a>，⚠️ 「合十時手心眼提醒觀內外並行動」是受訪者當代詮釋，非經典原意</li>
+<li><strong>千手千眼觀音</strong>（Sahasrabhuja Sahasranetra Avalokiteśvara）：每隻手掌中有一眼，眼見苦、手救苦，見 <a href="#22-受訪者談自然而然的行動與千手千眼觀音">2.2</a>，️ 「合十時手心眼提醒觀內外並行動」是受訪者當代詮釋，非經典原意</li>
 <li><strong>儀式觀</strong>（Prayer / Ritual / Offering flowers）：—，受訪者<strong>不反對所有儀式，而是反對「盲目的儀式」</strong>：不知意義、用以求神保佑、取代理解與行動、掩蓋社會不義，立場：儀式可存在，但須被理解，理解後要回到行動</li>
 </ul>
 <hr />
@@ -774,17 +711,17 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 三主題：①印度傳統早餐／日常飲食 ②傳統農村生活 ③網路與智慧手機如何改變印度。</p>
 </blockquote>
 <h3>主題一：早餐（Poha／扁米片）</h3>
-<p>🔵 <strong>【訪談】</strong> 問到 rice flakes（扁米／薄米片）。他說：「<em>Rice flakes are cooked with spices and vegetables.</em>」</p>
-<p>🟠 <strong>【AI 延伸·待查證】</strong> 這道菜印度通常叫 <strong>Poha（पोहे）</strong>，印度西部、中部極常見的早餐；常加洋蔥、馬鈴薯、辣椒、薑黃、芥菜籽、花生；外觀像炒飯，實為炒過的米片。</p>
+<p>問到 rice flakes（扁米／薄米片）。他說：「<em>Rice flakes are cooked with spices and vegetables.</em>」</p>
+<p>這道菜印度通常叫 <strong>Poha（पोहे）</strong>，印度西部、中部極常見的早餐；常加洋蔥、馬鈴薯、辣椒、薑黃、芥菜籽、花生；外觀像炒飯，實為炒過的米片。</p>
 <h3>主題二：傳統農村生活（約 30–50 年前的典型一天）</h3>
-<p>🔵 <strong>【訪談】</strong> 他描述的作息：凌晨 <strong>4 點起床</strong> → 趁不熱下田 → 約 8 點家人送早餐到田裡 → 續工作 → 下午 1 點回家午餐＋午休 → 傍晚收工 → 晚上 7–8 點就寢。關鍵原因：<strong>因為太熱</strong>。</p>
-<p>🟠 <strong>【AI 延伸】</strong> 這與歐洲／中國北方不同：印度許多地區夏天白天超過 40°C，農民把工作壓縮到清晨。對照你 §1.2 現場觀察的高溫，這條「熱主導生活節奏」是貫穿達利特農村→城市生活史的線索。</p>
+<p>他描述的作息：凌晨 <strong>4 點起床</strong> → 趁不熱下田 → 約 8 點家人送早餐到田裡 → 續工作 → 下午 1 點回家午餐＋午休 → 傍晚收工 → 晚上 7–8 點就寢。關鍵原因：<strong>因為太熱</strong>。</p>
+<p>這與歐洲／中國北方不同：印度許多地區夏天白天超過 40°C，農民把工作壓縮到清晨。對照你 §1.2 現場觀察的高溫，這條「熱主導生活節奏」是貫穿達利特農村→城市生活史的線索。</p>
 <h3>主題三：什麼最改變了印度</h3>
-<p>🔵 <strong>【訪談】</strong> 問：「<em>What changed India the most?</em>」他的回答很明確：「<strong>The internet has changed everything.</strong>」並補充：「<strong>Mobile phone internet.</strong>」——不是電腦，是智慧手機。他還用一句濃縮現代都市的一天：「<em>Get up, exercise, breakfast, office, WhatsApp, home.</em>」</p>
-<p>🔵 <strong>【訪談】</strong> 學校兩班制：問「<em>Why are there two shifts?</em>」答：「<strong>Because there are too many students.</strong>」（上午班 7:00／下午班 12:00 共用同一校舍，提高教室使用率。）</p>
-<p>🟠 <strong>【AI 延伸·待查證】</strong> 印度許多家庭沒電腦、沒固定網路，卻直接跳到 Android 手機＋4G＋WhatsApp，常被稱為 <strong>mobile-first society</strong>（第一個上網設備就是手機），符合近二十年印度發展史。</p>
+<p>問：「<em>What changed India the most?</em>」他的回答很明確：「<strong>The internet has changed everything.</strong>」並補充：「<strong>Mobile phone internet.</strong>」——不是電腦，是智慧手機。他還用一句濃縮現代都市的一天：「<em>Get up, exercise, breakfast, office, WhatsApp, home.</em>」</p>
+<p>學校兩班制：問「<em>Why are there two shifts?</em>」答：「<strong>Because there are too many students.</strong>」（上午班 7:00／下午班 12:00 共用同一校舍，提高教室使用率。）</p>
+<p>印度許多家庭沒電腦、沒固定網路，卻直接跳到 Android 手機＋4G＋WhatsApp，常被稱為 <strong>mobile-first society</strong>（第一個上網設備就是手機），符合近二十年印度發展史。</p>
 <h3>🔑 對傳記的核心洞察（AI，建議納入）</h3>
-<p>🟠 受訪者那句「<em>The internet has changed everything</em>」表面談科技，實則描述<strong>印度從農業節奏轉為都市節奏</strong>。可作為書寫達利特社群／Lokamitra 生活史的切入點：</p>
+<p>受訪者那句「<em>The internet has changed everything</em>」表面談科技，實則描述<strong>印度從農業節奏轉為都市節奏</strong>。可作為書寫達利特社群／Lokamitra 生活史的切入點：</p>
 <blockquote>
 <p><strong>過去改變印度的是季風，現在改變印度的是手機訊號。</strong></p>
 </blockquote>
@@ -805,18 +742,13 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
         </article>
         
             
-        <article id="day-4" class="day-card">
+        <article id="card-4" class="day-card">
             <div class="day-header">
-                <h2>Day 2 現場敘事</h2>
+                <h2>Day 2：Jeevak與Dapodi上午觀察</h2>
                 <div class="day-date">2026年6月1日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: Day 2（6/1）訪談作戰包 — Jeevak · Dapodi 貧民區 · 女生宿舍 date: 2026-06-01 project: Lokamitra 自傳專案 sources:</p>
-            </div>
             <div class="story-content">
-                <h1>田野調查記錄：Jeevak、Dapodi 與 Bahujan Hitay 女生宿舍</h1>
-<blockquote>
+                <blockquote>
 <p>本檔是 2026-06-01 田野材料的完整整理入口。目標不是摘要，而是讓後續寫作、查證與章節回填時，不必再回看 ChatGPT 分享頁即可掌握細節。</p>
 <p>核心原則：凡能由專案內 SSOT、既有田野檔、原始訪談文字或可靠外部初核支持者，標明來源狀態；凡只來自照片 OCR、AI 即時推測、聽寫不穩或單一口述數字者，不升格為已核事實。</p>
 </blockquote>
@@ -1082,7 +1014,6 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 </ul>
 <h3>9.8 待匯入 Lokamitra merged 訪談補入：Dharma work、Jeevak 起源與 1995 轉折</h3>
 <p><code>Lokamitra_interviews_transcripts_merged_2026-06-03.md</code> 補出一條比 §9.7 更精確的 Lokamitra 自我校正線。這段可視為 Day2 Jeevak 材料的高優先補證，但仍需回聽。</p>
-<p>🔵 <strong>【Lokamitra 口述補入】</strong></p>
 <ul>
 <li><strong>Jivaka / Jeevak 命名</strong>：Lokamitra 說 Jivaka 是佛陀時代的醫師，與 Buddha 相近，住在 Rajagriha 一帶；不是印度教醫神。此處專名 Jivaka / Jīvaka、Rajagriha、Bimbisara、Ajātaśatru 需按正式拼法核對。</li>
 <li><strong>起點不是「先社工」</strong>：他說早期從 Buddhist teaching / Dharma work 開始，包括 classes、retreats、lectures、publications；社會工作是佛法實踐的 expression。</li>
@@ -1094,7 +1025,7 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <li><strong>地方責任與行政敏感度</strong>：他警覺大組織容易讓中心不了解 field needs，也容易讓 field workers 失去自由與責任感。因此後來更傾向鼓勵、訓練、找 grant，而不是親自 run every project。</li>
 <li><strong>非階層關係</strong>：他明確說不必把 Dharma work 與 social work 看成 step one / step two 或 hierarchical。真正的 social transformation 在於 Buddhist work / transformation of the mind；社會工作是對某個具體困難的回應。Dharma classes、retreat centre、Dharma drama、publications 也都可以是 contribution。</li>
 </ul>
-<p>🟠 <strong>【寫作修正】</strong> 正文不要寫成「Lokamitra 先做宗教，後來轉去做社福」，也不要寫成「社福才是他的真正工作」。較準確寫法是：佛法工作改變心與態度，社會工作則是這種轉化在具體需要面前的表現；不同地方、不同人、不同能力會長出不同形式。</p>
+<p>正文不要寫成「Lokamitra 先做宗教，後來轉去做社福」，也不要寫成「社福才是他的真正工作」。較準確寫法是：佛法工作改變心與態度，社會工作則是這種轉化在具體需要面前的表現；不同地方、不同人、不同能力會長出不同形式。</p>
 <hr />
 <h2>10. Jeevak 的空間史：building、foundation stone、open land 與 institutional field</h2>
 <h3>10.1 Foundation stone</h3>
@@ -1808,18 +1739,13 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
         </article>
         
             
-        <article id="day-5" class="day-card">
+        <article id="card-5" class="day-card">
             <div class="day-header">
-                <h2>Day 3 現場敘事</h2>
+                <h2>Day 3：Vishaka與家庭對談</h2>
                 <div class="day-date">2026年6月2日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: 晚餐版（6/2）家庭提問清單 — Lokamitra 家宴 date: 2026-06-02 project: Lokamitra 自傳專案 sources:</p>
-            </div>
             <div class="story-content">
-                <h1>田野筆記：晚餐家庭對談，比沙卡與安貝卡社區</h1>
-<blockquote>
+                <blockquote>
 <p>這份筆記不是晚餐提問清單的重複，也不是 AGY 候選稿的摘要。它把 2026-06-02 晚上家宴中的對話，依照專案 Glossary 與既有手稿重新校正，整理為可回填章節、可轉入待核清單、也可避免重複提問的田野 SSOT 草稿。</p>
 </blockquote>
 <h2>2. 晚餐對談回答了哪些原提問</h2>
@@ -1908,18 +1834,13 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
         </article>
         
             
-        <article id="day-6" class="day-card">
+        <article id="card-6" class="day-card">
             <div class="day-header">
-                <h2>Day 3 現場敘事</h2>
+                <h2>Day 3：下午晚餐前 DapodiSlum Jeevak PuneUniversity AmbedkarMuseum</h2>
                 <div class="day-date">2026年6月2日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: 晚餐版（6/2）家庭提問清單 — Lokamitra 家宴 date: 2026-06-02 project: Lokamitra 自傳專案 sources:</p>
-            </div>
             <div class="story-content">
-                <h1>田野筆記：下午晚餐前 — Dapodi slum、Jeevak 舊服務點、浦那大學與 Ambedkar Museum</h1>
-<blockquote>
+                <blockquote>
 <p>本檔整理 2026-06-02 下午至晚餐前的 Dapodi slum / Jeevak 服務點走訪、浦那大學路線觀察、Ambedkar Museum 展示與後續城市對照。目的不是摘要，而是建立完整可回查的下午田野入口。</p>
 <p>本日核心：6/1 看見 Jeevak 工作「如何長出來」；6/2 看見那些工作如何在 slum、study class、public toilet、water tank、Vihara、Jai Bhim、Pune University 與 Ambedkar Museum 的現場被驗證。</p>
 </blockquote>
@@ -2006,7 +1927,7 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <li>99 中文田野心得補充：slum 與台灣部落家訪對照、找到需要、浦那大學階層對照、Museum 物件保存感、雨季橋洞，§11.3、§13、§15、§18、§25</li>
 <li>100 術語表 / 本地詞：Jai Bhim、Bauddha、Jeevak、Kondhanpur、Samta Sainik Dal、Gazette 等詞彙提醒，§3、§28；正式術語仍回填 SSOT Glossary</li>
 </ul>
-<p>🟠 <strong>去重判斷</strong>：此 zip 的 17 個分站稿與本主稿內容高度重疊，應視為本日主稿的拆分來源之一，而不是新增第六篇 Day3 筆記。真正補強的是「分站完整性」：確保從 slum 初入、Jeevak、水/廁所、家訪、study class、住房、Pune University 到 Ambedkar Museum，再到雨季帳篷，都已在一篇下午主稿中按時間與地點承接。</p>
+<p><strong>去重判斷</strong>：此 zip 的 17 個分站稿與本主稿內容高度重疊，應視為本日主稿的拆分來源之一，而不是新增第六篇 Day3 筆記。真正補強的是「分站完整性」：確保從 slum 初入、Jeevak、水/廁所、家訪、study class、住房、Pune University 到 Ambedkar Museum，再到雨季帳篷，都已在一篇下午主稿中按時間與地點承接。</p>
 <hr />
 <h2>2. 一頁總結：6/2 的核心發現</h2>
 <p>6/2 的田野不只是「再去 slum 看看」。它把 6/1 的 Jeevak 方法論拉回現場驗證。</p>
@@ -2526,11 +2447,11 @@ If they see "fighting for this"... people may say, "Who is this person?" It is d
 <p>這完成他在 Yeola Conference 的宣告：「即使我作為 Hindu 出生，我不會作為 Hindu 死去。」</p>
 <h3>19.7 六牌總結</h3>
 <blockquote>
-<p>Mahad 是水。<br />
-Kalaram 是神聖空間。<br />
-Pune Pact 是政治代表權。<br />
-憲法是國家制度。<br />
-Law Minister 是進入權力核心。<br />
+<p>Mahad 是水。
+Kalaram 是神聖空間。
+Pune Pact 是政治代表權。
+憲法是國家制度。
+Law Minister 是進入權力核心。
 Nagpur conversion 是宗教與身份的最後切斷。</p>
 </blockquote>
 <p>這不是一串紀念事件，而是一條從「不被允許喝水的人」走到「重寫國家憲法的人」的路。</p>
@@ -2805,16 +2726,6 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <li>Are school groups guided through these six events as a sequence?</li>
 </ol>
 <hr />
-<h2>30. 晚餐與晚餐後材料另行歸檔</h2>
-<p>本檔到晚餐前為止。晚餐家宴、Vishaka 家庭支持線、安貝卡社區居住/屋頂導覽，以及晚餐後 Lucky 對 slum 向上流動與城鄉二元生活的補述，已分成獨立主稿：</p>
-<ul>
-<li>時段：主稿，角色</li>
-<li>晚餐：<code>20260602_Day3_田野逐字稿_晚餐家庭提問.md</code>，6 段晚餐音訊的英文逐字稿、中文翻譯與術語校正</li>
-<li>晚餐：<code>20260602_Day3_田野筆記_Vishaka與家庭對談.md</code>，從晚餐逐字稿抽出的家庭、Vishaka、Rachel、孩子、安貝卡社區與女生宿舍主題整理</li>
-<li>晚餐後補記：<code>20260602_Day3_田野筆記_印度家庭觀念與城鄉二元生活_整理於20260603.md</code>，Lucky 口述與使用者補記，說明 slum 向上流動、家庭共同生活與城鄉二元生活</li>
-</ul>
-<p>因此，閱讀順序應是：先讀本檔理解下午田野動線，再讀下午逐字稿補原話；晚餐與晚餐後材料另讀上述三份，不把它們混入本檔正文。</p>
-<hr />
 <h2>31. 整理者結語</h2>
 <p>6/2 的田野把「教育是解放」這句話拉回生活現場。它不是抽象地說孩子需要上學，而是看見為什麼孩子需要一個晚上七點到九點的 study class：因為家裡擠，吵，沒有桌子，沒有安靜，父母為日結工作奔波，雨季又讓收入斷裂。</p>
 <p>同一天，車子又穿過浦那大學。那是一個完全不同的世界：樹、草地、行政大樓、塔、科學教育中心、銀行與保險公司。距離 Dapodi 並不遠，但對 slum 孩子而言，中間隔著家庭空間、語言、穩定時間、履歷、社會信任與 caste 的殘留陰影。</p>
@@ -2823,18 +2734,13 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-7" class="day-card">
+        <article id="card-7" class="day-card">
             <div class="day-header">
-                <h2>Day 3 現場敘事</h2>
+                <h2>Day 3：印度家庭觀念與城鄉二元生活 整理於20260603</h2>
                 <div class="day-date">2026年6月2日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: 晚餐版（6/2）家庭提問清單 — Lokamitra 家宴 date: 2026-06-02 project: Lokamitra 自傳專案 sources:</p>
-            </div>
             <div class="story-content">
-                <h1>田野筆記：印度家庭觀念、slum 向上流動與城鄉二元生活</h1>
-<blockquote>
+                <blockquote>
 <p>這是一段整理於 2026-06-03 的隔日補記，但田野歸屬應放在 2026-06-02 Day3 晚餐後。它補上 6/2 Dapodi / slum 走訪與晚餐後對話中沒有完整記入逐字稿的一條重要理解線：家庭觀念如何影響貧民窟居民的遷居、向上流動與城鄉關係。</p>
 </blockquote>
 <h2>1. 田野問題的起點</h2>
@@ -2876,23 +2782,13 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-8" class="day-card">
+        <article id="card-8" class="day-card">
             <div class="day-header">
-                <h2>Day 3 現場敘事</h2>
+                <h2>Day 3：下午 JaiJawanNagar PunamPark SangamwadiRoad</h2>
                 <div class="day-date">2026年6月2日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: 晚餐版（6/2）家庭提問清單 — Lokamitra 家宴 date: 2026-06-02 project: Lokamitra 自傳專案 sources:</p>
-            </div>
             <div class="story-content">
-                <h1>田野逐字稿：Jai Jawan Nagar / Punam Park / Sangamwadi Road</h1>
-<blockquote>
-<p>本檔是 2026 年 6 月 2 日三段下午音訊的田野逐字稿整合版。它已吸收 AGY loudnorm 聲音增益重跑後恢復的關鍵細節；AGY 混合候選稿已移至 <code>00_每日原始記錄_Daily_Raw/20260602_Day3/audio_agy_gemini/99_merge_candidates/</code> 作為 provenance，不再留在 <code>Consolidated</code>。以下順序依對話內容與田野情境推定，不依 MacBook 匯入後顯示的同步時間。</p>
-<p>檔名註記：本檔已依目前工作順序命名為 <code>Day3下午_JaiJawanNagar_PunamPark_SangamwadiRoad</code>；<code>Sangamwadi Road</code> 的精確前後仍列待回聽。</p>
-<p>注意：本檔已排除 AGY 先前出現過的 <code>[ERROR: Chunk 1 Transcription Failed]</code> 佔位版本；2026-06-03 檢查時，三份正式 raw / cleaned / consolidated 均未檢出 <code>[ERROR]</code>、<code>Transcription Failed</code>、<code>Audio transcription failed</code> 等失敗訊息。</p>
-</blockquote>
-<h2>0. 整理原則</h2>
+                <h2>0. 整理原則</h2>
 <ul>
 <li><strong>不直接採用混合候選稿作為主稿</strong>：AGY 的 <code>.agy-merge-candidate</code> 同時混入下午三段與晚餐六段，且仍含未校正譯名；本檔只吸收其 loudnorm 增益內容，主稿仍維持下午三段獨立。</li>
 <li><strong>本檔以完整單檔為底稿</strong>：Sangamwadi Road、Punam Park、Jai Jawan Nagar 各自的 AGY <code>consolidated</code> / <code>cleaned</code> 是主要來源。</li>
@@ -3206,14 +3102,10 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-9" class="day-card">
+        <article id="card-9" class="day-card">
             <div class="day-header">
-                <h2>Day 3 現場敘事</h2>
+                <h2>Day 3：晚餐家庭提問</h2>
                 <div class="day-date">2026年6月2日</div>
-            </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: 晚餐版（6/2）家庭提問清單 — Lokamitra 家宴 date: 2026-06-02 project: Lokamitra 自傳專案 sources:</p>
             </div>
             <div class="story-content">
                 <blockquote>
@@ -3221,14 +3113,6 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p>重要校正：本檔已依專案 Glossary 統一 <code>世友居士 / 蘭賈娜 / 比沙卡 / 阿育 / 拉賈什里 / 安貝卡博士 / 印度佛教普濟會 / 三寶佛教僧團</code> 等用語。凡涉及新日期、家人隱私、第三方人物、外部史實者，仍列為待核，不直接寫入主時間軸或 SSOT。</p>
 <p>時序註記：六段原始音檔來自收件匣資料夾 <code>在 Lokamitra 家的晚餐/</code>。MacBook 顯示時間與音檔 <code>creation_time</code> 呈同批匯入狀態，不能直接排序；本檔依原始檔名連號與內容轉場判讀。<code>Ashoka Apartment</code> 雖 metadata 顯示最早，但內容包含 <code>we are walking</code>、<code>on the roof</code>、<code>let’s go down</code>，故放作飯後空間導覽。</p>
 </blockquote>
-<h1>田野逐字稿：晚餐家庭提問 — Lokamitra 家宴</h1>
-<blockquote>
-<p><strong>文件狀態</strong>: <code>fieldwork_ssot_draft</code> (Codex 校正整合稿；AGY 候選稿另存)
-<strong>處理代理</strong>: Anti-Gravity / AGY
-<strong>處理模型</strong>: gemini-3.5-flash (Google Vertex REST Endpoint)
-<strong>處理日期</strong>: 2026-06-02</p>
-</blockquote>
-<hr />
 <h2>1. 時間線與情境總覽</h2>
 <p>本批晚餐家宴錄音涉及的核心家庭歷史與生活情境：
 - <strong>1958 年左右</strong>：比沙卡（Vishaka，俗名蘭賈娜 Ranjana）出生（結婚時 26 歲）。
@@ -3250,7 +3134,7 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra:</strong> But not so much now. You still have a lot of Europeans passing through for Osho or yoga, but Pune is generally a well-known place, so people pass through. Otherwise, unless you go into town, I hardly ever see them around here.</p>
 <p><strong>Interviewer:</strong> Yes. But do people see you as a foreigner and look at you differently?</p>
 <p><strong>Lokamitra:</strong> I think it's strange. People obviously see me as a foreigner—I can't change the color of my skin. But once they get used to you, those differences disappear to a large extent.</p>
-<p><strong>Interviewer:</strong> Did you move here around 1990? </p>
+<p><strong>Interviewer:</strong> Did you move here around 1990?</p>
 <p><strong>Lokamitra:</strong> I moved here in 1987, but I was active in this society from 1978 onwards. Some of these people have known me for 47 or 48 years.</p>
 <p><strong>Interviewer:</strong> At the beginning, were you doing Dharma work here in the society?</p>
 <p><strong>Lokamitra:</strong> Yes, I set up a Dharma center. I held classes, and the Ambedkar Society was our main center for a few years. We had almost daily Dharma classes, our administrative office, and our publications office there.</p>
@@ -3258,11 +3142,11 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra:</strong> Yes, but much, much smaller—just in this small space. It was a meditation room and an office.</p>
 <p><strong>Lucky:</strong> You can imagine it like a smaller version of the <em>balwadis</em>, if you have visited them.</p>
 <p><strong>Interviewer:</strong> Yes, just like that—a tiny place with multiple functions.</p>
-<p><strong>Lokamitra:</strong> Yes, those houses in the Ambedkar Society. They had one room which was our office, a kitchen, a bathroom, and a toilet. The kitchen was about half this size, and I slept in the kitchen. </p>
+<p><strong>Lokamitra:</strong> Yes, those houses in the Ambedkar Society. They had one room which was our office, a kitchen, a bathroom, and a toilet. The kitchen was about half this size, and I slept in the kitchen.</p>
 <p>We actually had another block opposite where about four people stayed, and we ate over there. We didn't eat in our block, but myself and two other people stayed there. This main room was our meditation and Dharma study room, and the veranda, which was a bit bigger than this, served as our office. We were very cramped, but those were good days.</p>
 <p>It was very unusual for the local people to see. There was usually only one other foreigner with me, and everyone else was local. But still, to see a foreigner in their midst all the time, living in their society, was a novelty.</p>
 <p><strong>Interviewer:</strong> At that time, there weren't many foreigners there, right? In 1978, Pune was not yet world-famous.</p>
-<p><strong>Lokamitra:</strong> The world was different back then. It was starting to get well-known because of Osho. But historically, Pune was the main military command for Southern India, one of the five highly important military commands established by the British. </p>
+<p><strong>Lokamitra:</strong> The world was different back then. It was starting to get well-known because of Osho. But historically, Pune was the main military command for Southern India, one of the five highly important military commands established by the British.</p>
 <p>For the British, it was a hill station. They would come up from Mumbai in the summer and the rainy season because the weather here was cooler and better. The Bombay government would relocate to Pune for the season. The British were fond of moving the government around like that. So, it became very well known as a military headquarters.</p>
 <p>Next door, there was a woman who was born in Pune. She was born into a military family; I think her father was in the British military. A lot of people had connections with Pune because of the military.</p>
 <p>It is an interesting place. Before that, it was a center of Brahmin orthodoxy, and it still is.</p>
@@ -3337,51 +3221,51 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <h2>Ambedkar Housing Society (Part 2)</h2>
 <h3>英文逐字稿 (English Verbatim)</h3>
 <p><strong>Interviewer</strong>: So, it is incredible...</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: I was working until the day before. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: I was working until the day before.</p>
 <p><strong>Lokamitra</strong>: No! Really?</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Really. Because of the delivery, I was working until the last moment, and traveling by bus too!</p>
 <p><em>(Laughter)</em></p>
-<p><strong>Lokamitra</strong>: And my sister came out to help. </p>
+<p><strong>Lokamitra</strong>: And my sister came out to help.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, she stayed for maybe one and a half to two years.</p>
 <p><strong>Lakkhinda</strong>: One and a half years.</p>
 <p><strong>Interviewer</strong>: Wow, that is a tough time.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, because I was frightened of staying alone. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, because I was frightened of staying alone.</p>
 <p><strong>Lokamitra</strong>: With me.</p>
 <p><em>(Laughter)</em></p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Not you! But I did not have the habit of staying alone. In my family, we had a big family with lots of sisters, a brother, and my mother and father.</p>
-<p><strong>Lokamitra</strong>: She was the boss. Everyone looked after her. </p>
+<p><strong>Lokamitra</strong>: She was the boss. Everyone looked after her.</p>
 <p><strong>Interviewer</strong>: Were they coming here to help?</p>
-<p><strong>Lokamitra</strong>: No, they didn't. But her sister came and stayed. </p>
+<p><strong>Lokamitra</strong>: No, they didn't. But her sister came and stayed.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: I was used to staying with a big family. But after marriage, we were alone, and I didn't have the habit of staying by myself. The house was also very big. It had three bedrooms.</p>
 <p><strong>Lokamitra</strong>: Which house was big?</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Rahul Apartment was big.</p>
-<p><strong>Lokamitra</strong>: It was a two-bedroom flat. She had a small house in Ambedkar Society before that. </p>
+<p><strong>Lokamitra</strong>: It was a two-bedroom flat. She had a small house in Ambedkar Society before that.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: It was only half the size of this room.</p>
 <p><strong>Lokamitra</strong>: Yes, and then half the kitchen. This kitchen, this part was the bathroom and toilet, but we moved it and changed this.</p>
 <p><strong>Interviewer</strong>: Was that for two people?</p>
 <p><strong>Lokamitra</strong>: For a family. It could even be two or three families. In some places in Ambedkar Society, they have three families living together: one family in the kitchen, one in the veranda, and one in a tin shed at the back.</p>
 <p><strong>Interviewer</strong>: Wow! That is almost ten people.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Oh, yes. Before, people were very poor. Now they are educated, so things are better. </p>
-<p><strong>Interviewer</strong>: Today we went to the slum where we had tea. </p>
-<p><strong>Lakkhinda</strong>: Yes, there is a family of three there. But you can easily imagine seven or eight people living in that same space. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Oh, yes. Before, people were very poor. Now they are educated, so things are better.</p>
+<p><strong>Interviewer</strong>: Today we went to the slum where we had tea.</p>
+<p><strong>Lakkhinda</strong>: Yes, there is a family of three there. But you can easily imagine seven or eight people living in that same space.</p>
 <p><strong>Interviewer</strong>: Really?</p>
 <p><strong>Lakkhinda</strong>: Yes.</p>
 <p><strong>Lokamitra</strong>: My wife had six sisters, one brother, and her mother and father.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: One sister got married later.</p>
 <p><strong>Lokamitra</strong>: Yes, but before that, they were all living in one room and a kitchen.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: And a veranda. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: And a veranda.</p>
 <p><strong>Interviewer</strong>: Oh!</p>
 <p><strong>Lokamitra</strong>: And they had a cow.</p>
 <p><strong>Interviewer</strong>: How did you all lie down to sleep in such a small room?</p>
-<p><strong>Lokamitra</strong>: Someone slept in the veranda—maybe her father—and someone slept in the kitchen. </p>
+<p><strong>Lokamitra</strong>: Someone slept in the veranda—maybe her father—and someone slept in the kitchen.</p>
 <p><strong>Interviewer</strong>: And the cow was outside.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Outside, yes. We kept it for the buffalo's milk.</p>
 <p><strong>Interviewer</strong>: But that was during the very early days. Then life got better.</p>
 <p><strong>Lokamitra</strong>: Because of her, they all got jobs and got married. She arranged marriages for all of them.</p>
 <p><strong>Interviewer</strong>: She is bossy.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Not bossy, that was my responsibility. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Not bossy, that was my responsibility.</p>
 <p><strong>Lokamitra</strong>: As she was the most educated.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: In my family, I was the first to get an education. My mother and father were not educated. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: In my family, I was the first to get an education. My mother and father were not educated.</p>
 <p><strong>Lokamitra</strong>: Her mother couldn't read or write, though her father could read.</p>
 <p><strong>Interviewer</strong>: So you brought everyone together toward school and education.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, education. I forced them to do this and that. After that, marriage. After that, jobs.</p>
@@ -3391,11 +3275,11 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra</strong>: At least I get one compliment!</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: I did a son's job in my family. My father was very proud of me.</p>
 <p><strong>Lokamitra</strong>: But her nieces and nephews are all frightened of her.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: No one is frightened. They are just showing off. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: No one is frightened. They are just showing off.</p>
 <p><strong>Lokamitra</strong>: Oh, they are all frightened of you—Chaitanya, Sukeshni, and Teju. She is very strict with them. She tries to be strict with Ashok and Rajyashri, our children, but they know how to manage her.</p>
 <p><strong>Interviewer</strong>: So Ashok and Rajyashri grew up closely with the big family?</p>
 <p><strong>Lokamitra</strong>: Yes, they have a very close relationship with them.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, because my mother and father were there, and my sister was unmarried. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, because my mother and father were there, and my sister was unmarried.</p>
 <p><strong>Interviewer</strong>: It was a happy childhood.</p>
 <p><strong>Lokamitra</strong>: Even in England, my four sisters are very close. They are busy, though. Two of my sisters are strongly involved in the Buddhist movement, so they are not very traditional family people.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: They are Buddhists, not family-oriented.</p>
@@ -3405,14 +3289,14 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra</strong>: Yes.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: She was very good.</p>
 <p><strong>Interviewer</strong>: Is that interest because of your mother? Back in the late '60s, people in the West were getting into Japanese Zen, Osho, Krishnamurti, and Tibetan Buddhism. There was a sudden opening up of Eastern religions. But why did you choose Buddhism?</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Because of him. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Because of him.</p>
 <p><strong>Lokamitra</strong>: I wasn't attracted to anything else. I was looking for a spiritual tradition, but nothing resonated with me except Buddhism.</p>
 <p><strong>Interviewer</strong>: Not even Japanese Zen?</p>
-<p><strong>Lokamitra</strong>: Well, Zen is Buddhism. But I didn't come across any Zen teachers at that time. I don't think there were many good Zen teachers in England then. It was popular on an intellectual level, but there was a saying, "mouth Zen," meaning people just talked about Zen without practicing it. </p>
+<p><strong>Lokamitra</strong>: Well, Zen is Buddhism. But I didn't come across any Zen teachers at that time. I don't think there were many good Zen teachers in England then. It was popular on an intellectual level, but there was a saying, "mouth Zen," meaning people just talked about Zen without practicing it.</p>
 <p><strong>Interviewer</strong>: And why did you settle on it for your whole life?</p>
 <p><strong>Lokamitra</strong>: It took me time to get to that point. I had some experiences along the way that determined my path. If I hadn't had those experiences, I wouldn't have gone deeper into Buddhism and meditation. One thing prepares the way for another, but if I hadn't had a couple of life-changing experiences, nothing would have happened.</p>
 <p><strong>Interviewer</strong>: It happens step by step. In your biography, when it comes to India, you met Dzongsar Khyentse Rinpoche. Was that like a miracle?</p>
-<p><strong>Lokamitra</strong>: It was auspicious, like connecting with something, but it wasn't a determining event. My experience at Deekshabhumi was life-changing. My experience on the retreat in 1973 was life-changing. And my vision in 1967 was life-changing. I had a few key life-changing experiences, and then other minor ones. </p>
+<p><strong>Lokamitra</strong>: It was auspicious, like connecting with something, but it wasn't a determining event. My experience at Deekshabhumi was life-changing. My experience on the retreat in 1973 was life-changing. And my vision in 1967 was life-changing. I had a few key life-changing experiences, and then other minor ones.</p>
 <p><em>(To the Interviewer)</em> Finish the food, please. Otherwise, Lakkhinda will have to help you.</p>
 <p><strong>Lakkhinda</strong>: I can have one.</p>
 <p><strong>Interviewer</strong>: I am quite greedy today!</p>
@@ -3422,7 +3306,7 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra</strong>: Every fruit in Taiwan is good.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, the fruit and the food are excellent. I love Taiwanese food.</p>
 <p><strong>Interviewer</strong>: Same here, it's very healthy.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: You must remember how to make that dish she liked. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: You must remember how to make that dish she liked.</p>
 <p><strong>Interviewer</strong>: Should I write it down?</p>
 <p><strong>Lokamitra</strong>: I am going to try making it one day. You must come to India sometime.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, explain it to me.</p>
@@ -3430,13 +3314,13 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Which starch do you use?</p>
 <p><strong>Interviewer</strong>: Potato starch and wheat flour—the kind we use to make bread. They are mixed in a certain percentage with water to make a batter, and then cooked like a pancake.</p>
 <p><strong>Lokamitra</strong>: And then you put the egg on top?</p>
-<p><strong>Interviewer</strong>: You put the egg underneath, place the pancake on top of it, flip it over once cooked, and then roll it. </p>
+<p><strong>Interviewer</strong>: You put the egg underneath, place the pancake on top of it, flip it over once cooked, and then roll it.</p>
 <p><strong>Lokamitra</strong>: I tried to make it once.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Do you put the eggs first?</p>
 <p><strong>Interviewer</strong>: The pancake batter is cooked first. Then you put the egg down, place the pancake on top, and add some spring onions and a little salt. In Taiwan, we call this a <em>danbing</em> (egg roll). We eat it with a soy sauce that has been seasoned with sugar.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Was there chili?</p>
 <p><strong>Lakkhinda</strong>: We had a chili sauce.</p>
-<p><strong>Lokamitra</strong>: Miranda says you must have sweet chili sauce with it. </p>
+<p><strong>Lokamitra</strong>: Miranda says you must have sweet chili sauce with it.</p>
 <p><strong>Lakkhinda</strong>: If you eat garlic, you can mix soy sauce, a little water, a little sugar, and use potato starch to thicken it, similar to making a curry. Then add some minced garlic. After the egg roll is cooked, pour the sauce on top, chop it up, and eat it with chopsticks or a fork. You can also add vegetables if you like.</p>
 <p><strong>Lokamitra</strong>: I only like the plain kind.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: But we can't get potato starch here.</p>
@@ -3446,15 +3330,15 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lakkhinda</strong>: Yes, then cornstarch or potato starch works fine. I can give you the exact ratio.</p>
 <p><strong>Lokamitra</strong>: When I was in Taipei last year, Miranda was staying on the other side of the city. At six o'clock on Sunday morning, she went to the center of Taipei and queued up with a hundred people just to buy these egg rolls because they are highly recommended. She is mad! I am perfectly happy with my local place near Taipei Station.</p>
 <p><strong>Lakkhinda</strong>: Are you staying near Taipei Station? My college is nearby there. That was my student area.</p>
-<p><strong>Lokamitra</strong>: I stay there in a very small apartment near the night market, which belongs to two lovely friends. They always keep a small room for me and bring me the most beautiful breakfast every day. </p>
+<p><strong>Lokamitra</strong>: I stay there in a very small apartment near the night market, which belongs to two lovely friends. They always keep a small room for me and bring me the most beautiful breakfast every day.</p>
 <p><strong>Lakkhinda</strong>: I'll give you the recipe so you can try it. There is another trick: when you fry the egg, add some spring onions directly into the egg, not just the pancake.</p>
-<p><strong>Lokamitra</strong>: I think it would be a very good street food business here. </p>
+<p><strong>Lokamitra</strong>: I think it would be a very good street food business here.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: You should learn it and teach me when you come back, because he likes it very much.</p>
 <p><strong>Lakkhinda</strong>: When I lived in Beijing, there was a similar street food called <em>Jianbing guozi</em>. They use mung bean and soy batter, spread it thinly on a large flat griddle like a French crepe, and crack several eggs on top. It's a great way to make a living.</p>
 <p><strong>Lokamitra</strong>: Street food is very demanding nowadays. Even local street vendors are busy fulfilling online orders through Swiggy and Zomato. We can easily get <em>pani puri</em> delivered directly to our home now.</p>
 <p><strong>Lakkhinda</strong>: Can you make <em>pani puri</em> yourself?</p>
 <p><strong>Lokamitra</strong>: No, it is quite difficult to make.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Chaitanya makes wonderful <em>pani puri</em>. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Chaitanya makes wonderful <em>pani puri</em>.</p>
 <p><strong>Lokamitra</strong>: Chaitanya is excellent at cooking. I made dal once and he came in and said, "Let me do the tadka."</p>
 <p><strong>Lakkhinda</strong>: When I first tried <em>pani puri</em>, I found it a bit strange because of the spiced water inside, but after a while, you can't stop eating it.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: And the spiced water is like a very nice soup.</p>
@@ -3464,15 +3348,15 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Interviewer</strong>: Once we made a creamy, non-spicy pasta for him, and served sprouts with hot chili on the side. He mixed them together and said it was very good!</p>
 <p><strong>Lakkhinda</strong>: Yes, I am becoming Indian! Back home, when I told my friends I was visiting India, they warned me never to drink unbottled water and to prepare for a bad stomach. I brought a large bag of medicine with me, but I am not worried. I might hesitate a bit if you took me to eat raw street food, though.</p>
 <p><strong>Lokamitra</strong>: You do have to be careful.</p>
-<p><strong>Interviewer</strong>: I have been taking him to eat, but mostly inside the mall. There is a very good food street inside Phoenix Mall which is much safer. </p>
-<p><strong>Lakkhinda</strong>: Yes, they offer street food but in a sanitized environment. </p>
+<p><strong>Interviewer</strong>: I have been taking him to eat, but mostly inside the mall. There is a very good food street inside Phoenix Mall which is much safer.</p>
+<p><strong>Lakkhinda</strong>: Yes, they offer street food but in a sanitized environment.</p>
 <p><strong>Interviewer</strong>: I took photos of every single food stand there.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: But that is not the real street.</p>
 <p><strong>Lokamitra</strong>: They prepare it right in front of you, but yes, proper street food is out on the actual road.</p>
 <p><strong>Interviewer</strong>: I would like to buy some masala to take back. Can we buy it from a local grocery store?</p>
-<p><strong>Lokamitra</strong>: You can, just make sure you get good quality. </p>
-<p><strong>Interviewer</strong>: You have to taste and experiment to know how to mix them. </p>
-<p><strong>Lakkhinda</strong>: It is 5:30 now. </p>
+<p><strong>Lokamitra</strong>: You can, just make sure you get good quality.</p>
+<p><strong>Interviewer</strong>: You have to taste and experiment to know how to mix them.</p>
+<p><strong>Lakkhinda</strong>: It is 5:30 now.</p>
 <p><strong>Lokamitra</strong>: What is the status of the call?</p>
 <p><strong>Lakkhinda</strong>: It is supposed to come through, but they are currently checking the finances. They need to transfer the money first. Rajyashri just messaged me to bring this along.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: <em>(Speaking in Marathi)</em> If it is some people's work, then its value will decrease, right?</p>
@@ -3490,7 +3374,7 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lakkhinda</strong>: Most people keep their original names as their legal names, though.</p>
 <p><strong>Lokamitra</strong>: Some do, but others change everything legally so it becomes their registered name.</p>
 <p><strong>Lakkhinda</strong>: This is becoming very important. A lot of Dalits in North India are changing their surnames to Baudh or Sakya.</p>
-<p><strong>Lokamitra</strong>: Yes, Sakya is related to the Buddha's clan. </p>
+<p><strong>Lokamitra</strong>: Yes, Sakya is related to the Buddha's clan.</p>
 <p><em>(To the Interviewer)</em> He is going to be back in Pune for three days after visiting Nagpur, so you can ask him more questions then. He is writing about me, so you should make sure to ask him whatever you need.</p>
 <p><strong>Interviewer</strong>: I will translate the draft into English so you can review it, Lokamitra. Thank you for helping me check the facts.</p>
 <p><strong>Lokamitra</strong>: I can look at it, but I don't read Chinese. He might tell you there is no need to ask because there is no formal training, but Dhansum will help you.</p>
@@ -3498,31 +3382,31 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra</strong>: I think an English version would be helpful. But since he is writing for a specific Chinese readership with a particular understanding of Buddhism and social background, the framing is different. Let's see how it goes.</p>
 <p><strong>Interviewer</strong>: Yes, because Chinese readers are generally unfamiliar with Indian culture, the caste system, and Dr. Ambedkar. I have to explain these social contexts clearly, while following the main narrative of Lokamitra's life.</p>
 <p><strong>Lokamitra</strong>: He is making my life sound very interesting!</p>
-<p><strong>Interviewer</strong>: I will make sure not to put any words in your mouth that you didn't say. </p>
+<p><strong>Interviewer</strong>: I will make sure not to put any words in your mouth that you didn't say.</p>
 <p><strong>Lokamitra</strong>: Being here in India will make writing this much easier for you. You can ask me directly what I actually thought and what actually happened.</p>
 <p><strong>Interviewer</strong>: Yes. I think I initially romanticized your first arrival in India and what you felt back then.</p>
-<p><strong>Lokamitra</strong>: In some ways, your draft was helpful because it showed me how you are structuring the narrative. It forced me to reflect on what I actually felt at that time. </p>
-<p>For the first ten years of my time in India, I don't think I dared to look at my surroundings properly. Things were so difficult and overwhelming around me that I couldn't have stayed if I had let myself process it fully. It was only after ten years that I began to open my eyes and realize where I was living. It was a very strange experience, and I felt terrible. </p>
-<p>If I hadn't been married, I don't know if I would have stayed. For those first ten years, I blocked myself off emotionally and just threw myself entirely into the work. If I had stopped to think about how I felt, I wouldn't have been able to achieve anything. </p>
+<p><strong>Lokamitra</strong>: In some ways, your draft was helpful because it showed me how you are structuring the narrative. It forced me to reflect on what I actually felt at that time.</p>
+<p>For the first ten years of my time in India, I don't think I dared to look at my surroundings properly. Things were so difficult and overwhelming around me that I couldn't have stayed if I had let myself process it fully. It was only after ten years that I began to open my eyes and realize where I was living. It was a very strange experience, and I felt terrible.</p>
+<p>If I hadn't been married, I don't know if I would have stayed. For those first ten years, I blocked myself off emotionally and just threw myself entirely into the work. If I had stopped to think about how I felt, I wouldn't have been able to achieve anything.</p>
 <p><strong>Interviewer</strong>: Perhaps practicing meditation helped you maintain that focus and calm.</p>
-<p><strong>Lokamitra</strong>: Partly it's my personality, but also absolute focus. If I had paused to look closely at the poverty—which was a hundred times worse in the slums of Dapodi and other places—I couldn't have gone on. Giving talks on the streets of Mumbai, if you start wondering where those people sleep and what their lives are like, you would be emotionally finished. </p>
+<p><strong>Lokamitra</strong>: Partly it's my personality, but also absolute focus. If I had paused to look closely at the poverty—which was a hundred times worse in the slums of Dapodi and other places—I couldn't have gone on. Giving talks on the streets of Mumbai, if you start wondering where those people sleep and what their lives are like, you would be emotionally finished.</p>
 <p><strong>Interviewer</strong>: That is why biographies are usually written much later.</p>
 <p><strong>Lokamitra</strong>: Yes, I just went in and did what had to be done. It was worrying, but we did the job. In rooms half the size of this, you would have four families living together. It was madness.</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Did you also stay at Babasaheb's house?</p>
 <p><strong>Lokamitra</strong>: They had two rooms for the family. I was remembering that the other day.</p>
 <p><strong>Interviewer</strong>: I was deeply moved today when I saw two or three children washing themselves outside on the street.</p>
-<p><strong>Lokamitra</strong>: That is very common here. I have some beautiful photographs of children washing themselves outside. </p>
+<p><strong>Lokamitra</strong>: That is very common here. I have some beautiful photographs of children washing themselves outside.</p>
 <p><strong>Interviewer</strong>: I was very nervous taking photos because I didn't want to annoy them by staring.</p>
 <p><strong>Lokamitra</strong>: If you look at these communities, you will see many children washing near the community centers. The children love it, but it is indeed a very rough environment.</p>
 <p><strong>Interviewer</strong>: I can see that people are constantly trying to make their lives better, little by little.</p>
-<p><strong>Lokamitra</strong>: Everyone wants to do that, but it is incredibly difficult. If you are driving a rickshaw or selling food on the street, you make very little money. </p>
+<p><strong>Lokamitra</strong>: Everyone wants to do that, but it is incredibly difficult. If you are driving a rickshaw or selling food on the street, you make very little money.</p>
 <p><strong>Interviewer</strong>: But you just have to keep going.</p>
 <p><strong>Lokamitra</strong>: The key is getting the children educated. The woman who cleans our house was so proud because her daughter just passed her 10th standard exams. But she had to send her daughter to live with her grandmother because it is too noisy and difficult to study in the slums.</p>
-<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, the environment there is not suitable for studying. Both she and her husband work very hard. </p>
+<p><strong>Lokamitra’s Wife (Vishaka)</strong>: Yes, the environment there is not suitable for studying. Both she and her husband work very hard.</p>
 <p><strong>Lokamitra</strong>: Her husband is a rickshaw driver and she cleans. When I first arrived, women working near our retreat center outside Pune earned only five rupees a day.</p>
 <p><strong>Interviewer</strong>: Five rupees a day? That is hard to believe.</p>
-<p><strong>Lokamitra</strong>: Yes, and men earned seven to ten rupees. People lived on 200 to 300 rupees a month. In Nagpur, in Bhim Nagar, children making incense were paid only two rupees a day. Now when I look back, I wonder how that was even possible, but at the time, I couldn't dwell on it if I wanted to keep working. </p>
-<p>By 1988, I started to really process everything, and I found it incredibly difficult. I remember it hit me suddenly when I was visiting the Worli BDD Chawls in Mumbai. I suddenly realized where I was in the world, what was happening around me, and how desperately poor those tenements were. </p>
+<p><strong>Lokamitra</strong>: Yes, and men earned seven to ten rupees. People lived on 200 to 300 rupees a month. In Nagpur, in Bhim Nagar, children making incense were paid only two rupees a day. Now when I look back, I wonder how that was even possible, but at the time, I couldn't dwell on it if I wanted to keep working.</p>
+<p>By 1988, I started to really process everything, and I found it incredibly difficult. I remember it hit me suddenly when I was visiting the Worli BDD Chawls in Mumbai. I suddenly realized where I was in the world, what was happening around me, and how desperately poor those tenements were.</p>
 <p>But I am still here. I couldn't leave because I got married!</p>
 <p><strong>Lokamitra’s Wife (Vishaka)</strong>: Because of me, he stayed in India and did all this work. Otherwise, he wouldn't have had the chance!</p>
 <p><strong>Lokamitra</strong>: So she gets all the credit.</p>
@@ -3775,7 +3659,7 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lokamitra's Wife</strong>: Samosa and...</p>
 <p><strong>Lokamitra</strong>: And this is a little bit of sauce, chutney.</p>
 <p><strong>Interviewer</strong>: Is this a dumpling?</p>
-<p><strong>Lokamitra</strong>: This is what is called a samosa. </p>
+<p><strong>Lokamitra</strong>: This is what is called a samosa.</p>
 <p><strong>Interviewer</strong>: Samosa?</p>
 <p><strong>Lokamitra</strong>: Yeah.</p>
 <p><strong>Interviewer</strong>: A fried dumpling.</p>
@@ -3809,7 +3693,7 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p><strong>Lucky</strong>: Yes.</p>
 <p><strong>Lokamitra</strong>: And then, this is what is called masala rice—rice mixed with vegetables, which she made. And brinjals, I think.</p>
 <p><strong>Lucky</strong>: Did they cook this for me for breakfast?</p>
-<p><strong>Lokamitra</strong>: No, that would have been different. </p>
+<p><strong>Lokamitra</strong>: No, that would have been different.</p>
 <p><strong>Lucky</strong>: Poha, poha. Yes.</p>
 <p><strong>Lokamitra</strong>: And this is a dal here, and this is a coconut-based vegetable.</p>
 <p><strong>Lucky</strong>: Yeah?</p>
@@ -4877,18 +4761,13 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-10" class="day-card">
+        <article id="card-10" class="day-card">
             <div class="day-header">
-                <h2>Day 4 現場敘事</h2>
+                <h2>Day 4：Jambudvipa訪談 COVID救援與照片回憶</h2>
                 <div class="day-date">2026年6月3日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>title: Day 4（6/3）訪談與照片整理作戰包 date: 2026-06-03 project: Lokamitra 自傳專案 sources:</p>
-            </div>
             <div class="story-content">
-                <h1>Day4 田野筆記：贍部洲（Jambudvipa）訪談、COVID 救援與照片回憶</h1>
-<blockquote>
+                <blockquote>
 <p>本稿是 Day4 轉錄內容的田野統整入口，不取代 raw 逐字稿。使用者已確認：本輪訪談三人為訪問者、<strong>彌勒種 (Maitreyanath)</strong>、<strong>Soren Lakhindar（Lucky）</strong>；轉錄中將第三位發言者標為 Mangesh Dahiwale 的段落，應視為 speaker label 錯誤。彌勒種是世友居士 (Lokamitra) 的長期夥伴，也是耆婆健康教育中心與龍樹學院的主要工作人員。涉及法律、組織註冊、災難救援數字、種姓暴行與政府政策的段落，在寫入正式章節或 SSOT 前仍須依查核表確認。</p>
 </blockquote>
 <h2>0. 術語對齊基準</h2>
@@ -4927,67 +4806,67 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <li>2020-2022：COVID 期間與後續，贍部洲／「曼努斯基」／龍樹學院／耆婆健康教育中心進行物資、醫療與精神支持，待核</li>
 </ul>
 <h2>4. 贍部洲（Jambudvipa）的成立意義</h2>
-<p>🔵 <strong>【訪談】</strong> 彌勒種說，贍部洲成立於 1999 年。在此之前，世友居士已經在印度工作二十年，主要服務安貝卡博士的佛教追隨者。贍部洲的關鍵不是取代大精舍，而是打開一個能夠跨出單一種姓 / 社群的平台，尤其面向非佛教的表列種姓與表列部落。</p>
-<p>🔵 <strong>【訪談】</strong> 贍部洲的操作方式包括：協助基層組織建立信託與法律結構、訓練個人與團體、舉辦禪修課程、讓不同 NGO 彼此連結，並把表現好的基層 NGO 介紹給海外資助者，例如善誠信託（Karuna Trust）。受訪者特別強調，這不是要求他人皈依佛教，而是讓自由、平等、博愛成為可被不同宗教背景者採納的人類價值。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這一段對書稿很重要，因為它能修正「世友居士從佛教工作轉向 NGO 工作」的錯誤理解。更準確的寫法是：他把安貝卡博士的正法願景、憲法價值、基層組織訓練與跨種姓公共行動放進同一個平台。</p>
+<p>彌勒種說，贍部洲成立於 1999 年。在此之前，世友居士已經在印度工作二十年，主要服務安貝卡博士的佛教追隨者。贍部洲的關鍵不是取代大精舍，而是打開一個能夠跨出單一種姓 / 社群的平台，尤其面向非佛教的表列種姓與表列部落。</p>
+<p>贍部洲的操作方式包括：協助基層組織建立信託與法律結構、訓練個人與團體、舉辦禪修課程、讓不同 NGO 彼此連結，並把表現好的基層 NGO 介紹給海外資助者，例如善誠信託（Karuna Trust）。受訪者特別強調，這不是要求他人皈依佛教，而是讓自由、平等、博愛成為可被不同宗教背景者採納的人類價值。</p>
+<p>這一段對書稿很重要，因為它能修正「世友居士從佛教工作轉向 NGO 工作」的錯誤理解。更準確的寫法是：他把安貝卡博士的正法願景、憲法價值、基層組織訓練與跨種姓公共行動放進同一個平台。</p>
 <h2>5. 「曼努斯基」：從贍部洲專案到獨立信託</h2>
-<p>🔵 <strong>【訪談】</strong> 「曼努斯基」最初是贍部洲之下的 project，名稱來自馬拉地語，意思是 humanity / 人性。口述指出「曼努斯基」在 2007 年註冊為獨立 charity trust；從 1999 到 2007，「曼努斯基」在贍部洲架構下運作。</p>
-<p>🔵 <strong>【訪談】</strong> 「曼努斯基」的角色被描述為「hands and ears on the ground」：處理暴行案件、budget advocacy、培訓、人權與法律案件。因為「曼努斯基」有時會直接挑戰政府政策，組織上和贍部洲保持外部區分，以降低法律風險；內部則仍是彼此支援的關係。</p>
-<p>🔵 <strong>【訪談】</strong> 在暴行案件中，「曼努斯基」的工作流程包括：協助受害者從震驚中恢復、建立法律案件、爭取政府補償、蒐集證據、進行 fact-finding missions，並讓案件能在法庭上站得住。</p>
+<p>「曼努斯基」最初是贍部洲之下的 project，名稱來自馬拉地語，意思是 humanity / 人性。口述指出「曼努斯基」在 2007 年註冊為獨立 charity trust；從 1999 到 2007，「曼努斯基」在贍部洲架構下運作。</p>
+<p>「曼努斯基」的角色被描述為「hands and ears on the ground」：處理暴行案件、budget advocacy、培訓、人權與法律案件。因為「曼努斯基」有時會直接挑戰政府政策，組織上和贍部洲保持外部區分，以降低法律風險；內部則仍是彼此支援的關係。</p>
+<p>在暴行案件中，「曼努斯基」的工作流程包括：協助受害者從震驚中恢復、建立法律案件、爭取政府補償、蒐集證據、進行 fact-finding missions，並讓案件能在法庭上站得住。</p>
 <h2>6. 龍樹學院：贍部洲的訓練衛星</h2>
-<p>🔵 <strong>【訪談】</strong> 彌勒種說，贍部洲成為世友居士的 headquarters，提供運作贍部洲、「曼努斯基」與龍樹學院的 infrastructure；龍樹學院雖是大計畫，但在這套敘述中被稱為贍部洲的 satellite。</p>
-<p>🔵 <strong>【訪談】</strong> 龍樹學院的重要性不只是建築，而是把來自 45 到 50 多種種姓背景的學生放在同一個訓練環境。學生帶著既有宗教 / 種姓制約進來，透過安貝卡博士與佛教的學習，重新理解自己的背景與社會價值；回到家庭後，還要學會如何以寬廣角度和父母對話。</p>
-<p>🟠 <strong>【整理判斷】</strong> Day4 讓龍樹學院不再只是單一校園，而是贍部洲透過教育、住宿、跨區 alumni network 建立全印社會轉化能力的一個核心節點。</p>
+<p>彌勒種說，贍部洲成為世友居士的 headquarters，提供運作贍部洲、「曼努斯基」與龍樹學院的 infrastructure；龍樹學院雖是大計畫，但在這套敘述中被稱為贍部洲的 satellite。</p>
+<p>龍樹學院的重要性不只是建築，而是把來自 45 到 50 多種種姓背景的學生放在同一個訓練環境。學生帶著既有宗教 / 種姓制約進來，透過安貝卡博士與佛教的學習，重新理解自己的背景與社會價值；回到家庭後，還要學會如何以寬廣角度和父母對話。</p>
+<p>Day4 讓龍樹學院不再只是單一校園，而是贍部洲透過教育、住宿、跨區 alumni network 建立全印社會轉化能力的一個核心節點。</p>
 <h2>7. 耆婆健康教育中心到贍部洲：升級而不是切換</h2>
-<p>🔵 <strong>【訪談】</strong> 訪談中形成一個很有用的寫作框架：耆婆健康教育中心的升級成為贍部洲，法精舍 / 大精舍的升級成為龍樹學院。受訪者同意，早期課程、診所、疫苗接種與婦女兒童需求回應很重要，但結構性問題不能只靠小型服務解決。</p>
-<p>🔵 <strong>【訪談】</strong> 訪談中提到一份關於大精舍最後幾年的 manuscript：世友居士意識到單靠個人基礎無法解決這些問題，這個念頭可能在真正創辦贍部洲之前五到八年就已經形成。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這是 CH09-CH12 的骨架：不是「醫療服務結束後另找新方向」，而是從直接服務走向制度、訓練、法律、資源與全印網絡的擴張。</p>
+<p>訪談中形成一個很有用的寫作框架：耆婆健康教育中心的升級成為贍部洲，法精舍 / 大精舍的升級成為龍樹學院。受訪者同意，早期課程、診所、疫苗接種與婦女兒童需求回應很重要，但結構性問題不能只靠小型服務解決。</p>
+<p>訪談中提到一份關於大精舍最後幾年的 manuscript：世友居士意識到單靠個人基礎無法解決這些問題，這個念頭可能在真正創辦贍部洲之前五到八年就已經形成。</p>
+<p>這是 CH09-CH12 的骨架：不是「醫療服務結束後另找新方向」，而是從直接服務走向制度、訓練、法律、資源與全印網絡的擴張。</p>
 <h2>8. 核心夥伴關係與工作節奏</h2>
-<p>🔵 <strong>【訪談】</strong> 彌勒種把世友居士稱為 friend、mentor、kalyanamitra（善知識）。他形容世友居士是嚴格、不妥協、組織能力強、夢想很大的 practitioner；但當他有大構想時，不是單方面推進，而是先和 close circle 討論，例如 Vivek Ratna 與彌勒種，再送 board 決定。</p>
-<p>🔵 <strong>【訪談】</strong> 1980s / 1990s 在大精舍工作時，核心團隊有 formal daily meetings，也有 coffee meetings、午餐討論，常常每天兩到三小時。這種高密度溝通，是後來贍部洲 / 龍樹學院能夠承受壓力的重要組織習慣。</p>
+<p>彌勒種把世友居士稱為 friend、mentor、kalyanamitra（善知識）。他形容世友居士是嚴格、不妥協、組織能力強、夢想很大的 practitioner；但當他有大構想時，不是單方面推進，而是先和 close circle 討論，例如 Vivek Ratna 與彌勒種，再送 board 決定。</p>
+<p>1980s / 1990s 在大精舍工作時，核心團隊有 formal daily meetings，也有 coffee meetings、午餐討論，常常每天兩到三小時。這種高密度溝通，是後來贍部洲 / 龍樹學院能夠承受壓力的重要組織習慣。</p>
 <h2>9. 「曼努斯基」的敏感案例：只能作待核素材</h2>
-<p>🔵 <strong>【訪談】</strong> Punam Park 2 提到「曼努斯基」曾處理 Santosh Mane / Sangharsh 的案件：他是一位處理暴行案件的社會運動者，曾因被誣告涉及 river sand theft 而遭行政限制，後由「曼努斯基」介入，透過法院逆轉。</p>
-<p>🔵 <strong>【訪談】</strong> 同段也提到 2006 年一件極嚴重的 lynching / atrocity case，和安貝卡博士皈依佛教五十週年（金禧）時間接近；Soren Lakhindar（Lucky）口述自己與同事曼格什·達希瓦萊 (Mangesh Dahiwale) 等人在 2008 年到美國時，將案件帶入 US Senate / letter to Indian Prime Minister 的脈絡，並透過 Nitin Salve 的 blog 進行國際曝光。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這些段落非常珍貴，但有高度法律、倫理與政治風險。統整稿只保留為「口述素材」與「待核路線」，不得在正式章節中直接寫成已證實細節。尤其 Khairlanji、Santosh Mane、US Senate letter、police / upper-caste framing 等細節，需要文件或當事人確認。</p>
+<p>Punam Park 2 提到「曼努斯基」曾處理 Santosh Mane / Sangharsh 的案件：他是一位處理暴行案件的社會運動者，曾因被誣告涉及 river sand theft 而遭行政限制，後由「曼努斯基」介入，透過法院逆轉。</p>
+<p>同段也提到 2006 年一件極嚴重的 lynching / atrocity case，和安貝卡博士皈依佛教五十週年（金禧）時間接近；Soren Lakhindar（Lucky）口述自己與同事曼格什·達希瓦萊 (Mangesh Dahiwale) 等人在 2008 年到美國時，將案件帶入 US Senate / letter to Indian Prime Minister 的脈絡，並透過 Nitin Salve 的 blog 進行國際曝光。</p>
+<p>這些段落非常珍貴，但有高度法律、倫理與政治風險。統整稿只保留為「口述素材」與「待核路線」，不得在正式章節中直接寫成已證實細節。尤其 Khairlanji、Santosh Mane、US Senate letter、police / upper-caste framing 等細節，需要文件或當事人確認。</p>
 <h2>10. COVID：物資、醫療與精神支持同時啟動</h2>
-<p>🔵 <strong>【訪談】</strong> 世友居士回憶 COVID 是沉重困難的時期，但海外朋友反應很有創意，帶來數百萬盧比的資金。贍部洲、「曼努斯基」與龍樹學院把資金與物資送到貧民窟、社群與村莊，包含禦寒衣物、食物包、藥品。</p>
-<p>🔵 <strong>【訪談】</strong> 龍樹學院設立 COVID Care Center / clinic，配有 oxygen facilities；美國捐助者提供 oxygen cylinders 與 oxygen plant。耆婆健康教育中心則透過 CSR funds 分發大量 kits，讓民眾在指定日期帶口罩與 Aadhaar card 領取。「曼努斯基」在 Hadapsar 周邊貧民窟、火車站、橋下與公車站，向孤兒、乞討者與最弱勢者發放 food kits 與 blankets。</p>
-<p>🔵 <strong>【訪談】</strong> Soren Lakhindar（Lucky）說自己在 central level 起草 proposals、協調各州 alumni 找到適合救援的地點、彙整報告與 audit bills；一週內建立 dedicated website 做 reporting / documentation。世友居士的指示是：先保護自己，但也要支援 rural areas、daily wage laborers、migrant workers。</p>
-<p>🔵 <strong>【訪談】</strong> 精神支持部分，世友居士線上講授《寶經》（Ratana Sutta）八週，並和其他人帶領多個線上佛法課程。這段可以把 COVID 寫成「material relief + spiritual relief」雙軸，而不是只寫物資捐贈。</p>
+<p>世友居士回憶 COVID 是沉重困難的時期，但海外朋友反應很有創意，帶來數百萬盧比的資金。贍部洲、「曼努斯基」與龍樹學院把資金與物資送到貧民窟、社群與村莊，包含禦寒衣物、食物包、藥品。</p>
+<p>龍樹學院設立 COVID Care Center / clinic，配有 oxygen facilities；美國捐助者提供 oxygen cylinders 與 oxygen plant。耆婆健康教育中心則透過 CSR funds 分發大量 kits，讓民眾在指定日期帶口罩與 Aadhaar card 領取。「曼努斯基」在 Hadapsar 周邊貧民窟、火車站、橋下與公車站，向孤兒、乞討者與最弱勢者發放 food kits 與 blankets。</p>
+<p>Soren Lakhindar（Lucky）說自己在 central level 起草 proposals、協調各州 alumni 找到適合救援的地點、彙整報告與 audit bills；一週內建立 dedicated website 做 reporting / documentation。世友居士的指示是：先保護自己，但也要支援 rural areas、daily wage laborers、migrant workers。</p>
+<p>精神支持部分，世友居士線上講授《寶經》（Ratana Sutta）八週，並和其他人帶領多個線上佛法課程。這段可以把 COVID 寫成「material relief + spiritual relief」雙軸，而不是只寫物資捐贈。</p>
 <h2>11. COVID 旁支災難：Amphan 與 Odisha</h2>
-<p>🔵 <strong>【訪談】</strong> 彌勒種補充，COVID 同期還有 Cyclone Amphan 與 Odisha typhoon / storm 需要處理。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這條線和龍樹學院 alumni 的災難救援能力有關，可和 Gujarat earthquake relief 形成長線對照。不過 Day4 口述沒有完整展開，需補問救援地點、資金來源、受助人數與 alumni 網絡如何分工。</p>
+<p>彌勒種補充，COVID 同期還有 Cyclone Amphan 與 Odisha typhoon / storm 需要處理。</p>
+<p>這條線和龍樹學院 alumni 的災難救援能力有關，可和 Gujarat earthquake relief 形成長線對照。不過 Day4 口述沒有完整展開，需補問救援地點、資金來源、受助人數與 alumni 網絡如何分工。</p>
 <h2>12. 歷史照片：達賴喇嘛、台灣朋友、Gujarat earthquake relief</h2>
-<p>🔵 <strong>【訪談】</strong> Punam Park 3 後段開始翻看歷史照片。彌勒種說照片中的人物來自台灣，其中有台北的 Mei-huey；世友居士曾住在她家。這條線可回接台灣護持者、教授與法師對龍樹學院的長期支持。</p>
-<p>🔵 <strong>【訪談】</strong> 彌勒種講述達賴喇嘛首次訪問達波迪大精舍的故事：他當時來浦那參加 Sadhu Vaswani Mission 活動，團隊在只有一天通知的狀況下準備邀請；世友居士草擬邀請信，Prasannaratna、世友居士、Alokshri、Akashgita、Vimalshri、彌勒種到機場。世友居士接近達賴喇嘛，彌勒種接近秘書；秘書一開始拒絕，但達賴喇嘛聽到後要求保留行程，隔天早上接見，最後當日下午 1:30 到大精舍。</p>
-<p>🔵 <strong>【訪談】</strong> 訪談者提到需要與 Gujarat earthquake relief 相關的照片。這表示 Day4 現場照片整理不只是補圖，而是正在建立「事件 - 章節 - 圖像證據」的對應表。</p>
-<p>🟠 <strong>【整理判斷】</strong> 1993 / 1994 日期目前與既有 Master Timeline 有衝突，需在查核表中列為高優先級。正式書稿可先保留「臨時邀請成功」這個敘事核心，但年份與參與者名單需等確認。</p>
+<p>Punam Park 3 後段開始翻看歷史照片。彌勒種說照片中的人物來自台灣，其中有台北的 Mei-huey；世友居士曾住在她家。這條線可回接台灣護持者、教授與法師對龍樹學院的長期支持。</p>
+<p>彌勒種講述達賴喇嘛首次訪問達波迪大精舍的故事：他當時來浦那參加 Sadhu Vaswani Mission 活動，團隊在只有一天通知的狀況下準備邀請；世友居士草擬邀請信，Prasannaratna、世友居士、Alokshri、Akashgita、Vimalshri、彌勒種到機場。世友居士接近達賴喇嘛，彌勒種接近秘書；秘書一開始拒絕，但達賴喇嘛聽到後要求保留行程，隔天早上接見，最後當日下午 1:30 到大精舍。</p>
+<p>訪談者提到需要與 Gujarat earthquake relief 相關的照片。這表示 Day4 現場照片整理不只是補圖，而是正在建立「事件 - 章節 - 圖像證據」的對應表。</p>
+<p>1993 / 1994 日期目前與既有 Master Timeline 有衝突，需在查核表中列為高優先級。正式書稿可先保留「臨時邀請成功」這個敘事核心，但年份與參與者名單需等確認。</p>
 <h2>13. 非田野技術討論：保留 raw，不納入主稿</h2>
 <p><code>PunamPark3_COVID救援_DalaiLama照片_Consolidated.md</code> 後半從 <code>Part II: Technical Discussion (PII Masking &amp; LLM Validation)</code> 開始，內容轉為企業資料去識別化、Presidio、LLM / RAG 驗證流程。這不是世友居士自傳田野內容，也不是贍部洲 / COVID 的歷史素材。本稿不整併該段，只在 raw README 與版本索引中標記其存在，避免日後誤以為漏匯。</p>
 <h2>14. 晚間補錄一：十年反思、旁觀痛苦與行動倫理</h2>
-<p>🔵 <strong>【訪談】</strong> <code>JaiJawanNagar3</code> 補出世友居士在印度約十年後的內在低潮：他讀到 Ruth Prawer Jhabvala 對印度生活的書寫，意識到自己也進入類似的疲憊與自我懷疑狀態。這不是單純的放棄念頭，而是「我究竟在這裡做什麼」的深層追問。</p>
-<p>🔵 <strong>【訪談】</strong> 同段回到孟買 Worli 與 Darshan Buddhist Mandir 的早期記憶：照片中的小孩、安貝卡博士與佛陀圖像、貧民窟與大城市的並置，形成一種「看見他人痛苦」的倫理壓力。訪談者提到 Susan Sontag 的 <em>Regarding the Pain of Others</em>，世友居士的回應則更接近行動倫理：不是先確認自己是否有足夠慈悲，而是看見有事需要做、也知道自己能做，就去做。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這段能讓書稿避免把世友居士寫成「天生慈悲」的平面人物。更準確的線索是：他也會疲憊、懷疑、承受觀看苦難的壓力；佛法訓練使他不被痛苦淹沒，而能把感受轉為行動。</p>
+<p><code>JaiJawanNagar3</code> 補出世友居士在印度約十年後的內在低潮：他讀到 Ruth Prawer Jhabvala 對印度生活的書寫，意識到自己也進入類似的疲憊與自我懷疑狀態。這不是單純的放棄念頭，而是「我究竟在這裡做什麼」的深層追問。</p>
+<p>同段回到孟買 Worli 與 Darshan Buddhist Mandir 的早期記憶：照片中的小孩、安貝卡博士與佛陀圖像、貧民窟與大城市的並置，形成一種「看見他人痛苦」的倫理壓力。訪談者提到 Susan Sontag 的 <em>Regarding the Pain of Others</em>，世友居士的回應則更接近行動倫理：不是先確認自己是否有足夠慈悲，而是看見有事需要做、也知道自己能做，就去做。</p>
+<p>這段能讓書稿避免把世友居士寫成「天生慈悲」的平面人物。更準確的線索是：他也會疲憊、懷疑、承受觀看苦難的壓力；佛法訓練使他不被痛苦淹沒，而能把感受轉為行動。</p>
 <h2>15. 晚間補錄二：龍樹學院 COVID 現場</h2>
-<p>🔵 <strong>【訪談】</strong> <code>JaiJawanNagar4</code> 補足龍樹學院在疫情初期的現場：學生先被要求返家；校園留守者很少，並有一位加拿大訪客因航班停飛滯留約四個月。學院一方面維持線上聯繫與課程，一方面煮食給因交通中斷而徒步返鄉的移工，尤其是從馬哈拉施特拉邦往北方邦方向移動的人。</p>
-<p>🔵 <strong>【訪談】</strong> 該段明確提到新冠關懷之家（COVID Care Home）：學生宿舍被改成照護設施，檢測陽性者可入住，現場有醫生與護士。另有「三寶醫療（Triratna Medico）」團隊在線上提供防護指導。這比 <code>PunamPark3</code> 的物資救援線更具現場性，可和耆婆健康教育中心、氧氣設備、food kits 形成 COVID 救援的完整層次。</p>
-<p>🔵 <strong>【訪談】</strong> 後段談到校園日常與語言多樣性：學生來自印度各邦，校園內可聽見二十多種語言，日常以 Hindi 作共同語。這段不必全數入書，但可支撐「龍樹學院是一個全印訓練場」的敘事。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這段讓 COVID 不只是「機構發送物資」，而是「校園變成照護與通行中繼站」。正式書寫時需查核 COVID Care Home 的營運日期、受助人數、醫療團隊正式名稱、加拿大訪客身份與是否可公開。</p>
+<p><code>JaiJawanNagar4</code> 補足龍樹學院在疫情初期的現場：學生先被要求返家；校園留守者很少，並有一位加拿大訪客因航班停飛滯留約四個月。學院一方面維持線上聯繫與課程，一方面煮食給因交通中斷而徒步返鄉的移工，尤其是從馬哈拉施特拉邦往北方邦方向移動的人。</p>
+<p>該段明確提到新冠關懷之家（COVID Care Home）：學生宿舍被改成照護設施，檢測陽性者可入住，現場有醫生與護士。另有「三寶醫療（Triratna Medico）」團隊在線上提供防護指導。這比 <code>PunamPark3</code> 的物資救援線更具現場性，可和耆婆健康教育中心、氧氣設備、food kits 形成 COVID 救援的完整層次。</p>
+<p>後段談到校園日常與語言多樣性：學生來自印度各邦，校園內可聽見二十多種語言，日常以 Hindi 作共同語。這段不必全數入書，但可支撐「龍樹學院是一個全印訓練場」的敘事。</p>
+<p>這段讓 COVID 不只是「機構發送物資」，而是「校園變成照護與通行中繼站」。正式書寫時需查核 COVID Care Home 的營運日期、受助人數、醫療團隊正式名稱、加拿大訪客身份與是否可公開。</p>
 <h2>16. 晚間補錄三：2019 後的退居監督與 FCRA 危機</h2>
-<p>🔵 <strong>【訪談】</strong> <code>PunamPark4</code> 補出世友居士在 2019 年後的生命轉位：2019 年 11 月是疫情前最後一次訪台；他當時約 71 或 72 歲，健康狀況不佳，意識到自己不能再靠頻繁旅行募款。2019 年底後，他從龍樹學院 day-to-day operations 退到 overseeing level。</p>
-<p>🔵 <strong>【訪談】</strong> 同段提到「那年九月」政府新法規對外國捐款造成重大衝擊，組織持續五六年仍在處理。這很可能對應 2020 年 9 月 FCRA 修法，但在正式寫入前不可直接定案；需以法律文件與組織內部紀錄查核。</p>
-<p>🔵 <strong>【訪談】</strong> 世友居士的晚年焦點被說得很清楚：他希望龍樹學院能在財務、人員、地方管理與信託人層級留下可延續的未來；若能通過政府法規關卡，便希望逐漸走向不依賴外國資金的永續模式。他仍希望與龍樹學院保持連結，但不再擔任行政或指揮角色。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這是最後章或尾聲的關鍵：不是「退場」，而是從創辦者 / 募款者 / 指揮者轉成監督者與交棒者。敘事上可寫成「他開始把自己的存在從組織中央移開，讓組織學會不用他也能站住」。</p>
+<p><code>PunamPark4</code> 補出世友居士在 2019 年後的生命轉位：2019 年 11 月是疫情前最後一次訪台；他當時約 71 或 72 歲，健康狀況不佳，意識到自己不能再靠頻繁旅行募款。2019 年底後，他從龍樹學院 day-to-day operations 退到 overseeing level。</p>
+<p>同段提到「那年九月」政府新法規對外國捐款造成重大衝擊，組織持續五六年仍在處理。這很可能對應 2020 年 9 月 FCRA 修法，但在正式寫入前不可直接定案；需以法律文件與組織內部紀錄查核。</p>
+<p>世友居士的晚年焦點被說得很清楚：他希望龍樹學院能在財務、人員、地方管理與信託人層級留下可延續的未來；若能通過政府法規關卡，便希望逐漸走向不依賴外國資金的永續模式。他仍希望與龍樹學院保持連結，但不再擔任行政或指揮角色。</p>
+<p>這是最後章或尾聲的關鍵：不是「退場」，而是從創辦者 / 募款者 / 指揮者轉成監督者與交棒者。敘事上可寫成「他開始把自己的存在從組織中央移開，讓組織學會不用他也能站住」。</p>
 <h2>17. 晚間補錄四：安貝卡佛教、跨宗派辯護與達利特焦點</h2>
-<p>🔵 <strong>【訪談】</strong> 世友居士談到 Arundhati Roy 對安貝卡博士的書寫，認為她批判力強，但沒有真正處理安貝卡博士皈依佛教的深遠意義。這段與 <code>The Doctor and the Saint</code> 參考文獻形成直接對話：她能處理種姓批判，卻未必能處理佛教轉向。</p>
-<p>🔵 <strong>【訪談】</strong> 他也提到 AI 時代與網路查證的危險：台灣對安貝卡博士興趣增加，玄奘大學安貝卡博士中心使相關書寫更需嚴格。若引用 Bhim Geet 或 Kabir Panth，必須先有深刻理解，不能靠表面搜尋。</p>
-<p>🔵 <strong>【訪談】</strong> 關於是否投注高種姓 / 中產印度人，世友居士說自己曾在浦那為非達利特人開英文課，也遇過 Chinaraj 這類例外；但他後來認為達利特人「渴望佛法」，同樣精力用在達利特社群能產生更大回應。這不是拒絕非達利特，而是不再把接引高種姓視為特殊優先。</p>
-<p>🔵 <strong>【訪談】</strong> 2005 年龍樹學院會議、2016 年國際研討會、與 Tenzin Palmo 等跨宗派來往，顯示他多年來都在對其他佛教傳統辯護安貝卡佛教：人們常看不起安貝卡博士的佛教追隨者，但他認為安貝卡博士的皈依運動是對印度、世界與佛教本身的重大貢獻。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這段是全書思想總結的核心材料：世友居士不是只做社會工作，也不是只做佛教傳教；他把佛法視為社會工作的根基，並把安貝卡博士的佛教放回世界佛教史的位置。</p>
+<p>世友居士談到 Arundhati Roy 對安貝卡博士的書寫，認為她批判力強，但沒有真正處理安貝卡博士皈依佛教的深遠意義。這段與 <code>The Doctor and the Saint</code> 參考文獻形成直接對話：她能處理種姓批判，卻未必能處理佛教轉向。</p>
+<p>他也提到 AI 時代與網路查證的危險：台灣對安貝卡博士興趣增加，玄奘大學安貝卡博士中心使相關書寫更需嚴格。若引用 Bhim Geet 或 Kabir Panth，必須先有深刻理解，不能靠表面搜尋。</p>
+<p>關於是否投注高種姓 / 中產印度人，世友居士說自己曾在浦那為非達利特人開英文課，也遇過 Chinaraj 這類例外；但他後來認為達利特人「渴望佛法」，同樣精力用在達利特社群能產生更大回應。這不是拒絕非達利特，而是不再把接引高種姓視為特殊優先。</p>
+<p>2005 年龍樹學院會議、2016 年國際研討會、與 Tenzin Palmo 等跨宗派來往，顯示他多年來都在對其他佛教傳統辯護安貝卡佛教：人們常看不起安貝卡博士的佛教追隨者，但他認為安貝卡博士的皈依運動是對印度、世界與佛教本身的重大貢獻。</p>
+<p>這段是全書思想總結的核心材料：世友居士不是只做社會工作，也不是只做佛教傳教；他把佛法視為社會工作的根基，並把安貝卡博士的佛教放回世界佛教史的位置。</p>
 <h2>18. 晚間補錄五：三個生命轉折點與「看見後行動」</h2>
-<p>🔵 <strong>【訪談】</strong> 世友居士再次列出三個影響最深的時刻：1967 年經驗、一場禪修營、第一次探訪夜校。這三者目前只有 1967 年與既有時間線高度對齊；「禪修營」與「夜校」需要補問具體年份、地點與事件。</p>
-<p>🔵 <strong>【訪談】</strong> 他也補充剛到印度時看見一位失去鼻子與雙眼的乞丐，幾乎每天仍會想起；另有一位類似狀態的女性。這不是可輕易戲劇化的素材，而是一個說明他如何處理苦難觀看的深層入口：感受存在，但不能讓感受使自己停住。</p>
-<p>🟠 <strong>【整理判斷】</strong> 這可以與 <code>JaiJawanNagar3</code> 的 Susan Sontag / 旁觀痛苦線合併：世友居士的倫理不是「被感動」而已，而是學會在慘烈現場中保持清醒、持續溝通、持續行動。</p>
+<p>世友居士再次列出三個影響最深的時刻：1967 年經驗、一場禪修營、第一次探訪夜校。這三者目前只有 1967 年與既有時間線高度對齊；「禪修營」與「夜校」需要補問具體年份、地點與事件。</p>
+<p>他也補充剛到印度時看見一位失去鼻子與雙眼的乞丐，幾乎每天仍會想起；另有一位類似狀態的女性。這不是可輕易戲劇化的素材，而是一個說明他如何處理苦難觀看的深層入口：感受存在，但不能讓感受使自己停住。</p>
+<p>這可以與 <code>JaiJawanNagar3</code> 的 Susan Sontag / 旁觀痛苦線合併：世友居士的倫理不是「被感動」而已，而是學會在慘烈現場中保持清醒、持續溝通、持續行動。</p>
 <h2>19. 寫作路由</h2>
 <ul>
 <li>可用主題：建議章節 / 用途，使用方式</li>
@@ -5025,18 +4904,13 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-11" class="day-card">
+        <article id="card-11" class="day-card">
             <div class="day-header">
-                <h2>Day 5 現場敘事</h2>
+                <h2>Day 5：1 移動與觀察</h2>
                 <div class="day-date">2026年6月4日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>本日無特別紀錄行程。</p>
-            </div>
             <div class="story-content">
-                <h1>20260604 Day 5 田野筆記 (1)：移動與觀察</h1>
-<p><strong>時間</strong>：2026年6月4日 上午
+                <p><strong>時間</strong>：2026年6月4日 上午
 <strong>地點</strong>：浦那（Pune）市區、前往機場途中、候機室
 <strong>核心人物</strong>：世友居士（Lokamitra）、訪談者
 <strong>對應音檔</strong>：Chunk 1</p>
@@ -5049,7 +4923,7 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
 <p>在機場候機時，話題轉向了即將到來的季風雨季（Monsoon）。
 世友提到，一到了雨季，達泊迪（Dapodi）等低窪地區以及河岸邊的貧民窟將面臨嚴重的生存危機。大雨不僅會造成街道洪澇，積水更會直接漫入低矮的平房內，居民必須在泥濘與污水中掙扎求生。
 - <strong>田野洞見：物品可以升級，空間不能升級</strong>
-  這段對話深刻呼應了我們前幾天的田野觀察。在貧民窟中，隨著經濟微幅改善，家庭可能會購買電視、冰箱等「物品」來升級生活，但「空間」的物理限制（低窪、擁擠、無產權）卻是無法輕易跨越的結構性高牆。氣候變遷與極端天氣，往往最先懲罰這些空間上的弱勢者。</p>
+這段對話深刻呼應了我們前幾天的田野觀察。在貧民窟中，隨著經濟微幅改善，家庭可能會購買電視、冰箱等「物品」來升級生活，但「空間」的物理限制（低窪、擁擠、無產權）卻是無法輕易跨越的結構性高牆。氣候變遷與極端天氣，往往最先懲罰這些空間上的弱勢者。</p>
 <h2>3. 「非暴力懲罰」的社會學：康丹普爾（Kondhanpur）事件回顧</h2>
 <p>在候機時的閒聊中，我們重新探討了 2001 年發生在康丹普爾的比沙卡（Bishaka）遇襲事件（預計寫入傳記第11章）。
 當時比沙卡作為一名達利特女性，遭到高種姓男性的暴力攻擊。世友與團隊最終的決定是<strong>不向警方提告</strong>，而是選擇了一條更艱難的修復之路：要求施暴者在村莊長老與眾人面前，向比沙卡低頭道歉。</p>
@@ -5067,20 +4941,15 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-12" class="day-card">
+        <article id="card-12" class="day-card">
             <div class="day-header">
-                <h2>Day 5 現場敘事</h2>
+                <h2>Day 5：2 Nagaloka校園巡禮</h2>
                 <div class="day-date">2026年6月4日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>本日無特別紀錄行程。</p>
-            </div>
             <div class="story-content">
-                <h1>20260604 Day 5 田野筆記 (2)：Nagaloka 校園巡禮與學員對談</h1>
-<p><strong>時間</strong>：2026年6月4日 下午
+                <p><strong>時間</strong>：2026年6月4日 下午
 <strong>地點</strong>：那格浦爾（Nagpur），龍樹學院（Nagaloka）
-<strong>核心人物</strong>：工作人員 Bhanu、學員 Sangharsh、女學員 Manali、歷史學博士生
+<strong>核心人物</strong>：工作人員 Bhanu 與 Sangharsh、女學員 Manali、歷史學博士生
 <strong>對應音檔</strong>：Chunk 2（原 Chunk 2 拆分後之 1, 2, 3 部分合併觀察）</p>
 <hr />
 <h2>1. 建築美學與象徵：佛陀步入世間</h2>
@@ -5122,18 +4991,13 @@ Nagpur conversion 是宗教與身份的最後切斷。</p>
         </article>
         
             
-        <article id="day-13" class="day-card">
+        <article id="card-13" class="day-card">
             <div class="day-header">
-                <h2>Day 5 現場敘事</h2>
+                <h2>Day 5：3 晚間長對談</h2>
                 <div class="day-date">2026年6月4日</div>
             </div>
-            <div class="itinerary-box">
-                <h4>行程與工作大綱</h4>
-                <p>本日無特別紀錄行程。</p>
-            </div>
             <div class="story-content">
-                <h1>20260604 Day 5 田野筆記 (3)：晚間長對談</h1>
-<p><strong>時間</strong>：2026年6月4日 晚間
+                <p><strong>時間</strong>：2026年6月4日 晚間
 <strong>地點</strong>：那格浦爾（Nagpur），世友（Lokamitra）住處
 <strong>核心人物</strong>：世友居士（Lokamitra）、訪談者
 <strong>對應音檔</strong>：Chunk 3（及 Chunk 1 部分對話延續）</p>
