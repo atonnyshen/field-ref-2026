@@ -55,225 +55,292 @@ ul.tasks li.done .t{text-decoration:line-through}
 .idx li{margin:.7em 0;font-size:18px}
 .lead{color:var(--muted);font-size:15px}
 hr{border:none;border-top:1px solid var(--line);margin:1.6em 0}
-</style></head><body><div class="topbar"><a href="index.html">← 目錄</a><span>Day10_A_孟買實地勘查與Worli查證作戰包_20260609</span><button class="btn" id="reset">清除勾選</button></div><div class="wrap"><h1>Day 10 孟買實地勘查與 Worli 查證作戰包</h1>
-<p><strong>時間</strong>：2026 年 6 月 9 日
-<strong>地點</strong>：孟買 (Mumbai / 舊稱 Bombay) - 沃里 (Worli) 與 BDD 公寓 (BDD Chawls)
-<strong>核心任務</strong>：勘查 Chapter 03, 04, 10 涉及的孟買貧民窟與據點，釐清作者質疑的「孟買燃燒事件 (burning incident)」，並核對大佛雕像海運與達賴喇嘛隨行細節。</p>
+</style></head><body><div class="topbar"><a href="index.html">← 目錄</a><span>Day10_A_孟買實地勘查與Worli查證作戰包_20260609</span><button class="btn" id="reset">清除勾選</button></div><div class="wrap"><h1>Day 10 孟買實地勘查與 Worli 查證作戰包 (2026-06-09)</h1>
+<p>本文件整合了 2026 年 6 月 9 日（Day 10）在孟買機場與前往飯店途中錄製的三段實地勘查音檔之雙語對照整理手稿，並附帶 Worli 查證的紀錄分析，以及為 Day 11 行程規劃的靜修中心勘查問題清單。</p>
 <hr />
-<h2>🔍 背景與歷史脈絡分析 (Context &amp; History)</h2>
-<p>在撰寫本書的中期草稿中，編者為了凸顯孟買達利特人處境的激烈與緊迫，曾寫下：</p>
-<blockquote>
-<p><em>「就在他抵達的前幾年，這座城市曾經燃燒過 (this city had burned)...」</em></p>
-</blockquote>
-<p>然而，作者世友居士 (Lokamitra) 在修訂時提出了強烈質疑：</p>
-<blockquote>
-<p><strong>「我不認為我清楚這場火災（這座城市的燃燒）——你能解釋一下嗎？」</strong></p>
-</blockquote>
-<h3>1. 歷史真相：1974 年沃里暴動 (Worli Riots) 與 BDD 公寓</h3>
-<p>編者所指的「燃燒」，在歷史上極可能是指 <strong>1974 年 1 月至 2 月發生在孟買沃里 (Worli) BDD 公寓的嚴重種姓暴動</strong>。</p>
+<h2>📋 聲音最佳化與轉譯說明</h2>
+<p>三段原始錄音背景極為嘈雜（嘈雜的機場大廳與行車環境）。在提交轉譯前，已使用 <code>ffmpeg</code> 進行降噪（<code>afftdn</code>）與動態音量標準化（<code>dynaudnorm</code>）處理，大幅提升了語音辨識之精確度。</p>
 <ul>
-<li><strong>背景</strong>：當時新成立的「達利特黑豹黨 (Dalit Panthers)」與極右翼的「濕婆軍 (Shiv Sena)」及警方發生激烈衝突。</li>
-<li><strong>現場</strong>：BDD 公寓 (BDD Chawls) 是由 121 棟四層水泥建築組成的龐大廉租公寓群，當時有大量的達利特工人與中產種姓居住於此，成為衝突的風暴眼。黑豹黨領袖巴格瓦·賈達夫 (Bhagwat Jadhav) 即在此處被高樓丟下的石塊砸中身亡。</li>
-<li><strong>衝突本質</strong>：這是一場街頭暴力、縱火與警察濫權的混合體，確實讓 Worli 地區陷入火海與宵禁。</li>
-<li><strong>衝突起因</strong>：起於一場推廣安貝卡思想的集會衝突，隨後演變成大範圍的種姓報復。</li>
+<li><strong>語言與譯名規範</strong>：全文字譯去除 AI 味，專有名詞與歷史時間線嚴格對齊 <code>00_核心名詞與術語對照表_Glossary.md</code>。</li>
+<li><strong>講者對照</strong>：<ul>
+<li><strong>世友 (Lokamitra)</strong>：傳記主角。</li>
+<li><strong>採訪者 (Tony / 沈建勳)</strong>：傳記作者。</li>
+<li><strong>講者 1 (Tej Dashan / 特吉·達山)</strong>：隨行教團法行者。</li>
+<li><strong>講者 2</strong>：在沃里 (Worli) 出生長大的資深法行者。</li>
+<li><strong>講者 3 (博德希 / Bodhisen)</strong>：1980 年加入世友課程、1983 年受戒的早期核心法行者。</li>
+<li><strong>司機 (Driver)</strong>：孟買當地司機。</li>
 </ul>
-<h3>2. 世友居士的記憶落差</h3>
-<p>世友居士於 1979 年 3 月首次抵達孟買（住在 BDD 公寓旁老友博德希 Bodhisen 的住處）。</p>
-<ul>
-<li>當時距離 1974 年暴動僅過去 5 年，街頭的政治餘溫與黑豹黨的內部撕裂（馬克思主義派 vs 佛法派）依然清晰。</li>
-<li>但世友本人可能並未使用「這座城市曾經燃燒 (burned)」這種強烈的文學化修辭來框架這段歷史，或者他來到此地時，看見的更多是日常的貧民窟掙扎，而非暴力的殘骸。</li>
-<li><strong>這正是明天實地走訪 BDD 公寓時，需要與世友居士當面釐清、對齊的關鍵點。</strong></li>
+</li>
 </ul>
 <hr />
-<h2>🗺️ 跨章節實地查證清單 (Cross-Chapter Checklist)</h2>
-<h3>📌 Chapter 03 &amp; 04：早期孟買紮根與 BDD 公寓生活</h3>
-<ul class="tasks">
-<li class="task"><input type="checkbox"><span class="t"><strong>博德希 (Bodhisen) 的足跡</strong>：尋訪博德希當年在 Worli 的傳法基地。他是促成孟買達利特社群接受佛法的關鍵推手，世友早期來到孟買都寄宿於他家。</span></li>
-<li class="task"><input type="checkbox"><span class="t"><strong>BDD 公寓的物理空間</strong>：實地觀察這 121 棟四層建築的格局。想像 1979 年世友居士在「精舍外的空地 (outside the vihara on the maidan)」對著成千上萬工人群眾演講的場景。</span></li>
-<li class="task"><input type="checkbox"><span class="t"><strong>「Jai Bhim」與「Namaste」的權力翻轉</strong>：在 Worli 現場，觀察達利特人彼此問候的口吻。理解為什麼「Namaste」在印度隱含著種姓秩序的順從，而「Jai Bhim」則是對傳統秩序的政治切斷。</span></li>
-<li class="task"><input type="checkbox"><span class="t"><strong>黑豹黨的消逝</strong>：1977 年黑豹黨因分裂而崩解，這與 1978 年世友居士抵達並開始傳播非暴力的安貝卡佛法路線，在時間線上如何完美銜接？</span></li>
+<h2>🗂️ 整合版雙語對照手稿 (Consolidated Hand-signed Transcripts)</h2>
+<h3>Part 1: 孟買早期開拓史與 Worli 衝突記憶</h3>
+<h4>英文對照 (English Transcript - Verbatim)</h4>
+<blockquote>
+<p><strong>Lokamitra</strong>: He stayed in Pune with Virabhadra, who was a doctor, and Padmasuri, who was a nurse. There was another Order member called Vajraketu. He was in Mumbai with Padmavajra. Jyotipala was in Aurangabad. Sumana and Punya were in Ahmedabad.</p>
+<p><strong>Interviewer</strong>: So there were three teams? Did some of them have to go back to England because of the visa issues in the 1980s?</p>
+<p><strong>Speaker 2</strong>: They went back, but some kept coming, like Jyotipala. Ashvajit visited very often, and many other Order members came. Vajraketu started the classes in Mumbai. </p>
+<p><strong>Interviewer</strong>: First there were Dhamma classes, and then they gained trust and started social work?</p>
+<p><strong>Speaker 2</strong>: It started with Dhamma classes, then one-day retreats, and later four- or five-day retreats. After that, we built the retreat center which we are visiting tomorrow.</p>
+<p><strong>Interviewer</strong>: Did the work in Mumbai start around 1978 or earlier?</p>
+<p><strong>Speaker 3</strong>: The work in Mumbai started in 1978 and 1979.</p>
+<p><strong>Interviewer</strong>: Was that around the time Lokamitra started coming?</p>
+<p><strong>Speaker 2</strong>: In 1978, Lokamitra came to Pune. He used to lead fifteen classes a week. He would travel around on a push-bike.</p>
+<p><strong>Interviewer</strong>: Fifteen classes a week? That is two a day.</p>
+<p><strong>Speaker 3</strong>: And there was no proper place; they held them in a garage. He had no rest, just riding his cycle.</p>
+<p><strong>Interviewer</strong>: When did you join the class in Mumbai?</p>
+<p><strong>Speaker 3</strong>: I joined Lokamitra's class in 1980.</p>
+<p><strong>Interviewer</strong>: So from when it began until now, that is 46 years.</p>
+<p><strong>Speaker 3</strong>: Yes, 46 years. According to the Sangha system, I became a Mitra in 1981, learning from the Order members. Then I became a Dhammachari in 1983. At that time, Lokamitra was in charge of ordination, and I became a Dhammachari from his team.</p>
+<p><strong>Interviewer</strong>: Was 1983 when Sangharakshita came to India?</p>
+<p><strong>Speaker 3</strong>: Sangharakshita was coming and going, but Lokamitra had all the responsibility. He was the one who inspired Sangharakshita, as he was his most senior friend.</p>
+<p><strong>Interviewer</strong>: What is the difference between Pune, Nagpur, and Mumbai? I know Lokamitra spent the most time in Pune and built it up there. Nagpur is where Dr. Ambedkar converted to Buddhism, so there is a large Buddhist community. But what makes Mumbai different from these two cities?</p>
+<p><strong>Speaker 3</strong>: First, Lokamitra established the Pune center, then Nagpur, and then the Mumbai center. But his touch is everywhere, spreading the Dhamma through his close friends.</p>
+<p><strong>Interviewer</strong>: Back in the 1980s and 1990s, people had to travel by bus or train for twenty hours between these cities. It was hard to maintain regular travel, so I imagine the three cities developed differently.</p>
+<p><strong>Speaker 2</strong>: Mostly all the centers were started by Lokamitra. He engaged in both spiritual and social work.</p>
+<p><strong>Interviewer</strong>: When I read about the history in Mumbai, specifically regarding the 1974 Worli riots and the BDD chawls, I learned there was a lot of violence. I know Lokamitra eventually established a center there.</p>
+<p><strong>Speaker 2</strong>: I was born and brought up in Worli. During that time, there were riots between Hindus and Dalits. The BDD chawl has a large Buddhist population. Because people had become Buddhists, they no longer wanted to be treated as slaves. They wanted self-respect and to rid themselves of caste discrimination. They believed that everyone is human first and should be respected as such. However, the political party Shiv Sena, supported by the government and orthodox Hindus, wanted to suppress the Dalit Panthers. They fought for months, and there was high tension; people couldn't even go outside due to Section 144 curfews.</p>
+<p><strong>Interviewer</strong>: How did the Sangha handle that situation?</p>
+<p><strong>Speaker 2</strong>: Before the Triratna Buddhist Community (TBMSG) was established, there was no organized Sangha. Lokamitra built his team to propagate the Dhamma, and I was part of that team. We went from chawl to chawl as peace messengers, teaching Buddhism and the Panchsheel. We gave people confidence and courage, reminding them that they are human beings. We called for peace according to Dhamma teachings.</p>
+<p><strong>Interviewer</strong>: So initially, because there was no Buddhist community, people fought back with violence. But after the centers were established around 1980 and 1981, people gathered and protected themselves through non-violent means.</p>
+<p><strong>Speaker 2</strong>: Yes, exactly. Mumbai was the center of these movements. Leaders like Namdeo Dhasal, J.V. Pawar, and Raja Dhale were strong Buddhist leaders and fighters in the Dalit Panther movement. Because the Dalit Panthers were fighting against the Shiv Sena, our leaders had to be warriors.</p>
+<p><strong>Interviewer</strong>: Were they able to spread their message through media or broadcasting?</p>
+<p><strong>Speaker 3</strong>: In those days, the orthodox groups controlled all the mainstream media and would not publish our stories. They had to rely on monthly newsletters and word of mouth. Now, with social media, the new generation has more opportunities.</p>
+<p><strong>Speaker 2</strong>: Our behavior has also changed the situation. Because we practice the Dhamma and morality, Hindus, Muslims, and Christians respect us. We are no longer treated as slaves.</p>
+<p><strong>Interviewer</strong>: During an interview, I was told that Dr. Ambedkar chose to become a Buddhist rather than join the Naxalite or Communist movements, which were driven by armed struggle. By choosing Buddhism, he helped the Dalit movement remain peaceful, which benefited all of India.</p>
+<p><strong>Speaker 2</strong>: You have read a lot. The Naxalites on the borders and the Dalit Panthers in the city both wanted independence from casteist suppression. But it was the awareness and practice of Buddhism that brought true respect and change. Through Lokamitra's movement and the Order members, people from many different castes have joined the Sangha and experienced true self-esteem.</p>
+<p><strong>Interviewer</strong>: How large is the Triratna community in Mumbai today?</p>
+<p><strong>Speaker 2</strong>: Mumbai has a population of over 27 million. It is a huge city. Lokamitra started one center here, and now we have expanded to five centers across the region, including Thane, Ulhasnagar, Navi Mumbai, Bhiwandi, and Panvel.</p>
+<p><strong>Speaker 3</strong>: We have hundreds of Dhammacharis in Mumbai. Each center runs activities, Dhamma classes, retreats, Order meetings, and general classes. We also have hostels, like the one in Ulhasnagar. Lokamitra generated very good karma by starting this movement. We are his disciples, and he is our Kalyana Mitra and mentor.</p>
+<p><strong>Interviewer</strong>: That is incredible. I have gained a fundamental understanding of this area's history. So, should we drop our bags at the hotel and then go to Siddharth College?</p>
+<p><strong>Speaker 2</strong>: Yes, Siddharth College was started by Dr. Ambedkar. The Dalit Panther movement mostly started there, and the leaders were students of the college.</p>
+<p><strong>Interviewer</strong>: Was Bhagwat Jadhav one of the leaders? I read he was killed by a stone thrown at his head.</p>
+<p><strong>Speaker 3</strong>: Yes, he was a Dalit Panther leader and was killed that way. After his death, his brother Sumedh stepped up to continue the social work. He worked alongside Namdeo Dhasal, the founder of the Dalit Panthers—which was inspired by the American Black Panthers—along with J.V. Pawar and Raja Dhale.</p>
+</blockquote>
+<h4>中文翻譯 (Chinese Translation - Fluent)</h4>
+<blockquote>
+<p><strong>世友 (Lokamitra)</strong>：他與醫生勇賢 (Virabhadra) 以及護士蓮慧 (Padmasuri) 一起待在浦那。還有一位名叫瓦吉拉凱圖 (Vajraketu) 的教團成員。他與蓮花金剛 (Padmavajra) 在孟買。光護 (Jyotipala) 在奧蘭加巴德。蘇摩那 (Sumana) 和普納 (Punya) 在艾哈邁達巴德。</p>
+<p><strong>採訪者</strong>：所以當時有三個團隊？因為 1980 年代的簽證問題，他們當中有些人是不是必須回英國？</p>
+<p><strong>講者 2</strong>：他們回去了，但有些人還是持續過來，比如光護。馬勝 (Ashvajit) 也經常來訪，還有許多其他的教團成員也來了。瓦吉拉凱圖在孟買開辦了課程。</p>
+<p><strong>採訪者</strong>：一開始是佛法課程，等他們獲得信任後，就開始了社會工作？</p>
+<p><strong>講者 2</strong>：是從佛法課程開始的，接著是一日禪修，後來發展成四到五天的禪修營。那之後，我們就建立了明天要去參觀的禪修中心。</p>
+<p><strong>採訪者</strong>：孟買的工作是在 1978 年左右，還是更早開始的？</p>
+<p><strong>講者 3 (博德希)</strong>：孟買的工作是在 1978 和 1979 年間開始的。</p>
+<p><strong>採訪者</strong>：那大約是世友開始來印度的時期嗎？</p>
+<p><strong>講者 2</strong>：1978 年，世友來到了浦那。他每週通常帶領十五堂課。他總是騎著一輛腳踏車到處奔波。</p>
+<p><strong>採訪者</strong>：每週十五堂課？那相當於一天兩堂。</p>
+<p><strong>講者 3 (博德希)</strong>：而且當時沒有合適的場地，他們只能在車庫裡上課。他連休息的時間都沒有，就是騎著腳踏車四處穿梭。</p>
+<p><strong>採訪者</strong>：您是何時加入孟買的課程的？</p>
+<p><strong>講者 3 (博德希)</strong>：我是在 1980 年加入世友的課程的。</p>
+<p><strong>採訪者</strong>：所以從開始到現在，已經 46 年了。</p>
+<p><strong>講者 3 (博德希)</strong>：是的，46 年了。根據僧團的制度，我在 1981 年成為「友」(Mitra，準會員)，跟隨教團成員學習。接著在 1983 年，我成為了「達摩查理」(Dhammachari，法行者)。當時世友負責授戒，我是從他的團隊中成為達摩查理的。</p>
+<p><strong>採訪者</strong>：1983 年是僧護 (Sangharakshita) 來到印度的時間嗎？</p>
+<p><strong>講者 3 (博德希)</strong>：僧護那時會來來去去，但所有的責任都落在世友身上。世友是激勵僧護的人，因為他是僧護最資深的朋友。</p>
+<p><strong>採訪者</strong>：浦那、那格浦爾和孟買之間有什麼不同？我知道世友在浦那待的時間最長，並在那裡建立了據點。那格浦爾是安貝卡博士皈依佛教的地方，所以那裡有龐大的佛教社區。但是什麼讓孟買與這兩個城市有所不同呢？</p>
+<p><strong>講者 3 (博德希)</strong>：世友首先建立了浦那中心，接著是那格浦爾，然後才是孟買中心。但他的影響力無所不在，透過他的摯友們將佛法廣泛傳播。</p>
+<p><strong>採訪者</strong>：回到 1980 和 1990 年代，人們必須搭乘 20 個小時的巴士或火車穿梭於這些城市之間。要維持定期的往返很困難，所以我猜想這三個城市的發展軌跡應該有所不同。</p>
+<p><strong>講者 2</strong>：絕大多數的中心都是由世友創辦的。他同時參與精神層面和社會福利的工作。</p>
+<p><strong>採訪者</strong>：當我閱讀孟買的歷史時，特別是關於 1974 年沃里 (Worli) 暴動和 BDD 廉租公寓 (BDD chawls) 的事件，我了解到當時發生了許多暴力衝突。我知道世友最終在那裡建立了一個中心。</p>
+<p><strong>講者 2</strong>：我在沃里出生和長大。在那個時期，印度教徒和達利特人之間發生了暴動。BDD 廉租公寓有龐大的佛教徒人口。因為人們已經成為佛教徒，他們不再願意被當作奴隸對待。他們渴望獲得自尊，並希望能擺脫種姓歧視。他們相信每個人首先都是人類，理應受到相應的尊重。然而，在政府和正統印度教徒支持下的政黨「濕婆軍」(Shiv Sena)，試圖鎮壓達利特黑豹黨 (Dalit Panthers)。他們奮戰了數個月，局勢高度緊張；因為實施了第 144 條款的宵禁，人們甚至無法出門。</p>
+<p><strong>採訪者</strong>：當時僧團是如何應對那種情況的？</p>
+<p><strong>講者 2</strong>：在印度佛教普濟會 (TBMSG) 成立之前，並沒有組織化的僧團。世友建立他的團隊來弘揚佛法，而我就是該團隊的一員。我們作為和平使者穿梭於各個廉租公寓之間，教授佛教與五戒 (Panchsheel)。我們給予人們信心與勇氣，提醒他們自己是人類。我們依據佛法教義呼籲和平。</p>
+<p><strong>採訪者</strong>：所以起初，因為沒有佛教社團，人們以暴力還擊。但在 1980 和 1981 年左右建立中心之後，人們開始聚集，並透過非暴力的手段來保護自己？</p>
+<p><strong>講者 2</strong>：是的，完全正確。孟買是這些運動的中心。像南德奧·達薩爾 (Namdeo Dhasal)、J.V. 帕瓦爾 (J.V. Pawar) 和拉賈·達勒 (Raja Dhale) 等領導人，都是堅定的佛教領袖，也是達利特黑豹運動的戰士。因為達利特黑豹黨要對抗濕婆軍，我們的領袖必須成為戰士。</p>
+<p><strong>採訪者</strong>：當時他們能透過媒體或廣播傳播訊息嗎？</p>
+<p><strong>講者 3 (博德希)</strong>：在那個年代，正統派團體控制了所有主流媒體，不會報導我們的故事。他們只能依靠每月的通訊刊物和口耳相傳。現在有了社群媒體，新一代擁有了更多發聲的機會。</p>
+<p><strong>講者 2</strong>：我們的行為也改變了局勢。因為我們實踐佛法和道德，印度教徒、穆斯林和基督徒都開始尊重我們。我們不再被當作奴隸對待了。</p>
+<p><strong>採訪者</strong>：在一次訪談中，有人告訴我，安貝卡博士選擇成為佛教徒，而不是加入以武裝鬥爭為主的納薩爾派 (Naxalite) 或共產主義運動。透過選擇佛教，他幫助達利特運動保持了和平，這造福了全印度。</p>
+<p><strong>講者 2</strong>：您讀過很多資料。邊境的納薩爾派和城市裡的達利特黑豹黨，都渴望從種姓壓迫中獲得獨立。但正是對佛教的覺知與實踐，帶來了真正的尊重和改變。透過世友的運動與教團成員的努力，許多不同種姓的人加入了僧團，體驗到了真正的自我價值。</p>
+<p><strong>採訪者</strong>：如今在孟買的三寶佛教社團規模有多大？</p>
+<p><strong>講者 2</strong>：孟買有超過 2700 萬人口，這是一座巨大的城市。世友在這裡創立了一個中心，如今我們已在整個地區擴展到五個中心，包含塔納 (Thane)、烏爾哈斯訥格爾 (Ulhasnagar)、新孟買 (Navi Mumbai)、皮文迪 (Bhiwandi) 和潘韋爾 (Panvel)。</p>
+<p><strong>講者 3 (博德希)</strong>：我們在孟買有數以百計的達摩查理 (法行者)。每個中心都舉辦各種活動、佛法課程、禪修、教團會議以及一般課程。我們也有宿舍，比如在烏爾哈斯訥格爾的那個。世友發起這場運動，種下了非常好的善業。我們是他的弟子，他是我們的善知識 (Kalyana Mitra) 與導師。</p>
+<p><strong>採訪者</strong>：真是不可思議。我對這個地區的歷史已經有了基本的了解。那麼，我們現在要把行李放在飯店，然後出發去悉達多學院 (Siddharth College) 嗎？</p>
+<p><strong>講者 2</strong>：是的，悉達多學院是由安貝卡博士創立的。達利特黑豹運動最初大部分是從那裡發起的，當時的領導人們都是該學院的學生。</p>
+<p><strong>採訪者</strong>：巴格瓦特·賈達夫 (Bhagwat Jadhav) 是其中的一位領導人嗎？我讀到他被一塊石頭砸中頭部而喪生。</p>
+<p><strong>講者 3 (博德希)</strong>：是的，他是達利特黑豹黨的一位領袖，就是那樣遇害的。他去世後，他的弟弟蘇梅德 (Sumedh) 挺身而出，延續了社會工作。他與達利特黑豹黨的創始人南德奧·達薩爾——該組織是受到美國黑豹黨的啟發而成立的——以及 J.V. 帕瓦爾和拉賈·達勒並肩作戰。</p>
+</blockquote>
+<hr />
+<h3>Part 2: 76 歲資深全職人員弘法歷程</h3>
+<h4>英文對照 (English Transcript - Verbatim)</h4>
+<blockquote>
+<p><strong>Interviewer</strong>: Mr. Lokamitra?</p>
+<p><strong>Lokamitra</strong>: Huh?</p>
+<p><strong>Interviewer</strong>: Oh, you are the same age or just one year younger than Lokamitra?</p>
+<p><strong>Interviewee</strong>: Yes, yes. He is 78, right?</p>
+<p><strong>Interviewer</strong>: Yeah, he's 78. And you are 76. So when did you join the movement? You became a full-timer?</p>
+<p><strong>Interviewee</strong>: After 1981, I became a full-timer in this movement. Working full-time to spread the Dhamma.</p>
+<p><strong>Interviewer</strong>: Yes. And you were about 30 years old then.</p>
+<p><strong>Interviewee</strong>: Yes, I was 30 years old. I first met Lokamitra and our teacher, Sangharakshita, in 1979 in Mumbai. Then I wanted to learn more Dhamma, so for one year I attended classes and retreats. I wanted to know what they were teaching before entry.</p>
+<p><strong>Interviewer</strong>: Yes. And then you learned for that one year, and then you decided to become a full-time member in 1981.</p>
+<p><strong>Interviewee</strong>: Yes.</p>
+</blockquote>
+<h4>中文翻譯 (Chinese Translation - Fluent)</h4>
+<blockquote>
+<p><strong>採訪者</strong>：世友先生？</p>
+<p><strong>世友</strong>：嗯？</p>
+<p><strong>採訪者</strong>：噢，您和世友先生同歲，或者只比他小一歲？</p>
+<p><strong>受訪者</strong>：對，對。他78歲了，對吧？</p>
+<p><strong>採訪者</strong>：是的，他78歲，而您76歲。那麼，您是什麼時候加入這項運動的？成為全職人員？</p>
+<p><strong>受訪者</strong>：1981年之後，我成為了這項運動的全職人員，全職團隊致力於弘揚佛法。</p>
+<p><strong>採訪者</strong>：好的。那時您大約30歲。</p>
+<p><strong>受訪者</strong>：對，我當時30歲。1979年，我首次在孟買遇見世友先生以及我們的導師僧護（Sangharakshita）。之後我想學習更多佛法，所以花了一年的時間參加課程與禪修營。在正式加入之前，我想先了解他們的教學內容。</p>
+<p><strong>採訪者</strong>：了解。經過那一年的學習後，您便決定在1981年成為全職成員。</p>
+<p><strong>受訪者</strong>：是的。</p>
+</blockquote>
+<hr />
+<h3>Part 3: 抵達孟買 Accord Hotel 途中討論</h3>
+<h4>英文對照 (English Transcript - Verbatim)</h4>
+<blockquote>
+<p><strong>Speaker 1 (Tej Dashan):</strong> When I do my study, I find that there is some conflict between religions, and maybe that happens in Bombay. I thought that there is...</p>
+<p><strong>Speaker 2 (Tony):</strong> Yes, there are a lot of conflicts. And here, it's all created by politicians.</p>
+<p><strong>Speaker 3 (Driver):</strong> Not by the public.</p>
+<p><strong>Speaker 2 (Tony):</strong> Not by the people, not the general public.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Sometimes it becomes violent, and against each other.</p>
+<p><strong>Speaker 2 (Tony):</strong> That's right.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> That is really bad. Every religion teaches people to treat others better. But when it becomes this kind of conflict, everything changes. There is no longer peace, and they no longer treat each other well.</p>
+<p><strong>Speaker 3 (Driver):</strong> So I think your country is better. Small but beautiful.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> [laughs] Yes. But I think people explain and understand the meaning of their religions in the wrong way. They are so arrogant to insist they are correct, and they refuse to listen to others. And I see there are photos of people's faces hanging on the trees everywhere.</p>
+<p><strong>Speaker 3 (Driver):</strong> Yes, for name and fame.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Name and fame?</p>
+<p><strong>Speaker 3 (Driver):</strong> Name and fame. And making a game of it.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Everywhere. Yes.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Is this a real city area?</p>
+<p><strong>Speaker 2 (Tony):</strong> Yes, the city is pretty big.</p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Aala nahi kay.</em></p>
+<p><strong>Speaker 2 (Tony):</strong> This is near the airport. All the hotels are here.</p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Tyala mahit aahe.</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Because this is a city that has a lot of travelers from all over the world. They might go to Bombay, but then they suddenly go to Nagpur or Pune. But people will come to this city.</p>
+<p><strong>Speaker 3 (Driver):</strong> Concord, <em>kay</em> Concord?</p>
+<p><strong>Speaker 2 (Tony):</strong> Accord, Accord.</p>
+<p><strong>Speaker 3 (Driver):</strong> Accord, Accord.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> And next to it, there is a station.</p>
+<p><strong>Speaker 2 (Tony):</strong> Yes. Is it a Metro station?</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Metro station.</p>
+<p><strong>Speaker 3 (Driver):</strong> Yes, railway station.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> <em>Kuthe?</em></p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Mhanje samorcha aahe. Siddharth College gate. Jar aplayala he kay karyacha asel te. Mhanje ikde tya traffic madhe jar he karyacha asel tar.</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> <em>Metro ne jau shakto.</em></p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Ha, Metro aahe, he railway aahe. Ha, aahe he Accord... idhar idhar... ek ha.</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> <em>Aat madhe aahe kay?</em></p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Ha, aat madhe Accord.</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> <em>Aat madhe jate ha, jate ha.</em></p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Aapan tech best hoil.</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> <em>Haa, aapan hyane jau.</em></p>
+<p><strong>Speaker 2 (Tony):</strong> Okay.</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> <em>Train ne jau. Pan he saman kiti aahet?</em></p>
+<p><strong>Speaker 3 (Driver):</strong> <em>Ithe theva... saman...</em></p>
+<p><strong>Speaker 2 (Tony):</strong> Thank you. Oh, thank you. It's heavy. Thank you.</p>
+<p><strong>Speaker 3 (Driver):</strong> One bag?</p>
+<p><strong>Speaker 2 (Tony):</strong> No, it's just one, yes. Where is the entry?</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Just go back.</p>
+<p><strong>Speaker 2 (Tony):</strong> Good afternoon.</p>
+<p><strong>Speaker 4 (Receptionist):</strong> Good afternoon.</p>
+<p><strong>Speaker 2 (Tony):</strong> I don't know if I'm in their order. Tej Dashan... yeah, I'm with them. And I am Tony, 沈建勳.</p>
+<p><strong>Speaker 4 (Receptionist):</strong> Yeah. You have checked in already?</p>
+<p><strong>Speaker 2 (Tony):</strong> Do you have check-in already?</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Already did.</p>
+<p><strong>Speaker 2 (Tony):</strong> Okay.</p>
+<p><strong>Speaker 4 (Receptionist):</strong> The booking is under the name of?</p>
+<p><strong>Speaker 2 (Tony):</strong> I will wait for Dashan, and he will help me. Dashan, have you checked in already?</p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Yeah.</p>
+<p><strong>Speaker 4 (Receptionist):</strong> <em>Acha, Tej Dashan naam se hai booking?</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Yes. <em>Ye mera ID.</em></p>
+<p><strong>Speaker 1 (Tej Dashan):</strong> Are you checking out?</p>
+<p><strong>Speaker 2 (Tony):</strong> Just checking out.</p>
+</blockquote>
+<h4>中文翻譯 (Chinese Translation - Fluent)</h4>
+<blockquote>
+<p><strong>講者 1 (Tej Dashan)：</strong> 當我做研究時，我發現宗教之間存在著一些衝突，這情況也許在孟買就有發生。我想這...</p>
+<p><strong>講者 2 (Tony)：</strong> 是的，有很多衝突。而且在這裡，這全都是政客搞出來的。</p>
+<p><strong>講者 3 (司機)：</strong> 不是一般大眾造成的。</p>
+<p><strong>講者 2 (Tony)：</strong> 不是人民，不是一般大眾。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 有時候會演變成暴力事件，甚至互相對抗。</p>
+<p><strong>講者 2 (Tony)：</strong> 沒錯。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 那真的很糟糕。每個宗教都教導人們要善待他人。但當演變成這種衝突時，一切都變了。不再有和平，他們也不再善待彼此。</p>
+<p><strong>講者 3 (司機)：</strong> 所以我覺得你們的國家比較好。小而美。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [笑] 是啊。但我認為人們用錯誤的方式去解釋和理解他們宗教的意義。他們太過傲慢，堅持自己才是對的，並且拒絕傾聽他人的聲音。而且我看到到處都有人的頭像照片被掛在樹上。</p>
+<p><strong>講者 3 (司機)：</strong> 是的，為了名與利。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 為了名與利？</p>
+<p><strong>講者 3 (司機)：</strong> 為了名與利。並把這當作一場兒戲。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 到處都是。是啊。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 這裡是真正的市區嗎？</p>
+<p><strong>講者 2 (Tony)：</strong> 是的，這城市滿大的。</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語] 難道沒到嗎？</p>
+<p><strong>講者 2 (Tony)：</strong> 這裡靠近機場。所有的飯店都在這裡。</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語] 他知道的。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 因為這是一個擁有很多來自世界各地旅客的城市。他們可能會去孟買，然後突然轉往那格浦爾 (Nagpur) 或浦那 (Pune)。但人們總是會來到這個城市。</p>
+<p><strong>講者 3 (司機)：</strong> 康科德 (Concord)，什麼康科德？</p>
+<p><strong>講者 2 (Tony)：</strong> 雅閣 (Accord)，是雅閣飯店。</p>
+<p><strong>講者 3 (司機)：</strong> 雅閣，雅閣。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 旁邊有一個車站。</p>
+<p><strong>講者 2 (Tony)：</strong> 是的。那是捷運站嗎？</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 捷運站。</p>
+<p><strong>講者 3 (司機)：</strong> 對，是火車站。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [馬拉地語] 在哪裡？</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語] 就是在前面。悉達多學院 (Siddharth College) 大門那裡。如果我們要在這裡辦事的話。我是說，如果要在這交通擁擠的地方處理事情的話。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [馬拉地語] We can go by Metro. (我們可以搭捷運去。)</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語/印地語] 對，有捷運，這裡是火車。對，雅閣飯店在這裡... 這裡這裡... 對。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [馬拉地語] 是在裡面嗎？</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語] 對，雅閣飯店在裡面。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [馬拉地語] 往裡面走，往裡面走。</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語] 這樣對我們最好。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [馬拉地語] 好，我們走這邊。</p>
+<p><strong>講者 2 (Tony)：</strong> 好的。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> [馬拉地語] 我們搭火車去。但這些行李有幾件？</p>
+<p><strong>講者 3 (司機)：</strong> [馬拉地語] 放在這裡... 行李...</p>
+<p><strong>講者 2 (Tony)：</strong> 謝謝。喔，謝謝。這很重。謝謝。</p>
+<p><strong>講者 3 (司機)：</strong> 只有一個包包嗎？</p>
+<p><strong>講者 2 (Tony)：</strong> 不，就這一個，是的。入口在哪裡？</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 往回走就是了。</p>
+<p><strong>講者 2 (Tony)：</strong> 午安。</p>
+<p><strong>講者 4 (櫃檯人員)：</strong> 午安。</p>
+<p><strong>講者 2 (Tony)：</strong> 我不知道我有沒有在他們的預訂名單裡。Tej Dashan... 對，我是跟他們一起的。我是 Tony，沈建勳。</p>
+<p><strong>講者 4 (櫃檯人員)：</strong> 好的。你們已經辦理入住了嗎？</p>
+<p><strong>講者 2 (Tony)：</strong> (轉向Tej Dashan) 你們已經辦理入住了嗎？</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 已經辦了。</p>
+<p><strong>講者 2 (Tony)：</strong> 好的。</p>
+<p><strong>講者 4 (櫃檯人員)：</strong> 預訂的名字是？</p>
+<p><strong>講者 2 (Tony)：</strong> 我等達山 (Dashan)，他會幫我處理。達山，你已經辦理入住了嗎？</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 是的。</p>
+<p><strong>講者 4 (櫃檯人員)：</strong> [印地語] 好的，預訂的名字是 Tej Dashan 嗎？</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 是的。[印地語] 這是我的身分證件。</p>
+<p><strong>講者 1 (Tej Dashan)：</strong> 你要退房嗎？</p>
+<p><strong>講者 2 (Tony)：</strong> 剛好要辦退房。</p>
+</blockquote>
+<hr />
+<h2>🔍 孟買實地勘查與 Worli 查證紀錄分析</h2>
+<h3>1. 孟買開拓與發展模式之獨特性</h3>
+<p>與<strong>浦那</strong>（世友長期駐紮、草創之基地）和<strong>那格浦爾</strong>（安貝卡博士皈依聖地、有龐大佛教人口基底）不同，<strong>孟買</strong>作為擁有超過 2700 萬人口的超大型國際都市，其弘法工作自 1978-1979 年起面臨著極為獨特的地理碎片化與激烈社會衝突。</p>
+<ul>
+<li><strong>「鐵路與單車」的地理克服</strong>：早期教團成員與世友在浦那與孟買奔波，世友每週騎單車帶領 15 堂佛法課，因缺乏場地只能在車庫內共修。在 1980 年代，城市間往來需要搭乘長達 20 小時的巴士或火車，使早期孟買的發展相對獨立。</li>
+<li><strong>多中心輻射擴展</strong>：如今孟買的三寶佛教社團（TBMSG）已從早期的一個小中心擴展至周邊五個中心（<strong>Thane, Ulhasnagar, Navi Mumbai, Bhiwandi, Panvel</strong>），並有數以百計的達摩查理（Dhammacharis），在 Ulhasnagar 亦建有學生宿舍。</li>
 </ul>
-<h3>📌 Chapter 10：大佛雕像海運與達賴喇嘛的考驗</h3>
-<ul class="tasks">
-<li class="task"><input type="checkbox"><span class="t"><strong>海運清關海關 (Customs)</strong>：大佛雕像的三個貨櫃從台灣基隆港運抵孟買港後，在此經歷了幾天的清關手續？</span></li>
-<li class="task"><input type="checkbox"><span class="t"><strong>大佛陸運的災難蒙太奇</strong>：雕像從孟買運往那格浦爾 (Nagpur) 的 850 公里陸路中，發生了貨櫃迷路、扯斷電線、卡在橋下的事件。這座卡住大佛的橋在哪裡？當時是如何拉出貨櫃的？</span></li>
-<li class="task"><input type="checkbox"><span class="t"><strong>達賴喇嘛的孟買專機</strong>：2005 年達賴喇嘛因病在孟買就醫，醫生要求他多留院一天，但他仍堅持搭乘專機飛往那格浦爾為大佛開光。這個「此岸同行」的關鍵細節是否有口述記錄的落差？</span></li>
+<h3>2. 1974 年 Worli 暴動與「非武裝平民保護」之實踐</h3>
+<p>這段對話填補了 1974 年沃里（Worli）暴動與 BDD 廉租公寓（BDD chawls）衝突史中，三寶僧團非暴力和平行動的關鍵細節。</p>
+<ul>
+<li><strong>衝突本質</strong>：皈依新佛教的達利特人自我意識覺醒，拒絕像過去一樣接受被當作奴隸與種姓歧視。極右翼印度教政黨「濕婆軍」（Shiv Sena）在政府默許下對受美國黑豹黨啟發的「達利特黑豹黨」（Dalit Panthers）進行暴力鎮壓。暴動延續數月，當局發布 Section 144 戒嚴與宵禁。</li>
+<li><strong>和平使者行動 (Peace Messengers)</strong>：當時剛草創、尚無嚴密組織的僧團，在世友與本地骨幹的帶領下，組成隊伍穿梭於沃里各個 BDD 廉租公寓（chawls）之間。他們充當「和平使者」，教授佛法與五戒，幫助佛教徒在混亂與高壓的暴動環境中建立起自尊與勇氣，倡導以非暴力（Non-violence）的方式保護自己、拒絕以暴制暴。</li>
+<li><strong>領袖傳承</strong>：達利特黑豹黨領袖巴格瓦特·賈達夫 (Bhagwat Jadhav) 在沃里街頭被高空擲石砸死。他的去世促使弟弟蘇梅德 (Sumedh) 繼承其志，投身社會改良，與達利特黑豹黨創辦人南德奧·達薩爾 (Namdeo Dhasal) 等人並肩作戰。這段非暴力調解實踐，證實了安貝卡博士選擇佛教（相較於馬克思主義/納薩爾派的武裝革命路線）在印度平權史上的深遠價值。</li>
 </ul>
 <hr />
-<h2>💬 現場訪談與觀察提問設計 (Field Questions)</h2>
-<p>以下問題請在孟買走訪期間，視氣氛以閒聊或正式訪談方式，向<strong>世友居士</strong>或<strong>在地老信徒 / 校友</strong>提出：</p>
-<h3>Q1. 關於「孟買燃燒」與 1974 年暴動</h3>
-<blockquote>
-<p><strong>[EN]</strong> In Chapter 4, the draft mentions "this city had burned" shortly before you arrived in 1979. This refers to the 1974 Worli riots at the BDD Chawls between the Dalit Panthers and Shiv Sena. When you first stayed at BDD Chawls in 1979, did you feel the lingering tension of those riots? Did Bodhisen or others talk about how they survived that violence?</p>
-<p><strong>[TW]</strong> 在第四章草稿中，提到您 1979 年抵達前「這座城市曾經燃燒」。這指的是 1974 年發生在 BDD 公寓的 Worli 暴動。當您 1979 年第一次住在 BDD 公寓時，有感受到這場暴動留下的緊張氣氛嗎？博德希（Bodhisen）或其他人曾跟您提過他們當時是如何在暴力中存活下來的嗎？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
+<h2>🗺️ Day 11 行程與問題規劃作戰包</h2>
+<p>明天的行程將前往位於<strong>孟買與浦那中間的靜修中心（妙法禪修中心 / Saddhamma Pradip）</strong>進行實地勘查。該中心於 1983 年底由僧護導師親自命名，土地由早期核心法行者覺悅（Buddhapriya）尋得。</p>
+<p>為了確保訪談與實地查證之精確性，為您整理以下 <strong>Day 11 問題清單</strong>：</p>
+<h3>1. 土地與草創歷史的細節查證</h3>
 <ul>
-  <li><strong>[EN]</strong> If "burning" is too dramatic a word, how would you describe the atmosphere of BDD Chawls in 1979? Was it active political militancy, or was it a community turning away from violence towards the Dharma?</li>
-  <li><strong>[TW]</strong> 如果用「燃燒」這個詞太過戲劇化，您會如何描述 1979 年 BDD 公寓的真實氛圍？是充滿激進的政治對抗，還是社群正開始轉向佛法的寧靜？</li>
+<li><strong>問題一</strong>：請教世友先生，這片位於 Bhaja 石窟附近的土地，當初是覺悅（Buddhapriya）如何在一片荒蕪中尋得的？在 1980 年代初期進行土地轉讓手續與奠基時，面臨了什麼樣的法律或地方阻力？</li>
+<li><strong>問題二</strong>：早期建立「妙法禪修中心 (Saddhamma Pradip)」的資金來源主要來自哪裡？台灣或馬來西亞的法友是否在早期就參與了這座中心的建設護持？</li>
 </ul>
-</details>
-
-<h3>Q2. 關於博德希 (Bodhisen) 與早期傳法</h3>
-<blockquote>
-<p><strong>[EN]</strong> Bodhisen was a central figure for our work in Mumbai. What kind of person was he in daily life? How did he manage to build a Dharma community in a high-density, politically active slum like BDD Chawls?</p>
-<p><strong>[TW]</strong> 博德希（Bodhisen）是我們在孟買開展工作的核心人物。在日常生活中，他是一個怎樣的人？他是如何在這個高密度、政治極度活躍的 BDD 公寓社區中，建立起佛法社群的？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
+<h3>2. 禪修營 (Retreats) 對達利特青年的靈性改造</h3>
 <ul>
-  <li><strong>[EN]</strong> Are there specific stories of Bodhisen's interactions with the youth here that showed his unique approach to Dharma work?</li>
-  <li><strong>[TW]</strong> 博德希與這裡的年輕人互動時，有沒有什麼具體的故事，能展現他獨特的弘法方式？</li>
+<li><strong>問題三</strong>：在 1980 年代交通極度不便、物資匱乏的背景下，孟買與浦那的達利特青年是如何來到這裡參加四到五天禪修營的？</li>
+<li><strong>問題四</strong>：對於在都市貧民窟（如 BDD chawls）中經歷種姓壓迫甚至暴力的達利特青年而言，這座「遠離塵囂」的靜修中心對他們重建「自我尊嚴」與培育「善性心（Kusala Citta）」起到了什麼樣的關鍵作用？</li>
 </ul>
-</details>
-
-<h3>Q3. BDD 公寓的現場演講體驗</h3>
-<blockquote>
-<p><strong>[EN]</strong> You spoke to massive crowds here, "outside the vihara on the maidan." What did it feel like to stand in the middle of BDD Chawls at night, looking at thousands of workers who had just finished a hard day's labor, listening to you talk about the Buddha?</p>
-<p><strong>[TW]</strong> 您當年曾在這裡「精舍外的空地」對著巨大的人群演講。在夜晚站在 BDD 公寓中央，看著成千上萬剛剛結束辛勞工作、聽您講述佛法的達利特工人，那是一種什麼樣的體會？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
+<h3>3. 建築設計與象徵意義</h3>
 <ul>
-  <li><strong>[EN]</strong> Did the sheer volume of the crowds scare you back then? How did you project your voice without modern sound systems?</li>
-  <li><strong>[TW]</strong> 當時如此龐大的人群有讓您感到害怕過嗎？在沒有現代音響設備的情況下，您是如何傳播您的聲音的？</li>
-</ul>
-</details>
-
-<h3>Q4. 關於 1992 年巴布里清真寺拆除後的孟買暴動 (Chapter 09/10 背景)</h3>
-<blockquote>
-<p><strong>[EN]</strong> In late 1992 and early 1993, Mumbai experienced horrific communal riots following the Babri Masjid demolition. BDD Chawls and slum areas were severely affected. Where were you during this time, and how did these riots affect the TBMSG network in Mumbai?</p>
-<p><strong>[TW]</strong> 1992 年底至 1993 年初，在巴布里清真寺被拆除後，孟買爆發了極其恐怖的族群衝突。BDD 公寓和貧民窟地區受到嚴重波及。那段時間您身在何處？這些暴動如何影響了 TBMSG 在孟買的網絡？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
-<ul>
-  <li><strong>[EN]</strong> How did the Buddhist community react? Did they get drawn into the violence, or did the Dharma act as a shield of non-violence?</li>
-  <li><strong>[TW]</strong> 當時的佛教社群反應如何？他們是否有被捲入暴力之中？還是佛法發揮了非暴力的盾牌作用？</li>
-</ul>
-</details>
-
-<hr />
-<h2>📷 田野實地觀察與取材指南 (Observation Guide)</h2>
-<p>當您明天置身於 BDD Chawls 時，請特別留意以下<strong>感官細節</strong>與<strong>物理環境</strong>，這些將是重寫 Chapter 03, 04 決定性的細節來源（切記：<strong>禁止虛構感官，只寫親眼所見</strong>）：</p>
-<ol>
-<li><strong>聲音景觀 (Soundscape)</strong>：
-   * 聽聽四周的聲音。是飛馳的車流聲，還是小販的叫賣聲？
-   * 當地的收音機或手機裡，是否還播放著安貝卡歌謠 (Bhim Geet)？</li>
-<li><strong>物理質感與光線 (Texture &amp; Light)</strong>：
-   * 觀察 BDD 公寓老舊水泥牆的剝落質感、外露的管道，以及晾曬在樓梯間的五顏六色衣物。
-   * 觀察黃昏或夜幕低垂時，街道路燈投射在公寓群狹窄巷弄間的光影。這能幫我們重現「年輕人在微弱街燈下等待」的真實畫面。</li>
-<li><strong>精神符號的共存 (Symbols)</strong>：
-   * 尋找公寓門口或小巷拐角處的藍色旗幟（法輪旗）、安貝卡博士的半身像或照片。
-   * 注意這些符號是如何嵌入極度擁擠、髒亂的物質環境中，展現出強烈的精神反差。</li>
-</ol>
-<hr />
-<h2>🏛️ Siddharth College 悉達多學院：安貝卡教育願景的歷史原型 (新增)</h2>
-<blockquote>
-<p><strong>觸發</strong>：6/9 抵達孟買搭車途中，司機與 Tej Dashan 多次以「Siddharth College gate」作為 Fort 區的地理錨點（見 Day9 BOM 機場音檔 Part 3）。此地是安貝卡教育志業的起點，可作為本書「教育即解放」主線的歷史源頭，與 Vivekratna、Bhanu、Maitreyanath 三條當代訪談線互相對照。</p>
-</blockquote>
-<h3>背景與歷史脈絡 (Context)</h3>
-<ul>
-<li><strong>創立</strong>：安貝卡博士於 1945 年 7 月 8 日成立「人民教育協會」(People's Education Society, PES)，1946 年 6 月 20 日創辦旗下第一所機構——Siddharth College of Arts &amp; Science（悉達多學院）。</li>
-<li><strong>佛教命名</strong>：以「Siddharth（悉達多，佛陀俗名）」為名；Fort 區兩棟英式古蹟校舍後改名為「Buddha Bhavan（佛陀樓）」與「Anand Bhavan（喜樂樓）」。這比 1956 年安貝卡正式皈依早了整整十年，名稱已透露其佛教傾向。</li>
-<li><strong>半工半讀</strong>：早期五年借用 Marine Lines 的軍營晨間上課，定位服務「earners and learners（白天工作、夜間求學者）」，專為 SC／ST 與落後階層打開高等教育的門。1980 年增設商科。</li>
-<li><strong>核心理念</strong>：安貝卡視教育不只傳授知識，更要促進「思想上、道德上與社會上的民主」。這所學校是他「教育是打破種姓、實現平等的根本途徑」這個信念最早的實踐。</li>
-<li><strong>珍貴藏書</strong>：學院圖書館收藏安貝卡的個人藏書，部分是他起草印度憲法時的參考書，還有一本印著他名字的印度憲法副本。<strong>（實地若能進館，是極珍貴、可寫進書中的物質細節。）</strong></li>
-<li><strong>傑出校友</strong>：印度最高法院法官 P.B. Sawant、前馬哈拉施特拉邦首席部長 Manohar Joshi、多位中央內閣部長，乃至 20 多位頂尖板球選手——達利特高教「向上流動」的具體證據。</li>
-<li><strong>至今的政治象徵性</strong>：安貝卡之孫 Prakash Ambedkar 與其他安貝卡主義派系多年爭奪學院管理權，反映此地在安貝卡運動中的核心地位。<strong>此點恰可與 Lokamitra（Day9）談的「後安貝卡政治繼承品質退化、派系化爭位」直接對照。</strong></li>
-<li><strong>規模與地位</strong>：PES 今日已有 12 所大學附屬學院、約 3 萬學生，其中逾 1.5 萬來自弱勢階層；隸屬孟買大學（University of Mumbai）。</li>
-<li><strong>建築與地址</strong>：主校舍 <strong>Buddha Bhavan（佛陀之家）</strong>，Purshotamdas Thakurdas Marg（Outram Road）；商科部在 <strong>Anand Bhavan（喜樂之家）</strong>，Dr. D.N. Road, Azad Maidan, Fort, Mumbai 400001。Anand Bhavan 已被 MMRDA 列為文化遺產建築。1951 年由 Marine Lines 軍營遷入 Fort 現址。</li>
-</ul>
-<h3>與本書三條訪談線的接點 (Cross-Interview Links)</h3>
-<table>
-<thead>
-<tr>
-<th>訪談線</th>
-<th>Siddharth College 的對照意義</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Vivekratna（Day8・三十年）</strong></td>
-<td>Siddharth College（1946）是安貝卡「以教育解放達利特」最早的機構嘗試；Nagaloka（2002）是同一願景在 56 年後的延續。從 Fort 的古蹟校舍到那格浦爾的荒地校園，是同一條教育解放線。</td>
-</tr>
-<tr>
-<td><strong>Bhanu（Day9・青年高教網絡）</strong></td>
-<td>Siddharth College 培養出第一代達利特律師、官員與知識階層；Bhanu 這代把 Nagaloka 學生接進 TISS、考試與 CSR 網絡。兩代人都在解同一道題：達利特青年如何穿過高等教育這道窄門。</td>
-</tr>
-<tr>
-<td><strong>Maitreyanath（Day7・社會工作即修行）</strong></td>
-<td>Siddharth College 的「earners and learners」半工半讀，與 Jeevak study class、女生宿舍「受助者回來教下一代」的循環，是同一種「教育即正命修行」的不同年代版本。</td>
-</tr>
-</tbody>
-</table>
-<h3>現場訪談與觀察提問設計 (Field Questions・接續 Q4)</h3>
-<blockquote>
-<p>以下問題可向<strong>世友居士</strong>或<strong>孟買在地老信徒／Siddharth College 校友</strong>提出。</p>
-</blockquote>
-<h4>Q5. 從 Siddharth College 到 Nagaloka：教育解放的同一條線（接 Vivekratna）</h4>
-<blockquote>
-<p><strong>[EN]</strong> Dr. Ambedkar founded Siddharth College here in Fort in 1946, naming it after the Buddha a full decade before his own conversion. From Siddharth College to Nagaloka, is this the same vision of "education as liberation"? What did the founders' generation inherit from Ambedkar's educational institutions, and what did you have to build anew on the bare land at Nagaloka?</p>
-<p><strong>[TW]</strong> 安貝卡博士 1946 年在 Fort 創辦 Siddharth College，以佛陀之名命名，比他自己皈依還早了整整十年。從 Siddharth College 到 Nagaloka，這是不是同一個「教育即解放」的願景？創辦人世代從安貝卡的教育機構繼承了什麼，又有哪些是你們在那格浦爾的荒地上必須重新建起來的？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
-<ul>
-  <li><strong>[EN]</strong> Ambedkar built in the heart of colonial Fort; Vivekratna built on empty land outside Nagpur. Does the choice of place itself say something different about the two eras of the movement?</li>
-  <li><strong>[TW]</strong> 安貝卡蓋在殖民核心的 Fort，Vivekratna 蓋在那格浦爾城外的荒地。這個「選址」本身，是否就說明了運動兩個年代的不同處境？</li>
-</ul>
-</details>
-
-<h4>Q6. 達利特高等教育的窄門：第一代與這一代（接 Bhanu）</h4>
-<blockquote>
-<p><strong>[EN]</strong> Siddharth College produced the first generation of Dalit graduates: lawyers, a Supreme Court judge, a Chief Minister, cabinet ministers. Today Bhanu's generation sends Nagaloka students into TISS, competitive exams, and CSR networks. Across these two generations, what has changed about how a Dalit youth passes through the gate of higher education, and what stays exactly the same?</p>
-<p><strong>[TW]</strong> Siddharth College 培養出第一代達利特畢業生：律師、一位最高法院法官、一位首席部長、多位內閣部長。今天 Bhanu 這代把 Nagaloka 學生送進 TISS、考試與 CSR 網絡。橫跨這兩個世代，達利特青年穿過高等教育這道門的方式，有什麼變了，又有什麼完全沒變？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
-<ul>
-  <li><strong>[EN]</strong> Siddharth was built for "earners and learners" working by day, studying at night. Do today's Nagaloka students still carry that double burden, or has the form of the struggle changed?</li>
-  <li><strong>[TW]</strong> Siddharth 當年是為「白天工作、夜間求學」的人而建。今天 Nagaloka 的學生是否還背著那種雙重負擔，還是這場奮鬥已經換了形式？</li>
-</ul>
-</details>
-
-<h4>Q7. earners and learners：教育作為正命修行（接 Maitreyanath）</h4>
-<blockquote>
-<p><strong>[EN]</strong> Siddharth was a college for "earners and learners," education as Right Livelihood. The Jeevak study classes and the girls' hostel run on the same logic, where a former beneficiary returns to teach the next generation. Is this cycle of "education as Right Livelihood, Dharma in action" something you consciously trace back to Ambedkar's model, or did it grow naturally from the community's own needs?</p>
-<p><strong>[TW]</strong> Siddharth 是一所為「白天工作、夜間求學者」而設的學院，教育本身就是正命。Jeevak 的 study class 和女生宿舍也是同樣邏輯，受助者回來教下一代。這種「教育即正命、Dharma in action」的循環，是你們有意識地接回安貝卡的模式，還是從社群自身需求裡自然長出來的？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up</summary>
-<ul>
-  <li><strong>[EN]</strong> Maitreyanath left a government job at 23 to become a full-timer. Did Ambedkar's "earn and learn" ethic shape how the movement understands work, study, and Dharma as one single practice?</li>
-  <li><strong>[TW]</strong> 彌勒種 23 歲辭去政府工作成為全職者。安貝卡那套「邊賺邊學」的精神，是否形塑了運動把工作、學習與佛法看成同一件修行的方式？</li>
-</ul>
-</details>
-
-<h4>Q8. 掛著安貝卡之名的機構：繼承 vision，還是爭奪位置（接 Lokamitra）</h4>
-<blockquote>
-<p><strong>[EN]</strong> Even Ambedkar's own institutions, like Siddharth College, have seen later generations contest control of the management. This echoes what you said about the post-Ambedkar leadership losing his vision and splitting into factions. When an institution carries Ambedkar's name, how does it keep inheriting his vision, rather than becoming just a position to be fought over?</p>
-<p><strong>[TW]</strong> 連安貝卡親手創辦的機構，例如 Siddharth College，後來也出現世代爭奪管理權的情況。這呼應了您談過的「後安貝卡領導層失去 vision、分裂成派系」。當一所機構掛著安貝卡的名字，它要如何繼續繼承他的 vision，而不只是變成一個被爭奪的位置？</p>
-</blockquote>
-<details>
-<summary>💡 延伸追問 / Follow-up（政治審慎・避免評判任何派系）</summary>
-<ul>
-  <li><strong>[EN]</strong> Is the difference between Siddharth College and Nagaloka that one inherited the buildings and the name, while the other tried to inherit the practice and the spirit? (Keep this comparative, not a judgment on any party.)</li>
-  <li><strong>[TW]</strong> Siddharth College 和 Nagaloka 的差別，是否在於一個繼承了建築與名字，另一個試著繼承實踐與精神？（保持比較性，不評判任何一方。）</li>
-</ul>
-</details>
-
-<h3>實地觀察與取材指南 (Observation Guide・若行程行經 Fort)</h3>
-<blockquote>
-<p>切記：<strong>禁止虛構感官，只寫親眼所見</strong>。</p>
-</blockquote>
-<ol>
-<li><strong>古蹟校舍的反差</strong>：Buddha Bhavan / Anand Bhavan 是英式殖民磚石建築，卻掛著佛陀之名。觀察殖民秩序的外殼，與安貝卡佛教命名之間的那層張力。</li>
-<li><strong>圖書館藏書（最高優先）</strong>：若能進館，留意安貝卡的個人藏書、他起草印度憲法時的參考書，以及那本印著他名字的憲法副本。這是全書罕見、足以寫進文字的「物質聖物」級細節。</li>
-<li><strong>校友牆與榜單</strong>：佈告欄、考試榜單、畢業生牆。觀察學生組成是否仍以弱勢階層為主，看達利特高教「向上流動」留下的當代痕跡。</li>
-<li><strong>與 BDD 公寓的空間對照</strong>：Fort 的古蹟商業區（向上流動的教育殿堂）對比 Worli 的廉租公寓（底層勞工居所）。同一座孟買裡兩種達利特空間並置——一個是安貝卡為「翻身」鋪的高教階梯，一個是日常掙扎的居所。這組對照本身就是 Chapter 03/04 的一個現成畫面。</li>
-</ol></div><script>
+<li><strong>問題五</strong>：這座靜修中心的八角形禪修大廳是由 Jayoo &amp; Nachiket Patwardhan 建築師夫婦設計的嗎？在當時的營建技術下，是如何體現「八正道」的建築美學的？</li>
+<li><strong>問題六</strong>：中心園區與附近的 Bhaja Caves（八哈石窟，早期佛教石窟遺址）在精神上是如何連結的？這座中心如何成為連接古老佛教遺址與現代社會革命的橋梁？</li>
+</ul></div><script>
 (function(){
  var key=(location.pathname.split('/').pop()||'idx');
  document.querySelectorAll('blockquote').forEach(function(b){
